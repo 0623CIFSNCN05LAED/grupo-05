@@ -18,7 +18,7 @@ Soy Magalí Anglada, soy ingeniera en sistema de profesión y trabajo en el area
 Soy Claudio Vázquez he estudiado cosas muy diversas, trabajo en sistemas, me apasiona la vida en la naturaleza y los deportes! 
 
 ***Andrés Felipe Arbeláez Vergara***
-*...to be done...*
+*Soy de Medellín, Colombia. Me desempeño como Ingeniero Geólogo de profesión. Me apasiona la geología, el piano, el ajedrez y pasar tiempo con mi familia.*
 
 ***Jorge Koury***
 *...to be done...*
