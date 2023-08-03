@@ -7,7 +7,7 @@ n# grupo-05
 
 **Descripción del público al que apunta el sitio**
 
-*Nos enfocamos en un público de Argentina de entre 25 y 50 años, que cuenta con la posibilidad de elegir conscientemente unas gafas de sol que cumplan una funcionalidad, vistas como herramientas y también como objeto de moda que pueda completar una imagen estéticamente adecuada.*
+*Nos enfocamos en un público de Argentina de entre 25 y 50 años, que cuenta con la posibilidad de elegir conscientemente unas gafas de sol que cumplan una funcionalidad, vistas como herramientas y también como objeto de moda que pueda complementar una imagen estéticamente adecuada.*
 
 **Descripción de los integrantes del equipo**
 
@@ -18,13 +18,13 @@ Soy Magalí Anglada, soy ingeniera en sistema de profesión y trabajo en el area
 Soy Claudio Vázquez he estudiado cosas muy diversas, trabajo en sistemas, me apasiona la vida en la naturaleza y los deportes! 
 
 ***Andrés Felipe Arbeláez Vergara***
-*...to be done...*
+*Soy de Medellín, Colombia. Me desempeño como Ingeniero Geólogo de profesión. Me apasiona la geología, el piano, el ajedrez y pasar tiempo con mi familia.*
 
 ***Jorge Koury***
 *...to be done...*
 
 ***Sol Estrella Martinez Chacon***
-*...to be done...*
+Soy Sol Martinez y actualmente estoy em la carrera de ingenieria en alimentos. Me gusta todo lo que tenga que ver con la astronomia, los libros y juegos en linea. 
 
 
 ## Sitios de referencia
@@ -41,3 +41,6 @@ https://www.masvision.com.ar/
 
 ## URL Repositorio
 https://github.com/0623CIFSNCN05LAED/grupo-05.git
+
+## Wireframe del Sitio
+https://wireframe.cc/pro/pp/4af769d90672660
