@@ -24,7 +24,7 @@ Soy Claudio Vázquez he estudiado cosas muy diversas, trabajo en sistemas, me ap
 *...to be done...*
 
 ***Sol Estrella Martinez Chacon***
-*...to be done...*
+Soy Sol Martinez y actualmente estoy em la carrera de ingenieria en alimentos. Me gusta todo lo que tenga que ver con la astronomia, los libros y juegos en linea. 
 
 
 ## Sitios de referencia
