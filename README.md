@@ -7,7 +7,7 @@ n# grupo-05
 
 **Descripción del público al que apunta el sitio**
 
-*Nos enfocamos en un público de Argentina de entre 25 y 50 años, que cuenta con la posibilidad de elegir conscientemente unas gafas de sol que cumplan una funcionalidad, vistas como herramientas y también como objeto de moda que pueda completar una imagen estéticamente adecuada.*
+*Nos enfocamos en un público de Argentina de entre 25 y 50 años, que cuenta con la posibilidad de elegir conscientemente unas gafas de sol que cumplan una funcionalidad, vistas como herramientas y también como objeto de moda que pueda complementar una imagen estéticamente adecuada.*
 
 **Descripción de los integrantes del equipo**
 
@@ -41,3 +41,6 @@ https://www.masvision.com.ar/
 
 ## URL Repositorio
 https://github.com/0623CIFSNCN05LAED/grupo-05.git
+
+## Wireframe del Sitio
+https://wireframe.cc/pro/pp/4af769d90672660
