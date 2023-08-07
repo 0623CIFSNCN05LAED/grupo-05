@@ -21,7 +21,7 @@ Soy Claudio Vázquez he estudiado cosas muy diversas, trabajo en sistemas, me ap
 *Soy de Medellín, Colombia. Me desempeño como Ingeniero Geólogo de profesión. Me apasiona la geología, el piano, el ajedrez y pasar tiempo con mi familia.*
 
 ***Jorge Koury***
-*...to be done...*
+*Soy de Argentina, Capital Federal. Siempre me llamo la atención lo relacionado con administrar una empresa y la tecnología. Hoy en día me dedico al Retail pero siempre me gusto poder desarrollar una app. Me apasiona mucho los juegos en línea y trabajar.*
 
 ***Sol Estrella Martinez Chacon***
 Soy Sol Martinez y actualmente estoy em la carrera de ingenieria en alimentos. Me gusta todo lo que tenga que ver con la astronomia, los libros y juegos en linea. 
