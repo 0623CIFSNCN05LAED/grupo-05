@@ -1,1 +1,140 @@
-<p>Register page under onstruction</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--To be adaptative-->
+    <meta name="viewport" content="width=device-with, initial-scale=1.0">
+
+    <!--Styles-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Styles-->
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <title>DevVision</title>
+</head>
+
+<body>
+    <header class="header_style">    
+        <div class="fc-header">
+            <div class="fc-header-item-logo">
+                <img src="/images/logo_devvision.png" alt="Logo-DeVVision" class="header_logo">
+            </div>
+            <div class="fc-header-item-nav-bar md-mobile-no-display ">
+                <ul type="none" class="fc-nav-bar">
+                    <li class="fc-nav-bar-item"><a href="/index">Home</a></li>
+                    <li class="fc-nav-bar-item"><a href="#">Nuestros productos</a></li>
+                    <li class="fc-nav-bar-item"><a href="#">Lo último</a></li>
+                    <li class="fc-nav-bar-item"><a href="#">Descuentos</a></li>
+                </ul>
+            </div>
+            <div class="fc-header-item">
+                <a href="/login"><i class="fa-regular fa-user color_white" ></i></a>
+                
+                <p>nombre.apellido@dominio.com</p>
+            </div>
+            <div class="fc-header-item">
+                <a href="/productCart"><i class="fa-solid fa-cart-plus color_white"></i></a>
+            </div>
+            <div class="fc-header-item">
+                <i class="fa-solid fa-bars fa-2xs color_white"></i>
+            </div>
+        </div>
+     </header>
+    <main class="main_style">
+
+        <h2 class="titles-24px">Registrarse</h2>
+        <form action="/home" method="POST">
+            <div>
+                <input type="text" placeholder="Nombre y apellido" id="personalName" class="input_strings">
+            </div>
+            <div>
+                <label for="birdthday">
+                    <h3 class="margen-15px">Fecha de nacimiento</h3>
+                </label>
+                <input type="date" placeholder="Fecha de nacimiento" id="birdthday">
+            </div>
+            <div>
+                <label for="genero">
+                    <h3 class="margen-15px">Género</h3>
+                </label>
+                <select name="genero">
+                    <option value="femenino">Femenino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div>
+                <input type="text" placeholder="Calle/número" id="address" class="input_strings">
+            </div>
+            <div>
+                <input type="text" placeholder="Departamento/casa" id="dpto" class="input_strings">
+            </div>
+            <div>
+                <input type="text" placeholder="Código postal" id="cp" class="input_strings">
+            </div>
+            <div>
+                <input type="email" placeholder="Email" id="email" class="input_strings">
+            </div>
+            <div>
+                <input type="password" placeholder="Contraseña" id="password" class="input_strings">
+            </div>
+            <div>
+                <input type="password" placeholder="Confirmar contraseña" id="passwordConf" class="input_strings">
+            </div>
+            <div class="fc-buttons">
+            <div class="fc-buttons-item">
+                <button type="submit" class="input_button">Enviar</button>
+            </div>
+            <div class="fc-buttons.item">
+                <button type="reset" class="input_button">Cancelar</button>
+            </div>
+        </div>
+        </form>
+    </main>
+    <footer class="footer_style">
+        <div class="fc-footer-menu">
+            <div class="fc-footer-menu-item">
+                <h4>NAVEGACION</h4>
+                <ul type="none">
+                    <li><a href="#">Opcion Nav 1</a></li>
+                    <li><a href="#">Opcion Nav 2</a></li>
+                    <li><a href="#">Opcion Nav 3</a></li>
+                </ul>
+            </div>
+            <div class="fc-footer-menu-item">
+                <h4>MEDIOS DE PAGO</h4>
+                <ul type="none">
+                    <li>Medio 1</li>
+                    <li>Medio 2</li>
+                    <li>Medio 3</li>
+                </ul>
+            </div>
+            <div class="fc-footer-menu-item">
+                <h4>CONTACTO</h4>
+                <ul type="none">
+                    <li>Dato contacto 1</li>
+                    <li>Dato contacto 2</li>
+                    <li>Dato contacto 3</li>
+                </ul>
+            </div>
+            <div class="fc-footer-menu-item">
+                <h4>REDES SOCIALES</h4>
+                <ul type="none">
+                    <li>Red 1</li>
+                    <li>Red 2</li>
+                    <li>Red 3</li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
