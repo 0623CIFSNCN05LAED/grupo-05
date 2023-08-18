@@ -21,7 +21,7 @@
     <title>DevVision</title>
 </head>
 
-<body>
+<body class="bg-grey">
     <header class="header_style">    
         <div class="fc-header">
             <div class="fc-header-item-logo">
@@ -35,16 +35,21 @@
                     <li class="fc-nav-bar-item"><a href="#">Descuentos</a></li>
                 </ul>
             </div>
-            <div class="fc-header-item">
-                <a href="/login"><i class="fa-regular fa-user color_white" ></i></a>
-                
-                <p>nombre.apellido@dominio.com</p>
-            </div>
-            <div class="fc-header-item">
-                <a href="/productCart"><i class="fa-solid fa-cart-plus color_white"></i></a>
-            </div>
-            <div class="fc-header-item">
-                <i class="fa-solid fa-bars fa-2xs color_white"></i>
+            <div class="fc-header-item-menu">
+                <ul type="none" class="fc">
+                    <li class="fc-header-item-icon">
+                        <a href="/login"><i class="fa-regular fa-user color_white"></i></a>
+                    </li>
+                    <li class="fc-header-item-icon">
+                        <a href="/productCart"><i class="fa-solid fa-cart-plus color_white"></i></a>
+                    </li>
+                    <li class="icon-burguer-menu">
+                        <i class="fa-solid fa-bars color_white" style="height: 100%;"></i>
+                    </li>
+                    <li>
+                        <p class="display-none">nombre.apellido@dominio.com</p>
+                    </li>
+                </ul>
             </div>
         </div>
      </header>
@@ -72,11 +77,13 @@
     <footer class="footer_style">
         <div class="fc-footer-menu">
             <div class="fc-footer-menu-item">
-                <h4>NAVEGACION</h4>
+                <h4>NAVEGACIÓN</h4>
                 <ul type="none">
-                    <li><a href="#">Opcion Nav 1</a></li>
-                    <li><a href="#">Opcion Nav 2</a></li>
-                    <li><a href="#">Opcion Nav 3</a></li>
+                    <li><a href="#">INICIO</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                    <li><a href="#">PRODUCTOS</a></li>
+                    <li><a href="#">PREGUNTAS FRECUENTES</a></li>
+                    <li><a href="#">CONTACTO</a></li>
                 </ul>
             </div>
             <div class="fc-footer-menu-item">
