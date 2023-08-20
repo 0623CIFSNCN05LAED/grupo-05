@@ -1,1 +1,162 @@
-<p>Product detail page under onstruction</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--To be adaptative-->
+    <meta name="viewport" content="width=device-with, initial-scale=1.0">
+
+    <!--Styles-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Styles-->
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles_PD.css">
+    <title>DevVision</title>
+</head>
+
+<body class="bg-grey">
+    <header class="header_style">
+        <div class="fc-header">
+            <div class="fc-header-item-logo">
+                <img src="/images/logo_devvision.png" alt="Logo-DeVVision" class="header_logo">
+            </div>
+            <div class="fc-header-item-nav-bar md-mobile-no-display ">
+                <ul type="none" class="fc-nav-bar">
+                    <li class="fc-nav-bar-item"><a href="/index">Home</a></li>
+                    <li class="fc-nav-bar-item"><a href="#">Nuestros productos</a></li>
+                    <li class="fc-nav-bar-item"><a href="#">Lo último</a></li>
+                    <li class="fc-nav-bar-item"><a href="#">Descuentos</a></li>
+                </ul>
+            </div>
+            <div class="fc-header-item-menu">
+                <ul type="none" class="fc">
+                    <li class="fc-header-item-icon">
+                        <a href="/login"><i class="fa-regular fa-user color_white"></i></a>
+                    </li>
+                    <li class="fc-header-item-icon">
+                        <a href="/productCart"><i class="fa-solid fa-cart-plus color_white"></i></a>
+                    </li>
+                    <li class="icon-burguer-menu">
+                        <i class="fa-solid fa-bars color_white" style="height: 100%;"></i>
+                    </li>
+                    <li>
+                        <p class="display-none">nombre.apellido@dominio.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="main_style">
+        <div class="PD-flex-container-products">
+            <div class="PD-flex-container-products-item">
+                <div>SmartBuy Collection - The Essentials<div>
+                <div class="PD-product-image"> 
+                    <img src="/images/img-producto-1.png" alt="Producto-1" height="25%">
+                </div>
+            </div>
+            <div class="PD-flex-container-products-item">
+                <div>Colores disponibles:</div>
+                <div class="PD-flex-container-products-item-colors">
+                    <div class="PD-flex-container-products-item-color PD-item-color-red"> Rojo</div>
+                    <div class="PD-flex-container-products-item-color_i PD-item-color-grey">Gris</div>
+                    <div class="PD-flex-container-products-item-color PD-item-color-orange">Naranja</div>
+                    <div class="PD-flex-container-products-item-color PD-item-color-blue">Azul</div>
+                </div>
+            </div>
+            <div class="PD-flex-container-products-item">
+                <p>Talles disponibles:</p>
+                <div class="PD-flex-container-products-item-sizes">
+                    <div class="PD-flex-container-products-item-size">
+                        <p class="PD-item-size"> S </p>
+                    </div>
+                    <div class="PD-flex-container-products-item-size">
+                        <p class="PD-item-size"> M </p>
+                    </div>
+                    <div class="PD-flex-container-products-item-size">
+                        <p class="PD-item-size"> L </p>
+                    </div>
+                </div>
+            </div>
+            <div class="PD-flex-container-products-item">
+                <p>Detalle</p>
+                <div class="PD-brt-solid-ligthgrey-1px-p15px">
+                    <p>Marca: SmartBuy</p>
+                    <p>Colección: The Essentials</p>
+                    <p>Género: Unisex</p>
+                    <p>Año: 2021</p>
+                    <p>UPC: 551774C2</p>
+                </div>
+            </div>
+            <div class="PD-flex-container-products-item">
+                <p>Descripcion</p>
+                <div class="PD-brt-solid-ligthgrey-1px-p15px">
+                    <p> Sobre SmartBuy Collection Sydnellion G1816 C2. Los anteojos se ven bien no importa
+                        cuál
+                        sea la ocasión</p>
+                </div>
+            </div>
+            <div class="PD-flex-container-products-amount">
+                <div class="PD-flex-container-products-discount">
+                    <p>40% OFF</p>
+                </div>
+                <div class="PD-flex-container-products-price">
+                    <p>$6.770</p>
+                </div>
+            </div>
+            <div class="PD-flex-container-products-item">
+                <form action="/add_product" method="POST">
+                    <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer_style">
+        <div class="fc-footer-menu">
+            <div class="fc-footer-menu-item">
+                <h4>NAVEGACIÓN</h4>
+                <ul type="none">
+                    <li><a href="#">INICIO</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                    <li><a href="#">PRODUCTOS</a></li>
+                    <li><a href="#">PREGUNTAS FRECUENTES</a></li>
+                    <li><a href="#">CONTACTO</a></li>
+                </ul>
+            </div>
+            <div class="fc-footer-menu-item">
+                <h4>MEDIOS DE PAGO</h4>
+                <ul type="none">
+                    <li>Medio 1</li>
+                    <li>Medio 2</li>
+                    <li>Medio 3</li>
+                </ul>
+            </div>
+            <div class="fc-footer-menu-item">
+                <h4>CONTACTO</h4>
+                <ul type="none">
+                    <li>Dato contacto 1</li>
+                    <li>Dato contacto 2</li>
+                    <li>Dato contacto 3</li>
+                </ul>
+            </div>
+            <div class="fc-footer-menu-item">
+                <h4>REDES SOCIALES</h4>
+                <ul type="none">
+                    <li>Red 1</li>
+                    <li>Red 2</li>
+                    <li>Red 3</li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+    /body>
+
+</html>
