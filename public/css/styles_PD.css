@@ -1,0 +1,139 @@
+/* PRODUCT DETAIL STYLES*/
+.title-1{
+    font-size: 22px;
+ }
+
+ .title-2{
+    font-size: 20px;
+ }
+
+ 
+ .title-2{
+    font-size: 18px;
+ }
+
+
+.PD-fc-articles{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around 
+}
+
+.PD-fc-articles-item{
+    flex-grow: 1;
+}
+
+.PD-flex-container-products {
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.PD-product-image{
+    text-align: left;
+    margin: 10px;
+
+}
+.PD-flex-container-products-item {
+    margin-top: 5px;
+    padding-top: 12px;
+    width: 100%;
+
+}
+.PD-flex-container-products-item-colors {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.PD-flex-container-products-item-color {
+    width:  25%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 4%;
+    margin: 5px;
+}
+
+.PD-flex-container-products-item-sizes {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.PD-flex-container-products-item-size {
+    width: 30%;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.PD-flex-container-products-amount{
+    display: flex;  
+    flex-direction: row;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.PD-flex-container-products-price {
+    background-color: #969696;
+    text-align: center;
+    border-radius: 6px;
+    width: 35%;
+    font-size: 23px;
+}
+
+.PD-flex-container-products-discount {
+    width: 10%;
+    color:#18c312;
+    width: 100%;
+    font-size: 25px;
+}
+
+.PD-brt-solid-ligthgrey-1px-p15px {
+    border-top: solid 3px #555555;;
+    padding: 15px;
+}
+
+.PD-item-color-red{
+    border-radius: 6px;
+    opacity: 0.75;
+    background-color: red;
+}
+.PD-item-color-grey{
+    border-radius: 6px;
+    opacity: 0.75;
+    background-color: grey;
+}
+.PD-item-color-orange{
+    border-radius: 6px;
+    opacity: 0.75;
+    background-color: orange
+}
+.PD-item-color-blue{
+    border-radius: 6px;
+    opacity: 0.75;
+    background-color: rgb(7, 7, 116);
+}
+.PD-item-size{
+    border-radius: 3px;
+    border: solid 1PX #fff;
+    background-color: white;
+    color: black;
+}
+
+.PD-button{
+    border-radius: 6px;
+    background-color: #18c312;
+    border-color: transparent;
+    color: white;
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 22px;
+    opacity: 0.8;
+}
