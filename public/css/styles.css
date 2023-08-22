@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* ---Header---*/
 
 .header_style {
@@ -65,6 +71,26 @@ header a {
     color: #ffffff;
 }
 
+.shopping-cart {
+    position: relative;
+}
+
+.products-number {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-color: #C5FF49;
+    font-size: 7px;
+    height: 10px;
+    width: 10px;
+    right: -8px;
+    top: -1px;
+    text-align: center;
+    color: #3A3A3A;
+    font-weight: bold;
+}
+
 /* ---Main---*/
 
 .main_style{
@@ -76,13 +102,23 @@ header a {
     width: 90vw;
 }
 
+.fc-main-style {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fc-main-style-item {
+    width: 50%;
+}
+
 
 /* ---Footer---*/
 
 .footer_style{
     background-color: #3A3A3A;
-    color: white;
+    color: #ffffff;
     font-size: 16px;
+    margin-top: auto;
 }
 
 footer a {
@@ -90,17 +126,71 @@ footer a {
     color: #ffffff;
 }
 
-.fc-footer-menu{
+.footer-menu {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+.fc-footer-menu-item-logos-pagos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.fc-footer-menu-item-logos-pagos > .footer-logo {
+    margin: 3px;
+}
+
+.footer-logo {
+    height: 18px;
+    margin-right: 10px;
+}
+
+.fc-email-form {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.fc-email-form-bar {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #ffffff;
+    padding-right: 40px;
+    padding-left: 10px;
+    width: 200px;
+    height: 100%;
+}
+
+.plane-button {
+    position: absolute;
+    right: 0px;
+    border: none;
+    background-color: #ffffff;
+    height: 30px;
+    width: 40px;
+    font-size: 20px;
+}
+
+.footer-copyright {
     width: 92vw;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10px;
-    padding-top: 10px;
+    text-align: center;
+    font-size: 12px;
 }
 
-.fc-footer-item{
-    
+.redes-nav {
+    display: flex;
+    justify-content: space-around;
 }
 
 /* ---General---*/
@@ -149,6 +239,29 @@ footer a {
     margin-right: auto;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+.w-25 {
+    width: 25px;
+}
+
+.w-257 {
+    width: 257px;
+}
+
+.w-130 {
+    width: 130px;
+}
+.w-150 {
+    width: 150px;
+}
+
+.w-332 {
+    width: 332px;
+}
+
 .vw-90 {
     width: 90vw;
 }
@@ -161,6 +274,23 @@ footer a {
     padding-bottom: 10px;
     padding-top: 10px;
 }
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.bg-none {
+    background-color: none;
+}
+
 
 /* ---Responsive---*/
 
@@ -175,5 +305,8 @@ footer a {
 @media (min-width: 768px) {  
      .md-higher-mobile-no-display {
         display: none;
+    }
+    .md-fc-footer-menu {
+        display: flex;
     }
 }
