@@ -22,7 +22,7 @@
 </head>
 
 <body class="bg-grey">
-    <header class="header_style">    
+    <header class="header_style">
         <div class="fc-header">
             <div class="fc-header-item-logo">
                 <img src="/images/logo_devvision.png" alt="Logo-DeVVision" class="header_logo">
@@ -41,8 +41,11 @@
                         <a href="/login"><i class="fa-regular fa-user color_white"></i></a>
                     </li>
                     <li class="fc-header-item-icon shopping-cart">
-                        <a href="/productCart" class="shopping-cart"><i class="fa-solid fa-cart-plus color_white"></i></a>
-                        <div class="products-number"><div class="w-100">0</div></div>
+                        <a href="/productCart" class="shopping-cart"><i
+                                class="fa-solid fa-cart-plus color_white"></i></a>
+                        <div class="products-number">
+                            <div class="w-100">0</div>
+                        </div>
                     </li>
                     <li class="icon-burguer-menu md-higher-mobile-no-display">
                         <i class="fa-solid fa-bars color_white"></i>
@@ -53,80 +56,62 @@
                 </ul>
             </div>
         </div>
-     </header>
+    </header>
     <main class="main_style">
-        <div class="PD-flex-container-products">
+        <div class="PD-flex-container-products PD-md-flex-row">
             <div class="PD-flex-container-products-item">
                 <p class="title-1">SmartBuy Collection - The Essentials</p>
-                <div class="PD-product-image"> 
+                <div class="PD-product-image">
                     <img src="/images/img-producto-1.png" alt="Producto-1" height="25%">
                 </div>
             </div>
-            <div class="PD-flex-container-products-item">
-                <p class="title-2">Colores disponibles:</p>
+            <div class="PD-flex-container-products-item PD-md-flex-no-grow">
+                <p class="title-2  PD-md-m-t-40px">Colores disponibles:</p>
                 <div class="PD-flex-container-products-item-colors">
-                    <div class="PD-flex-container-products-item-color"> Rojo</div>
-                    <div class="PD-flex-container-products-item-color">Gris</div>
-                    <div class="PD-flex-container-products-item-color">Naranja</div>
-                    <div class="PD-flex-container-products-item-color">Azul</div>
+                    <div class="PD-flex-container-products-item-color PD-item-color-red">-</div>
+                    <div class="PD-flex-container-products-item-color PD-item-color-grey">-</div>
+                    <div class="PD-flex-container-products-item-color PD-item-color-orange">-</div>
+                    <div class="PD-flex-container-products-item-color PD-item-color-blue">-</div>
                 </div>
-                <div class="PD-flex-container-products-item-colors">
-                    <div class="PD-flex-container-products-item-color PD-item-color-red"> Rojo</div>
-                    <div class="PD-flex-container-products-item-color PD-item-color-grey">Gris</div>
-                    <div class="PD-flex-container-products-item-color PD-item-color-orange">Naranja</div>
-                    <div class="PD-flex-container-products-item-color PD-item-color-blue">Azul</div>
-                </div>
-                <div class="PD-flex-container-products-item-sizes">
-                    <div class="PD-flex-container-products-item-size"><p class="PD-item-size">Rojo</p></div>
-                    <div class="PD-flex-container-products-item-size"><p class="PD-item-size">Gris</p></div>
-                    <div class="PD-flex-container-products-item-size"><p class="PD-item-size">Nar</p></div>
-                    <div class="PD-flex-container-products-item-size"><p class="PD-item-size">Azul</p></div>    
-                </div>
-            </div>
-            <div class="PD-flex-container-products-item">
-                <p class="title-2">Talles disponibles:</p>
+                <p class="title-2 PD-m-t-10px">Talles disponibles:</p>
                 <div class="PD-flex-container-products-item-sizes">
                     <div class="PD-flex-container-products-item-size">
-                        <p class="PD-item-size"> S </p>
+                        <p class="PD-item-size">S</p>
                     </div>
                     <div class="PD-flex-container-products-item-size">
-                        <p class="PD-item-size"> M </p>
+                        <p class="PD-item-size">M</p>
                     </div>
                     <div class="PD-flex-container-products-item-size">
-                        <p class="PD-item-size"> L </p>
+                        <p class="PD-item-size">L</p>
                     </div>
                 </div>
+                <div class="PD-flex-container-products-amount">
+                    <div class="PD-flex-container-products-discount">
+                        <p>40% OFF</p>
+                    </div>
+                    <div class="PD-flex-container-products-price">
+                        <p>$6.770</p>
+                    </div>
+                    <div class="añadir">
+                        <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
+                    </div>
+                </div>        
             </div>
-            <div class="PD-flex-container-products-item">
-                <p class="title-2">Detalle</p>
-                <div class="PD-brt-solid-ligthgrey-1px-p15px">
-                    <p>Marca: SmartBuy</p>
-                    <p>Colección: The Essentials</p>
-                    <p>Género: Unisex</p>
-                    <p>Año: 2021</p>
-                    <p>UPC: 551774C2</p>
-                </div>
+        </div>
+        <div class="PD-flex-container-products-detail">
+            <p class="title-2">Detalle</p>
+            <div class="PD-brt-solid-ligthgrey-1px-p15px">
+                <p>Marca: SmartBuy</p>
+                <p>Colección: The Essentials</p>
+                <p>Género: Unisex</p>
+                <p>Año: 2021</p>
+                <p>UPC: 551774C2</p>
             </div>
-            <div class="PD-flex-container-products-item">
-                <p class="title-2">Descripcion</p>
-                <div class="PD-brt-solid-ligthgrey-1px-p15px">
-                    <p> Sobre SmartBuy Collection Sydnellion G1816 C2. Los anteojos se ven bien no importa
-                        cuál
-                        sea la ocasión</p>
-                </div>
-            </div>
-            <div class="PD-flex-container-products-amount">
-                <div class="PD-flex-container-products-discount">
-                    <p>40% OFF</p>
-                </div>
-                <div class="PD-flex-container-products-price">
-                    <p>$6.770</p>
-                </div>
-            </div>
-            <div class="PD-flex-container-products-item">
-                <form action="/add_product" method="POST">
-                    <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
-                </form>
+            <p class="title-2">Descripcion</p>
+            <div class="PD-brt-solid-ligthgrey-1px-p15px">
+                <p> Sobre SmartBuy Collection Sydnellion G1816 C2. Los anteojos se ven bien no importa
+                    cuál
+                    sea la ocasión</p>
             </div>
         </div>
     </main>
@@ -179,7 +164,7 @@
                         <li>
                             <a href="/"><i class="fa-brands fa-facebook"></i></a>
                         </li>
-                    </ul> 
+                    </ul>
                 </section>
             </div>
             <div>
@@ -208,4 +193,5 @@
         </section>
     </footer>
 </body>
+
 </html>
