@@ -1,0 +1,89 @@
+.main_style {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    
+}
+
+.register-form {
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    text-align: center;
+}
+
+.label-register-form {
+    margin-top: 15px;
+    display: block;
+    text-align: left;
+    margin-left: 5%;
+}
+.input-register-form{
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.forgot-register-form{
+    color: #c5ff49;
+    display: block;
+    text-align: left;
+    margin: 10px;
+    margin-left: 5%;
+    font-size: 14px;
+}
+
+.buttom-register-form{
+    background-color: #c5ff49;
+    width: 60%;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+}
+
+.register-register-form{
+    color: #c5ff49;
+    display: block;
+    text-align: left;
+    margin: 10px;
+    margin-left: 5%;
+    font-size: 10px;
+}
+
+
+
+
+@media (min-width: 481px) {
+
+    .register-register-form {
+        font-size: 16px;
+    }
+    .domicilio{
+        width: 70%;
+    }
+    .tipo-domicilio{
+        width: 20%;
+    }
+
+    .register-form{
+        width: 80%;
+    }
+
+    .buttom-register-form{
+        font-size: 18px;
+        width: 40%;
+    }
+
+
+}
+   

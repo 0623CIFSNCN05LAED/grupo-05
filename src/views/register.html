@@ -17,11 +17,12 @@
     <!--Styles-->
     <link rel="stylesheet" href="/css/normalize.css" type="text/css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles_Register.css">
 
-    <title>DevVision</title>
+    <title>Crear Cuenta - DevVision</title>
 </head>
 
-<body>
+<body class="bg-grey">
     <header class="header_style">    
         <div class="fc-header">
             <div class="fc-header-item-logo">
@@ -35,106 +36,138 @@
                     <li class="fc-nav-bar-item"><a href="#">Descuentos</a></li>
                 </ul>
             </div>
-            <div class="fc-header-item">
-                <a href="/login"><i class="fa-regular fa-user color_white" ></i></a>
-                
-                <p>nombre.apellido@dominio.com</p>
-            </div>
-            <div class="fc-header-item">
-                <a href="/productCart"><i class="fa-solid fa-cart-plus color_white"></i></a>
-            </div>
-            <div class="fc-header-item">
-                <i class="fa-solid fa-bars fa-2xs color_white"></i>
+            <div class="fc-header-item-menu">
+                <ul type="none" class="fc">
+                    <li class="fc-header-item-icon">
+                        <a href="/login"><i class="fa-regular fa-user color_white"></i></a>
+                    </li>
+                    <li class="fc-header-item-icon shopping-cart">
+                        <a href="/productCart" class="shopping-cart"><i class="fa-solid fa-cart-plus color_white"></i></a>
+                        <div class="products-number"><div class="w-100">0</div></div>
+                    </li>
+                    <li class="icon-burguer-menu md-higher-mobile-no-display">
+                        <i class="fa-solid fa-bars color_white"></i>
+                    </li>
+                    <li>
+                        <p class="display-none">nombre.apellido@dominio.com</p>
+                    </li>
+                </ul>
             </div>
         </div>
      </header>
     <main class="main_style">
+        <form action="/register" method="POST" class="register-form">
 
-        <h2 class="titles-24px">Registrarse</h2>
-        <form action="/home" method="POST">
-            <div>
-                <input type="text" placeholder="Nombre y apellido" id="personalName" class="input_strings">
-            </div>
-            <div>
-                <label for="birdthday">
-                    <h3 class="margen-15px">Fecha de nacimiento</h3>
-                </label>
-                <input type="date" placeholder="Fecha de nacimiento" id="birdthday">
-            </div>
-            <div>
-                <label for="genero">
-                    <h3 class="margen-15px">Género</h3>
-                </label>
-                <select name="genero">
-                    <option value="femenino">Femenino</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="otro">Otro</option>
+                <div class="div-name">
+                    <label class="label-register-form name" for="name" >Nombre</label>
+                    <input class="input-register-form name" type="text" id="name" name="name" required>
+            
+                    <label class="label-register-form surname" for="surname" >Apellido</label>
+                    <input class="input-register-form surname" type="text" id="surname" name="surname" required>
+                </div>
+
+                <label class="label-register-form" for="email" >Email</label>
+                <input class="input-register-form" type="email" id="email" name="email" required>
+
+                <label class="label-register-form" for="birth" >Fecha de Nacimiento</label>
+                <input class="input-register-form" type="date" id="birth" name="birth">
+
+                <label class="label-register-form" for="address" >Domiciolio</label>
+                <input class="input-register-form domicilio" type="text" id="address" name="address" required>
+                <select class="input-register-form tipo-domicilio" name="choose" id="choose" required>
+                    <option value="Casa">Casa</option>
+                    <option value="Departamento">Depatamento</option>
                 </select>
-            </div>
-            <div>
-                <input type="text" placeholder="Calle/número" id="address" class="input_strings">
-            </div>
-            <div>
-                <input type="text" placeholder="Departamento/casa" id="dpto" class="input_strings">
-            </div>
-            <div>
-                <input type="text" placeholder="Código postal" id="cp" class="input_strings">
-            </div>
-            <div>
-                <input type="email" placeholder="Email" id="email" class="input_strings">
-            </div>
-            <div>
-                <input type="password" placeholder="Contraseña" id="password" class="input_strings">
-            </div>
-            <div>
-                <input type="password" placeholder="Confirmar contraseña" id="passwordConf" class="input_strings">
-            </div>
-            <div class="fc-buttons">
-            <div class="fc-buttons-item">
-                <button type="submit" class="input_button">Enviar</button>
-            </div>
-            <div class="fc-buttons.item">
-                <button type="reset" class="input_button">Cancelar</button>
-            </div>
-        </div>
+                
+                <label class="label-register-form" for="zipcode" >Codigo Postal</label>
+                <input class="input-register-form" type="text" id="zipcode" name="zipcode" required> 
+                
+                <label class="label-register-form" for="password" >Contraseña</label>
+                <input class="input-register-form"  type="password" id="password" name="password" required>
+
+                <label class="label-register-form" for="confirmPassword" >Confirmar contraseña</label>
+                <input class="input-register-form"  type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <a class="register-register-form" href="/login">¡Ya tengo una cuenta! Ingresar</a>
+
+                <button class="buttom-register-form" type="submit">Crear Cuenta</button>
         </form>
     </main>
     <footer class="footer_style">
-        <div class="fc-footer-menu">
-            <div class="fc-footer-menu-item">
-                <h4>NAVEGACION</h4>
-                <ul type="none">
-                    <li><a href="#">Opcion Nav 1</a></li>
-                    <li><a href="#">Opcion Nav 2</a></li>
-                    <li><a href="#">Opcion Nav 3</a></li>
-                </ul>
+        <div class="footer-menu md-fc-footer-menu">
+            <div class="mb-20 w-332">
+                <section class="mb-20">
+                    <h4 class="mb-10">MEDIOS DE PAGO</h4>
+                    <div class="fc-footer-menu-item-logos-pagos">
+                        <img src="/images/visa-logo.png" alt="visa-logo" class="footer-logo">
+                        <img src="/images/master-card-logo.png" alt="master-card-logo" class="footer-logo">
+                        <img src="/images/american-express-logo.png" alt="american-express-logo" class="footer-logo">
+                        <img src="/images/dinners-club-logo.png" alt="dinners-club-logo" class="footer-logo">
+                        <img src="/images/pay-pal-logo.png" alt="pay-pal-logo" class="footer-logo">
+                        <img src="/images/banelco-logo.png" alt="banelco-logo" class="footer-logo">
+                        <img src="/images/cabal-logo.png" alt="cabal-logo" class="footer-logo">
+                        <img src="/images/naranja-logo.png" alt="naranja-logo" class="footer-logo">
+                        <img src="/images/tarjeta-shopping-logo.png" alt="tarjeta-shopping-logo" class="footer-logo">
+                        <img src="/images/mercado-pago-logo.png" alt="mercado-pago-logo" class="footer-logo">
+                        <img src="/images/argencard-logo.png" alt="argencard-logo" class="footer-logo">
+                        <img src="/images/pago-facil-logo.png" alt="pago-facil-logo" class="footer-logo">
+                        <img src="/images/rapi-pago-logo.png" alt="rapi-pago-logo" class="footer-logo">
+                    </div>
+                </section>
+                <section class="fc-footer-menu-item-formas-envio">
+                    <h4 class="mb-10">FORMAS DE ENVÍO</h4>
+                    <div class="fc-footer-menu-item-logos-pagos">
+                        <img src="/images/dhl-logo.png" alt="dhl-logo" class="footer-logo">
+                        <img src="/images/fedex-logo.png" alt="fedex-logo" class="footer-logo">
+                        <img src="/images/ups-logo.png" alt="ups-logo" class="footer-logo">
+                    </div>
+                </section>
             </div>
-            <div class="fc-footer-menu-item">
-                <h4>MEDIOS DE PAGO</h4>
-                <ul type="none">
-                    <li>Medio 1</li>
-                    <li>Medio 2</li>
-                    <li>Medio 3</li>
-                </ul>
+            <div>
+                <section class="w-257 mb-20">
+                    <h4 class="mb-10">CONTACTO</h4>
+                    <ul type="none">
+                        <li><i class="fa-solid fa-phone-flip w-25"></i>549841651</li>
+                        <li><i class="fa-solid fa-at w-25"></i>servicioalcliente@devvision.com</li>
+                        <li><i class="fa-solid fa-location-dot w-25"></i>Buenos Aires - Argentina</li>
+                    </ul>
+                </section>
+                <section class="mb-20 w-130">
+                    <h4 class="mb-10">REDES SOCIALES</h4>
+                    <ul type="none" class="redes-nav">
+                        <li>
+                            <a href="/"><i class="fa-brands fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="/"><i class="fa-brands fa-facebook"></i></a>
+                        </li>
+                    </ul> 
+                </section>
             </div>
-            <div class="fc-footer-menu-item">
-                <h4>CONTACTO</h4>
-                <ul type="none">
-                    <li>Dato contacto 1</li>
-                    <li>Dato contacto 2</li>
-                    <li>Dato contacto 3</li>
-                </ul>
+            <div>
+                <section class="mb-20">
+                    <h4 class="mb-10">SUSCRÍBETE AL NEWSLETTER!</h4>
+                    <form action="/" method="POST" class="fc-email-form">
+                        <input type="email" placeholder="Email" class="fc-email-form-bar">
+                        <button type="submit" class="plane-button">
+                            <div class="bl-1 h-20 p-3 bg-none">
+                                <i class="fa-regular fa-paper-plane bg-none"></i>
+                            </div>
+                        </button>
+                    </form>
+                </section>
+                <section class="w-150">
+                    <h4 class="mb-10">SEGURIDAD Y CERTIFICACIONES</h4>
+                    <div>
+                        <img src="/images/basc-logo.png" alt="basc-logo-logo" class="footer-logo">
+                        <img src="/images/qr-segurity.png" alt="qr-segurity-logo" class="footer-logo">
+                    </div>
+                </section>
             </div>
-            <div class="fc-footer-menu-item">
-                <h4>REDES SOCIALES</h4>
-                <ul type="none">
-                    <li>Red 1</li>
-                    <li>Red 2</li>
-                    <li>Red 3</li>
-                </ul>
-            </div>
-
         </div>
+        <section class="footer-copyright">
+            <p>Copyright © 1999-2023 DevVision S.A.</p>
+        </section>
     </footer>
 </body>
 </html>
