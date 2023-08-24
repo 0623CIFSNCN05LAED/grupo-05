@@ -52,3 +52,6 @@
 * (+0/-0) cambiar los horarios de reunión los domingos
 * (+0/-0) Llevar un registro de los participantes de las reuniones
   * **Action**: *Agregaremos a las notas de las "Daily" meetings la lista de los participantes de cada reunion*
+ 
+#### URL Tablero Trello Sprint 3
+https://trello.com/b/fWbCBZ2v/sprint-3
