@@ -25,10 +25,10 @@ app.get('/register', (req,res) => {
 app.get('/login', (req,res) => {
     res.sendFile(path.join(__dirname, '/views/login.html'));
 })
-app.get('/productCart', (req,res) => {
-    res.sendFile(path.join(__dirname, '/views/productCart.html'));
+app.get('/productcart', (req,res) => {
+    res.sendFile(path.join(__dirname, '/views/productcart.html'));
 })
-app.get('/productDetail', (req,res) => {
-    res.sendFile(path.join(__dirname, '/views/productDetail.html'));
+app.get('/productdetail', (req,res) => {
+    res.sendFile(path.join(__dirname, '/views/productdetail.html'));
 })
 
