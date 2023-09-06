@@ -20,6 +20,10 @@ const mainController = {
     productDetail: (req,res) => {
         res.render('product-detail');
     },
+    productNew: (req,res) => {
+        res.render('product-new');
+    },
+
 }
 
 module.exports = mainController;

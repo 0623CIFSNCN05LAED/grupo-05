@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>  
+    <link rel="stylesheet" href="/css/styles_PN.css">
+
+    <title>Crear o Editar Producto - DevVision</title>
+</head>
+
+<body class="bg-grey">
+    <header class="header_style">    
+        <%- include("partials/header") %>
+     </header>
+    <main class="main_style">
+        <form action="/register" method="POST" class="register-form">
+            <div class="dataProduct">
+            <label class="label-register-form" for="art" >Art</label>
+            <input class="input-register-form" type="text" id="art" name="art" required>
+
+            <label class="label-register-form" for="name" >Nombre</label>
+            <input class="input-register-form" type="text" id="name" name="name" required>
+
+            <label class="label-register-form" for="brand" >Marca</label>
+            <input class="input-register-form" type="text" id="brand" name="brand" required>
+
+            <label class="label-register-form" for="collection" >Coleccion</label>
+            <input class="input-register-form" type="text" id="collection" name="collection" required>
+
+            <label class="label-register-form" for="model" >Modelo</label>
+            <input class="input-register-form" type="text" id="model" name="model" required>
+
+
+            <label class="label-register-form" for="gender" >Genero</label>
+            <select class="select-register-form" id="gender" name="gender" required>
+                <option value="">Seleccione una opción...</option>
+                <option value="Unisex">Unisex</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select>
+
+            <label class="label-register-form" for="gender" >Año</label>
+            <input type="month" name="fecha" id="fecha" class="input-register-form" required>
+            <div class="checkbox-block">
+                <div class="checkbox-subblock"> 
+                    <label for="">Talles</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="small" name="size" value="small">
+                            <label for="small">Small</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="medium" name="size" value="medium">
+                            <label for="medium">Medium</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="large" name="size" value="large">
+                            <label for="large">Large</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkbox-subblock"> 
+                    <label for="">Colores</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="red" name="color" value="small">
+                            <label for="red">Rojo</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="blue" name="color" value="medium">
+                            <label for="blue">Azul</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="yellow" name="color" value="large">
+                            <label for="yellow">Amarillo</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <label class="label-register-form" for="description" >Descripcion</label>
+            <textarea class="input-register-form" type="textarea" id="description" name="description" placeholder="Escribir un maximo 250 caracteres..." cols="30" rows="6" maxlength="250" required></textarea>
+            
+            <label class="label-register-form" for="discount" >Descuento %</label>
+            <input class="input-register-form" type="text" id="discount" name="discount" required>
+
+
+        </div>
+            <div class="buttoms">
+                <button class="buttom-register-form red" type="reset">Borrar</button>
+                <button class="buttom-register-form" type="submit">Crear Articulo</button>
+            </div>
+        </form>
+    </main>
+    <footer class="footer_style">
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

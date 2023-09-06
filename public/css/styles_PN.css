@@ -1,0 +1,114 @@
+.main_style {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.register-form {
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    text-align: center;
+}
+
+.dataProduct{
+}
+
+.label-register-form {
+    display: flex;
+    margin-top: 15px;
+    text-align: left;
+}
+.input-register-form{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 16px;
+    justify-content: left;
+    align-items: left;
+}
+.select-register-form{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+
+.buttom-register-form{
+    background-color: #c5ff49;
+    width: 90%;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+}
+
+.red{
+    background-color: red;
+}
+
+
+.checkbox-block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+.checkbox-subblock{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.checkbox-group{
+    padding: 5px;
+    margin-top: 5px;
+}
+.checkbox-option{
+    padding: 5px;
+}
+
+
+
+
+@media (min-width: 481px) {
+
+
+    .register-form{
+        width: 90%;
+    }
+
+    .buttom-register-form{
+        font-size: 18px;
+        width: 35%;
+    }
+    .buttoms{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .checkbox-subblock{
+        width: 50%;
+    }
+
+
+
+}
+   
