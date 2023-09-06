@@ -29,6 +29,9 @@ const mainController = {
         }
         );
     },
+    productList: (req,res) => {
+        res.render('product-list');
+    }
 
 }
 

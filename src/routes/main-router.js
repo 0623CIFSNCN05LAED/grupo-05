@@ -15,5 +15,7 @@ router.get('/productDetail', mainController.productDetail);
 
 router.get('/productNew', mainController.productNew);
 
+router.get('/productList', mainController.productList);
+
 
 module.exports = router;
