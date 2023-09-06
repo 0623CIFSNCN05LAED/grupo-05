@@ -2,58 +2,14 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <!--To be adaptative-->
-    <meta name="viewport" content="width=device-with, initial-scale=1.0">
-
-    <!--Styles-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-    <!--Icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--Styles-->
-    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <%- include("partials/head") %>  
     <link rel="stylesheet" href="/css/styles_Login.css">
-
-    <title>Ingresar - DevVision</title>
+    <title>DevVision - Ingresar</title>
 </head>
 
 <body class="bg-grey">
     <header class="header_style">    
-        <div class="fc-header">
-            <div class="fc-header-item-logo">
-                <img src="/images/logo_devvision.png" alt="Logo-DeVVision" class="header_logo">
-            </div>
-            <div class="fc-header-item-nav-bar md-mobile-no-display ">
-                <ul type="none" class="fc-nav-bar">
-                    <li class="fc-nav-bar-item"><a href="/index">Home</a></li>
-                    <li class="fc-nav-bar-item"><a href="#">Nuestros productos</a></li>
-                    <li class="fc-nav-bar-item"><a href="#">Lo último</a></li>
-                    <li class="fc-nav-bar-item"><a href="#">Descuentos</a></li>
-                </ul>
-            </div>
-            <div class="fc-header-item-menu">
-                <ul type="none" class="fc">
-                    <li class="fc-header-item-icon">
-                        <a href="/login"><i class="fa-regular fa-user color_white"></i></a>
-                    </li>
-                    <li class="fc-header-item-icon shopping-cart">
-                        <a href="/productcart" class="shopping-cart"><i class="fa-solid fa-cart-plus color_white"></i></a>
-                        <div class="products-number"><div class="w-100">0</div></div>
-                    </li>
-                    <li class="icon-burguer-menu md-higher-mobile-no-display">
-                        <i class="fa-solid fa-bars color_white"></i>
-                    </li>
-                    <li>
-                        <p class="display-none">nombre.apellido@dominio.com</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <%- include("partials/header") %>
      </header>
     <main class="main_style">
         <form action="/login" method="POST" class="login-form">
@@ -67,80 +23,7 @@
         </form>
     </main>
     <footer class="footer_style">
-        <div class="footer-menu md-fc-footer-menu">
-            <div class="mb-20 w-332">
-                <section class="mb-20">
-                    <h4 class="mb-10">MEDIOS DE PAGO</h4>
-                    <div class="fc-footer-menu-item-logos-pagos">
-                        <img src="/images/visa-logo.png" alt="visa-logo" class="footer-logo">
-                        <img src="/images/master-card-logo.png" alt="master-card-logo" class="footer-logo">
-                        <img src="/images/american-express-logo.png" alt="american-express-logo" class="footer-logo">
-                        <img src="/images/dinners-club-logo.png" alt="dinners-club-logo" class="footer-logo">
-                        <img src="/images/pay-pal-logo.png" alt="pay-pal-logo" class="footer-logo">
-                        <img src="/images/banelco-logo.png" alt="banelco-logo" class="footer-logo">
-                        <img src="/images/cabal-logo.png" alt="cabal-logo" class="footer-logo">
-                        <img src="/images/naranja-logo.png" alt="naranja-logo" class="footer-logo">
-                        <img src="/images/tarjeta-shopping-logo.png" alt="tarjeta-shopping-logo" class="footer-logo">
-                        <img src="/images/mercado-pago-logo.png" alt="mercado-pago-logo" class="footer-logo">
-                        <img src="/images/argencard-logo.png" alt="argencard-logo" class="footer-logo">
-                        <img src="/images/pago-facil-logo.png" alt="pago-facil-logo" class="footer-logo">
-                        <img src="/images/rapi-pago-logo.png" alt="rapi-pago-logo" class="footer-logo">
-                    </div>
-                </section>
-                <section class="fc-footer-menu-item-formas-envio">
-                    <h4 class="mb-10">FORMAS DE ENVÍO</h4>
-                    <div class="fc-footer-menu-item-logos-pagos">
-                        <img src="/images/dhl-logo.png" alt="dhl-logo" class="footer-logo">
-                        <img src="/images/fedex-logo.png" alt="fedex-logo" class="footer-logo">
-                        <img src="/images/ups-logo.png" alt="ups-logo" class="footer-logo">
-                    </div>
-                </section>
-            </div>
-            <div>
-                <section class="w-257 mb-20">
-                    <h4 class="mb-10">CONTACTO</h4>
-                    <ul type="none">
-                        <li><i class="fa-solid fa-phone-flip w-25"></i>549841651</li>
-                        <li><i class="fa-solid fa-at w-25"></i>servicioalcliente@devvision.com</li>
-                        <li><i class="fa-solid fa-location-dot w-25"></i>Buenos Aires - Argentina</li>
-                    </ul>
-                </section>
-                <section class="mb-20 w-130">
-                    <h4 class="mb-10">REDES SOCIALES</h4>
-                    <ul type="none" class="redes-nav">
-                        <li>
-                            <a href="/"><i class="fa-brands fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="/"><i class="fa-brands fa-facebook"></i></a>
-                        </li>
-                    </ul> 
-                </section>
-            </div>
-            <div>
-                <section class="mb-20">
-                    <h4 class="mb-10">SUSCRÍBETE AL NEWSLETTER!</h4>
-                    <form action="/" method="POST" class="fc-email-form">
-                        <input type="email" placeholder="Email" class="fc-email-form-bar">
-                        <button type="submit" class="plane-button">
-                            <div class="bl-1 h-20 p-3 bg-none">
-                                <i class="fa-regular fa-paper-plane bg-none"></i>
-                            </div>
-                        </button>
-                    </form>
-                </section>
-                <section class="w-150">
-                    <h4 class="mb-10">SEGURIDAD Y CERTIFICACIONES</h4>
-                    <div>
-                        <img src="/images/basc-logo.png" alt="basc-logo-logo" class="footer-logo">
-                        <img src="/images/qr-segurity.png" alt="qr-segurity-logo" class="footer-logo">
-                    </div>
-                </section>
-            </div>
-        </div>
-        <section class="footer-copyright">
-            <p>Copyright © 1999-2023 DevVision S.A.</p>
-        </section>
+        <%- include("partials/footer") %>
     </footer>
 </body>
 </html>
