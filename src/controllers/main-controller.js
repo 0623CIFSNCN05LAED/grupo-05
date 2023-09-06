@@ -14,11 +14,11 @@ const mainController = {
     },
 
     productCart: (req,res) => {
-        res.render('productcart');
+        res.render('product-cart');
     },
 
     productDetail: (req,res) => {
-        res.render('productdetail');
+        res.render('product-detail');
     },
 }
 
