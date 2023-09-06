@@ -7,7 +7,7 @@
     
 }
 
-.register-form {
+.productNew-form {
     color: white;
     padding: 20px;
     border-radius: 5px;
@@ -18,12 +18,12 @@
 .dataProduct{
 }
 
-.label-register-form {
+.label-productNew-form {
     display: flex;
     margin-top: 15px;
     text-align: left;
 }
-.input-register-form{
+.input-productNew-form{
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -33,7 +33,7 @@
     justify-content: left;
     align-items: left;
 }
-.select-register-form{
+.select-productNew-form{
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -45,7 +45,7 @@
 
 
 
-.buttom-register-form{
+.buttom-productNew-form{
     background-color: #c5ff49;
     width: 90%;
     font-size: 14px;
@@ -80,20 +80,34 @@
     margin-top: 5px;
 }
 .checkbox-option{
+    display: flex;
     padding: 5px;
+    justify-content: left;
+    align-items: center;
+    margin-left: 5px;
 }
-
+.checkbox-option label{
+    margin-left: 5px;
+}
+.hexColor{
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+    display:inline-block;
+    border-radius: 100%;
+    margin-bottom: 0px;
+}
 
 
 
 @media (min-width: 481px) {
 
 
-    .register-form{
+    .productNew-form{
         width: 90%;
     }
 
-    .buttom-register-form{
+    .buttom-productNew-form{
         font-size: 18px;
         width: 35%;
     }

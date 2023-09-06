@@ -13,83 +13,72 @@
         <%- include("partials/header") %>
      </header>
     <main class="main_style">
-        <form action="/register" method="POST" class="register-form">
+        <form action="/productNew" method="POST" class="productNew-form">
             <div class="dataProduct">
-            <label class="label-register-form" for="art" >Art</label>
-            <input class="input-register-form" type="text" id="art" name="art" required>
+            <label class="label-productNew-form" for="art" >Art</label>
+            <input class="input-productNew-form" type="text" id="art" name="art" required>
 
-            <label class="label-register-form" for="name" >Nombre</label>
-            <input class="input-register-form" type="text" id="name" name="name" required>
+            <label class="label-productNew-form" for="nameProduct" >Nombre</label>
+            <input class="input-productNew-form" type="text" id="nameProduct" name="nameProduct" required>
 
-            <label class="label-register-form" for="brand" >Marca</label>
-            <input class="input-register-form" type="text" id="brand" name="brand" required>
+            <label class="label-productNew-form" for="brand" >Marca</label>
+            <input class="input-productNew-form" type="text" id="brand" name="brand" required>
 
-            <label class="label-register-form" for="collection" >Coleccion</label>
-            <input class="input-register-form" type="text" id="collection" name="collection" required>
+            <label class="label-productNew-form" for="collection" >Coleccion</label>
+            <input class="input-productNew-form" type="text" id="collection" name="collection" required>
 
-            <label class="label-register-form" for="model" >Modelo</label>
-            <input class="input-register-form" type="text" id="model" name="model" required>
+            <label class="label-productNew-form" for="model" >Modelo</label>
+            <input class="input-productNew-form" type="text" id="model" name="model" required>
 
 
-            <label class="label-register-form" for="gender" >Genero</label>
-            <select class="select-register-form" id="gender" name="gender" required>
+            <label class="label-productNew-form" for="gender" >Genero</label>
+            <select class="select-productNew-form" id="gender" name="gender" required>
                 <option value="">Seleccione una opción...</option>
                 <option value="Unisex">Unisex</option>
                 <option value="Hombre">Hombre</option>
                 <option value="Mujer">Mujer</option>
             </select>
 
-            <label class="label-register-form" for="gender" >Año</label>
-            <input type="month" name="fecha" id="fecha" class="input-register-form" required>
+            <label class="label-productNew-form" for="gender" >Año</label>
+            <input type="month" name="fecha" id="fecha" class="input-productNew-form" required>
             <div class="checkbox-block">
                 <div class="checkbox-subblock"> 
-                    <label for="">Talles</label>
+                    <span>Talles</span>
                     <div class="checkbox-group">
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="small" name="size" value="small">
-                            <label for="small">Small</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="medium" name="size" value="medium">
-                            <label for="medium">Medium</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="large" name="size" value="large">
-                            <label for="large">Large</label>
-                        </div>
+                        <% sizeList.forEach(size => { %>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="<%= size.name %>" name="<%= size.name %>" value="<%= size.id %>">
+                                <label for="<%= size.name %>"><%= size.name %></label>
+                            </div>
+                            <% }) %>
                     </div>
                 </div>
 
                 <div class="checkbox-subblock"> 
-                    <label for="">Colores</label>
+                    <span>Colores</span>
                     <div class="checkbox-group">
+                        <% colorList.forEach(color => { %>
                         <div class="checkbox-option">
-                            <input type="checkbox" id="red" name="color" value="small">
-                            <label for="red">Rojo</label>
+                            <input type="checkbox" id="<%= color.name %>" name="<%= color.name %>" value="<%= color.id %>">
+                            <label for="<%= color.name %>"><%= color.name %></label>
+                            <div class="hexColor" style="background-color: <%= color.codeHex %>;"></div>
                         </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="blue" name="color" value="medium">
-                            <label for="blue">Azul</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="yellow" name="color" value="large">
-                            <label for="yellow">Amarillo</label>
-                        </div>
+                        <% }) %>
                     </div>
                 </div>
             </div>
 
-            <label class="label-register-form" for="description" >Descripcion</label>
-            <textarea class="input-register-form" type="textarea" id="description" name="description" placeholder="Escribir un maximo 250 caracteres..." cols="30" rows="6" maxlength="250" required></textarea>
+            <label class="label-productNew-form" for="description" >Descripcion</label>
+            <textarea class="input-productNew-form" type="textarea" id="description" name="description" placeholder="Escribir un maximo 250 caracteres..." cols="30" rows="6" maxlength="250" required></textarea>
             
-            <label class="label-register-form" for="discount" >Descuento %</label>
-            <input class="input-register-form" type="text" id="discount" name="discount" required>
+            <label class="label-productNew-form" for="discount" >Descuento %</label>
+            <input class="input-productNew-form" type="text" id="discount" name="discount" required>
 
 
         </div>
             <div class="buttoms">
-                <button class="buttom-register-form red" type="reset">Borrar</button>
-                <button class="buttom-register-form" type="submit">Crear Articulo</button>
+                <button class="buttom-productNew-form red" type="reset">Borrar</button>
+                <button class="buttom-productNew-form" type="submit">Crear Articulo</button>
             </div>
         </form>
     </main>

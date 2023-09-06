@@ -1,4 +1,6 @@
 const path = require('path');
+const colorServices = require("../services/colors-services");
+const sizeServices = require("../services/sizes-services");
 
 const mainController = {
     home: (req,res) => {
@@ -21,7 +23,11 @@ const mainController = {
         res.render('product-detail');
     },
     productNew: (req,res) => {
-        res.render('product-new');
+        res.render('product-new',{
+            colorList: colorServices.listColors(),
+            sizeList : sizeServices.listsizes(),
+        }
+        );
     },
 
 }
