@@ -15,6 +15,8 @@ router.get('/productDetail', mainController.productDetail);
 
 router.get('/productNew', mainController.productNew);
 
+router.get('/productEdit', mainController.productEdit);
+
 router.get('/productList', mainController.productList);
 
 

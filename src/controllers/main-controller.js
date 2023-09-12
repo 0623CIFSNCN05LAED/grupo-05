@@ -31,7 +31,14 @@ const mainController = {
     },
     productList: (req,res) => {
         res.render('product-list');
-    }
+    },
+    productEdit: (req,res) => {
+        res.render('product-edit',{
+            colorList: colorServices.listColors(),
+            sizeList : sizeServices.listsizes(),
+        }
+        );
+    },
 
 }
 

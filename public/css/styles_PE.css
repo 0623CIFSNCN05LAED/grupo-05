@@ -7,7 +7,7 @@
     
 }
 
-.productNew-form {
+.productEdit-form {
     color: white;
     padding: 20px;
     border-radius: 5px;
@@ -23,12 +23,12 @@ padding-left: 0px;
     border-bottom: white 1px solid;
 }
 
-.label-productNew-form {
+.label-productEdit-form {
     display: flex;
     margin-top: 15px;
     text-align: left;
 }
-.input-productNew-form{
+.input-productEdit-form{
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -38,7 +38,7 @@ padding-left: 0px;
     justify-content: left;
     align-items: left;
 }
-.select-productNew-form{
+.select-productEdit-form{
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -50,7 +50,7 @@ padding-left: 0px;
 
 
 
-.buttom-productNew-form{
+.buttom-productEdit-form{
     background-color: #c5ff49;
     width: 90%;
     font-size: 14px;
@@ -108,11 +108,11 @@ padding-left: 0px;
 @media (min-width: 481px) {
 
 
-    .productNew-form{
+    .productEdit-form{
         width: 90%;
     }
 
-    .buttom-productNew-form{
+    .buttom-productEdit-form{
         font-size: 18px;
         width: 35%;
     }
