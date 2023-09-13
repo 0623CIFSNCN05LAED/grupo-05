@@ -25,6 +25,8 @@
     width:120px;
     height: 120px;
     padding: 5px;
+    object-fit: cover;
+    object-position: top;
 
 }
 
