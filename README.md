@@ -48,5 +48,5 @@ https://wireframe.cc/pro/pp/4af769d90672660
 ## Design del Sitio
 https://www.figma.com/file/KWgF2K8i4QqDQi26x3ghTc/Opcional?type=design&node-id=0%3A1&mode=design&t=Xo8jb0tk5GeJH1pz-1
 
-## URL del Trello del Sprint 2
+## URL del Trello 
 https://trello.com/b/fWbCBZ2v/devvision-backlog
