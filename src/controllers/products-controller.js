@@ -38,7 +38,6 @@ module.exports = {
 
   // Acción de creación (a donde se envía el formulario)    
   createNew: (req, res) => {
-    console.log(req.body)
     const product = {
       art: req.body.art,
       name: req.body.name,
@@ -46,6 +45,8 @@ module.exports = {
       collection: req.body.collection,
       model: req.body.model,
       gender: req.body.gender,
+      size: req.body.size,
+      color: req.body.color,
       date: req.body.date,
       description: req.body.description,
       price: Number(req.body.price),

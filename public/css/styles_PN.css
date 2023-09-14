@@ -38,6 +38,11 @@ padding-left: 0px;
     justify-content: left;
     align-items: left;
 }
+
+.image{
+    background-color: white;
+    color: black;
+}
 .select-productNew-form{
     width: 100%;
     padding: 10px;

@@ -63,7 +63,7 @@
                         <div class="checkbox-option">
                             <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.name %>">
                             <label for="<%= color.name %>"><%= color.name %></label>
-                            <div class="hexColor" style="background-color: <%- color.codeHex %>;"></div>
+                            <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
                         </div>
                         <% }) %>
                     </div>
@@ -79,6 +79,9 @@
 
             <label class="label-productNew-form" for="discount" >Descuento %</label>
             <input class="input-productNew-form" type="text" id="discount" name="discount" required>
+
+            <label class="label-productNew-form" for="image" >Imagen</label>
+            <input class="input-productNew-form image" type="file" id="image" name="image"  accept="image/*">
 
 
         </div>
