@@ -13,12 +13,9 @@ module.exports = {
           } else {
             return null;
           }
-
-
     } ,
     listColors : function () {
       return this.colors
     }
 
 }
-

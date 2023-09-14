@@ -18,5 +18,5 @@ app.listen(PORT, () => console.log('Se prendió en el puerto ' + PORT));
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
-app.use(mainRouter);
+app.use("/",mainRouter);
 

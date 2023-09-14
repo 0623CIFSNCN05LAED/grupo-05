@@ -14,13 +14,13 @@
      </header>
     <main class="main_style">
         <h1 class="title">Crear Producto</h1>
-        <form action="/productNew" method="POST" class="productNew-form">
+        <form action="/products" method="POST" class="productNew-form" enctype="multipart/form-data">
             <div class="dataProduct">
             <label class="label-productNew-form" for="art" >Art</label>
             <input class="input-productNew-form" type="text" id="art" name="art" required>
 
-            <label class="label-productNew-form" for="nameProduct" >Nombre</label>
-            <input class="input-productNew-form" type="text" id="nameProduct" name="nameProduct" required>
+            <label class="label-productNew-form" for="name" >Nombre</label>
+            <input class="input-productNew-form" type="text" id="name" name="name" required>
 
             <label class="label-productNew-form" for="brand" >Marca</label>
             <input class="input-productNew-form" type="text" id="brand" name="brand" required>
@@ -40,15 +40,16 @@
                 <option value="Mujer">Mujer</option>
             </select>
 
-            <label class="label-productNew-form" for="gender" >Año</label>
-            <input type="month" name="fecha" id="fecha" class="input-productNew-form" required>
+            <label class="label-productNew-form" for="date" >Año</label>
+            <input type="month" name="date" id="date" class="input-productNew-form" required>
+            
             <div class="checkbox-block">
                 <div class="checkbox-subblock"> 
                     <span>Talles</span>
                     <div class="checkbox-group">
                         <% sizeList.forEach(size => { %>
                             <div class="checkbox-option">
-                                <input type="checkbox" id="<%= size.name %>" name="<%= size.name %>" value="<%= size.id %>">
+                                <input type="checkbox" id="<%= size.name %>" name="size" value="<%= size.name %>">
                                 <label for="<%= size.name %>"><%= size.name %></label>
                             </div>
                             <% }) %>
@@ -60,9 +61,9 @@
                     <div class="checkbox-group">
                         <% colorList.forEach(color => { %>
                         <div class="checkbox-option">
-                            <input type="checkbox" id="<%= color.name %>" name="<%= color.name %>" value="<%= color.id %>">
+                            <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.name %>">
                             <label for="<%= color.name %>"><%= color.name %></label>
-                            <div class="hexColor" style="background-color: <%= color.codeHex %>;"></div>
+                            <div class="hexColor" style="background-color: <%- color.codeHex %>;"></div>
                         </div>
                         <% }) %>
                     </div>
@@ -72,6 +73,10 @@
             <label class="label-productNew-form" for="description" >Descripcion</label>
             <textarea class="input-productNew-form" type="textarea" id="description" name="description" placeholder="Escribir un maximo 250 caracteres..." cols="30" rows="6" maxlength="250" required></textarea>
             
+            <label class="label-productNew-form" for="price" >Precio</label>
+            <input class="input-productNew-form" type="text" id="price" name="price" required>
+
+
             <label class="label-productNew-form" for="discount" >Descuento %</label>
             <input class="input-productNew-form" type="text" id="discount" name="discount" required>
 

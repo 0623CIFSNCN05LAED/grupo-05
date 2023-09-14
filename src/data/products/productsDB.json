@@ -1,0 +1,30 @@
+[
+  {
+    "id": "44ca4874-590d-4ff8-87a2-15f3bb096c9e",
+    "art": "asdasd",
+    "name": "asdasd",
+    "brand": "asdasd",
+    "collection": "asdasd",
+    "model": "asdasdas",
+    "gender": "Unisex",
+    "date": "2023-03",
+    "description": "asdasdasd",
+    "price": 10,
+    "discount": 5,
+    "image": "default-image.png"
+  },
+  {
+    "id": "f8c9d638-cfc1-47e8-a957-0ab716d61310",
+    "art": "asdasd",
+    "name": "asdasd",
+    "brand": "asdasd",
+    "collection": "asdasdas",
+    "model": "asdasd",
+    "gender": "Mujer",
+    "date": "2023-03",
+    "description": "asdasd",
+    "price": 20,
+    "discount": 4,
+    "image": "default-image.png"
+  }
+]
