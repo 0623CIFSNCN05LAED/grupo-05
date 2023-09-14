@@ -1,20 +1,6 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const db = require("../data/db");
 
-function createColorSide (colors,sizes) { 
-  const colorSide = [] 
-  sizes.map((size) => {
-       colors.forEach(color => {
-           let atribute = {
-               size, 
-               color 
-              }
-          colorSide.push(atribute) 
-      }); 
-  } ) 
-  return colorSide 
-};
-
 function createVariation (product) {
   let newproduct = []
   product.size.forEach(sizesVariation =>{
