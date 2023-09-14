@@ -36,6 +36,12 @@ module.exports = {
   getAllProducts: () => {
       return db.products.getProducts();
       },  
+  // Get the complete list of product that exist in the database  
+  getProduct: (id) => {
+    const product =  db.products.findById(id);
+    console.log('Product: ', product);
+    return product;
+    },  
 // Create a new product
   createProduct: (product) => {
         let newProducts = createVariation(product);

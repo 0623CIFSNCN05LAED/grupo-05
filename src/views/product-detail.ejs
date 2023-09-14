@@ -14,9 +14,9 @@
     <main class="main_style">
         <div class="PD-flex-container-products PD-md-flex-row">
             <div class="PD-flex-container-products-item">
-                <p class="title-1">SmartBuy Collection - The Essentials</p>
+                <p class="title-1"><%= product.name %></p>
                 <div class="PD-product-image">
-                    <img src="/images/img-producto-1.png" alt="Producto-1" height="25%">
+                    <img src="<%= product.image %>" alt="Producto-1" height="25%">
                 </div>
             </div>
             <div class="PD-flex-container-products-item PD-md-flex-no-grow">
@@ -41,10 +41,10 @@
                 </div>
                 <div class="PD-flex-container-products-amount">
                     <div class="PD-flex-container-products-discount">
-                        <p>40% OFF</p>
+                        <p><%= product.discount %>% OFF</p>
                     </div>
                     <div class="PD-flex-container-products-price">
-                        <p>$6.770</p>
+                        <p>$<%= product.price %></p>
                     </div>
                     <div class="añadir">
                         <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
@@ -55,17 +55,14 @@
         <div class="PD-flex-container-products-detail">
             <p class="title-2">Detalle</p>
             <div class="PD-brt-solid-ligthgrey-1px-p15px">
-                <p>Marca: SmartBuy</p>
-                <p>Colección: The Essentials</p>
-                <p>Género: Unisex</p>
-                <p>Año: 2021</p>
-                <p>UPC: 551774C2</p>
+                <p>Marca: <%= product.brand %></p>
+                <p>Colección: <%= product.collection %></p>
+                <p>Género: <%= product.gender %></p>
+                <p>Año: <%= product.date %></p>
             </div>
             <p class="title-2">Descripcion</p>
             <div class="PD-brt-solid-ligthgrey-1px-p15px">
-                <p> Sobre SmartBuy Collection Sydnellion G1816 C2. Los anteojos se ven bien no importa
-                    cuál
-                    sea la ocasión</p>
+                <p> <%= product.description %></p>
             </div>
         </div>
     </main>

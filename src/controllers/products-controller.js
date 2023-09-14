@@ -1,6 +1,6 @@
 const colorServices = require("../services/colors-services");
 const sizeServices = require("../services/sizes-services");
-const productService = require("../services/product-service");
+const productService = require("../services/product-services");
 
 module.exports = {
 
@@ -12,7 +12,9 @@ module.exports = {
   },
   // Vista detalle de un producto particular
   productDetail: (req, res) => {
-    res.render('product-detail');
+    const id = req.params.id;
+    const product = productService.getProduct(id);
+    res.render('product-detail', {product} );
   },
   // Vista formulario de edición de productos
   productEdit: (req, res) => {

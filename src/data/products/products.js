@@ -1,5 +1,6 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const fs = require("fs");
+const { connect } = require("http2");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
@@ -9,7 +10,12 @@ module.exports = {
       const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
       return products;
     },
-    saveProducts: function (products) {
+    findById: function (id) {
+      const products = this.getProducts();
+      const product = products.find((product) => product.id == id);
+       return product;
+    },   
+    saveProducts: function (products) {c
       const productsFilePath = path.join(__dirname, "./productsDB.json");
       fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
     },
