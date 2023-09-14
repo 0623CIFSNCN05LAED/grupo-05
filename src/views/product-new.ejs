@@ -49,7 +49,7 @@
                     <div class="checkbox-group">
                         <% sizeList.forEach(size => { %>
                             <div class="checkbox-option">
-                                <input type="checkbox" id="<%= size.name %>" name="size" value="<%= size.name %>">
+                                <input type="checkbox" id="<%= size.name %>" name="size" value="<%= size.id %>">
                                 <label for="<%= size.name %>"><%= size.name %></label>
                             </div>
                             <% }) %>
@@ -61,7 +61,7 @@
                     <div class="checkbox-group">
                         <% colorList.forEach(color => { %>
                         <div class="checkbox-option">
-                            <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.name %>">
+                            <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
                             <label for="<%= color.name %>"><%= color.name %></label>
                             <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
                         </div>

@@ -15,7 +15,7 @@ module.exports = {
       const product = products.find((product) => product.id == id);
        return product;
     },   
-    saveProducts: function (products) {c
+    saveProducts: function (products) {
       const productsFilePath = path.join(__dirname, "./productsDB.json");
       fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
     },
