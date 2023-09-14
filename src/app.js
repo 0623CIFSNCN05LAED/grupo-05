@@ -1,22 +1,25 @@
 const PORT = 3002;
 
-// 1) Importar tanto el framework Express y path.
+// ** Requires's ----------------------------------------------------------------------------------------------
 const express = require('express');
 const path = require('path');
 const mainRouter = require('./routes/main-router');
+const methodOverride = require("method-override"); 	
 
-// 2) Crear una instancia de Express.
+//  ** Express instances --------------------------------------------------------------------------------------
 const app = express();
 
+// ** Middlewares ---------------------------------------------------------------------------------------------
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(methodOverride("_method"));  
 
-// 3) Poner al servidor a escuchar al puerto 3001.
-app.listen(PORT, () => console.log('Se prendió en el puerto ' + PORT));
-
-// 4) Set EJS as template engine
-
+// Template Engine --------------------------------------------------------------------------------------------
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
-app.use("/",mainRouter);
+// Route System require and use() -----------------------------------------------------------------------------
+app.use("/", mainRouter);
+
+// Server start on Port
+app.listen(PORT, () => console.log('Se prendió en el puerto ' + PORT));
 

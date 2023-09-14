@@ -2,17 +2,42 @@ const colorServices = require("../services/colors-services");
 const sizeServices = require("../services/sizes-services");
 const productService = require("../services/product-service");
 
+module.exports = {
 
-module.exports= {
-    // Create - Form to create
-  create: (req, res) => {
-    res.render('product-new',{
-      colorList: colorServices.listColors(),
-      sizeList : sizeServices.listsizes(),
-  }
-  );
+  // Vista listado de productos 
+  productList: (req, res) => {
+    const allProducts = productService.getAllProducts();
+    console.log(allProducts);
+    /*        res.render('product-list', {products: mainServicies.getAllProducts()});*/
   },
-  createNew:(req, res) => {
+  // Vista detalle de un producto particular
+  productDetail: (req, res) => {
+    res.render('product-detail');
+  },
+  // Vista formulario de edición de productos
+  productEdit: (req, res) => {
+    res.render('product-edit', {
+      colorList: colorServices.listColors(),
+      sizeList: sizeServices.listsizes(),
+    }
+    );
+  },
+  // Vista formulario de borrado de producto
+  productDelete: (req, res) => {
+    res.render('product-delete');
+  },
+
+  // Vista formulario de creación de producto
+  create: (req, res) => {
+    res.render('product-new', {
+      colorList: colorServices.listColors(),
+      sizeList: sizeServices.listsizes(),
+    }
+    );
+  },
+
+  // Acción de creación (a donde se envía el formulario)    
+  createNew: (req, res) => {
     console.log(req.body)
     const product = {
       art: req.body.art,
@@ -30,18 +55,13 @@ module.exports= {
     productService.createProduct(product);
     res.redirect("/products/create"); // se usa redirect 
   },
-  productDetail: (req,res) => {
-    res.render('product-detail');
-  },
 
-  productList: (req,res) => {
-    res.render('product-list');
+  // Acción de edición (a donde se envía el formulario):   
+  update: (req, res) => {
+
   },
-  productEdit: (req,res) => {
-    res.render('product-edit',{
-        colorList: colorServices.listColors(),
-        sizeList : sizeServices.listsizes(),
-    }
-    );
-},
+  // Acción de borrado de un producto en la BD
+  delete: (req, res) => {
+
+  },
 }
