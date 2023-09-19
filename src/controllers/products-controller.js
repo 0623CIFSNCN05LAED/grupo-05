@@ -18,9 +18,12 @@ module.exports = {
   },
   // Vista formulario de edición de productos
   productEdit: (req, res) => {
+    const id = req.params.id;
+    const product = productService.getProduct(id);
     res.render('product-edit', {
       colorList: colorServices.listColors(),
-      sizeList: sizeServices.listsizes(),
+      sizeList: sizeServices.listsizes(), 
+      product
     }
     );
   },

@@ -78,7 +78,9 @@
 
         </div>
             <div class="buttoms">
-                <button class="buttom-productEdit-form red" type="reset">Borrar</button>
+                <form action="/products/<%= product.id %>?_method=delete" method="POST">
+                    <button class="buttom-productEdit-form red" type="submit">Borrar</button>
+                </form>
                 <button class="buttom-productEdit-form" type="submit">Editar Producto</button>
             </div>
         </form>
