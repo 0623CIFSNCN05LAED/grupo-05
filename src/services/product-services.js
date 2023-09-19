@@ -1,6 +1,7 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const db = require("../data/db");
-const colors = require("../services/colors-services")
+const colorsServices = require("../services/colors-services");
+const sizesServices = require("../services/sizes-services");
 
 /* Funcion mixeo de atributos
 function createVariation (product) {
@@ -28,8 +29,17 @@ module.exports = {
       },  
   // Get the complete list of product that exist in the database  
   getProduct: (id) => {
-    const product =  db.products.findById(id);
-    console.log('Product: ', product);
+    const product =  db.products.findById(id); 
+    for (i=0; i< product.color.length; i++)
+    {
+      const color = colorsServices.findById(product.color[i]);
+      product.color[i] = color.codeHex;
+    }; 
+    for (i=0; i< product.size.length; i++)
+    {
+      const size = sizesServices.findById(product.size[i]);
+      product.size[i] = size.shortName;
+    };
     return product;
     },  
 // Create a new product

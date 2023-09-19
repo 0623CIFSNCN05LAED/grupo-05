@@ -16,28 +16,23 @@
             <div class="PD-flex-container-products-item">
                 <p class="title-1"><%= product.name %></p>
                 <div class="PD-product-image">
-                    <img src="<%= product.image %>" alt="Producto-1" height="25%">
+                    <img src="/images/products/<%=product.image%>" alt=<%= product.name %> height="25%">
                 </div>
             </div>
             <div class="PD-flex-container-products-item PD-md-flex-no-grow">
                 <p class="title-2  PD-md-m-t-40px">Colores disponibles:</p>
                 <div class="PD-flex-container-products-item-colors">
-                    <div class="PD-flex-container-products-item-color PD-item-color-red">-</div>
-                    <div class="PD-flex-container-products-item-color PD-item-color-grey">-</div>
-                    <div class="PD-flex-container-products-item-color PD-item-color-orange">-</div>
-                    <div class="PD-flex-container-products-item-color PD-item-color-blue">-</div>
+                    <% product.color.forEach((color)=> { %>
+                        <div class="PD-flex-container-products-item-color" style="background-color: <%=color%>">-</div>     
+                    <% }); %>
                 </div>
                 <p class="title-2 PD-m-t-10px">Talles disponibles:</p>
                 <div class="PD-flex-container-products-item-sizes">
-                    <div class="PD-flex-container-products-item-size">
-                        <p class="PD-item-size">S</p>
-                    </div>
-                    <div class="PD-flex-container-products-item-size">
-                        <p class="PD-item-size">M</p>
-                    </div>
-                    <div class="PD-flex-container-products-item-size">
-                        <p class="PD-item-size">L</p>
-                    </div>
+                    <% product.size.forEach((size)=> { %>
+                        <div class="PD-flex-container-products-item-size">
+                            <p class="PD-item-size"><%=size%></p>
+                        </div>
+                    <% }); %>
                 </div>
                 <div class="PD-flex-container-products-amount">
                     <div class="PD-flex-container-products-discount">

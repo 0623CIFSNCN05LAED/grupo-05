@@ -1,19 +1,23 @@
 const sizes = [
     {
       "id": 1,
-      "name": "Small"
+      "name": "Small",
+      "shortName": "S"
     },
     {
       "id": 2,
-      "name": "Medium"
+      "name": "Medium",
+      "shortName": "M"
     },
     {
       "id": 3,
-      "name": "Large"
+      "name": "Large",
+      "shortName": "L"
     },
     {
       "id": 4,
-      "name": "Extra Large"
+      "name": "Extra Large",
+      "shortName": "XL"
     }
   ]
 
