@@ -65,6 +65,8 @@ module.exports = {
   },
   // Acción de borrado de un producto en la BD
   delete: (req, res) => {
-
+    const id = req.params.id;
+    productService.deleteProduct(id);
+    res.redirect("/products");
   },
 }

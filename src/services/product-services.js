@@ -49,4 +49,9 @@ module.exports = {
         */
         db.products.create(product)
       },
+
+  // Delete a new product
+  deleteProduct: (id) => {
+    db.products.delete(id);
+  },
 }
