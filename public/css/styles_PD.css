@@ -151,6 +151,34 @@
     width: 100%;
 }
 
+.PD-delete-button{
+    border-radius: 6px;
+    background-color: #ff0000;
+    border-color: transparent;
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 22px;
+    opacity: 0.8;
+    width: 100%;
+}
+
+.PD-edit-button-text{
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.PD-edit-button-box {
+    border-radius: 6px;
+    background-color: #b38209;
+    opacity: 0.8;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    border-color: transparent;
+}
+
 .PD-m-t-10px{
     margin-top: 10px;
 }

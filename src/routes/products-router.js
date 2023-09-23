@@ -38,6 +38,6 @@ router.get('/edit/:id', productsController.productEdit);
 router.put('products/:id', productsController.update);
 
 //Acción de borrado
-router.delete('products/:id', productsController.delete);
+router.delete('/:id', productsController.delete);
 
 module.exports = router

@@ -44,7 +44,13 @@
                     <div class="añadir">
                         <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
                     </div>
-                </div>        
+                </div>
+                <div class="PD-edit-button-box">
+                    <a href="/products/edit/<%= product.id %>" class="PD-edit-button-text">Editar producto</a>
+                </div>
+                <form action="/products/<%= product.id %>?_method=delete" method="POST">
+                    <button class="PD-delete-button" type="submit">Borrar</button>
+                </form>
             </div>
         </div>
         <div class="PD-flex-container-products-detail">
