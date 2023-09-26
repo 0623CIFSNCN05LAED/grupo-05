@@ -22,7 +22,7 @@
                     <% } %>   
 
                     <label class="label-register-form surname" for="surname" >Apellido</label>
-                    <input class="input-register-form surname" type="text" id="surname" name="surname"  value= "<%= oldData ? oldData.surnmae : "" %>">
+                    <input class="input-register-form surname" type="text" id="surname" name="surname"  value= "<%= oldData ? oldData.surname : "" %>">
                     <% if(errors && errors.surname) { %>
                         <p class="error-register-form"><%= errors.surname.msg %></p> 
                     <% } %>   

@@ -13,11 +13,11 @@ module.exports = {
     },  
 // Create a new product
   createUser: (user) => {
-        db.users.create(user)
+        db.users.createUser(user)
       },
 
   // Delete a new product
   deleteUser: (id) => {
-    db.users.delete(id);
+    db.users.deleteUser(id);
   },
 }

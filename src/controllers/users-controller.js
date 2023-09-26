@@ -1,4 +1,4 @@
-const userService = require("../services/users-services");
+const userService = require("../services/user-services");
 
 module.exports = {
   // Vista listado de usuarios 
@@ -22,7 +22,7 @@ module.exports = {
   },
   // Vista formulario de Login
   showLogin: (req, res) => {
-    //    res.render('login');
+     res.render('login');
   },
   // Acción de Login
   login: (req, res) => {
@@ -43,18 +43,23 @@ module.exports = {
 
   // Acción de creación (a donde se envía el formulario)    
   register: (req, res) => {
-    console.log('main-controles:register');
-    const errors = req.session.errors;
-    const oldData = req.session.oldData;
-    console.log(errors);
-    console.log(oldData);
-    req.session.errors = null;
-    req.session.oldData = null;
-    res.render('register', {
-      errors: errors ? errors : null,
-      oldData: oldData ? oldData : null
-    });
+
+    const user = {
+    firstName: req.body.name,
+    lastName: req.body.surname,
+    emai: req.body.email,
+    birthDay: req.body.birthDay,
+    address: req.body.address,
+    zipcode: req.body.zipcode,
+    password: req.body.password,
+//  req.body.category": "admin",
+//  req.body.image":"default.jpg"  
+    };
+    console.log("Users-controler user:", user);
+    userService.createUser(user);
+    res.redirect("/users/register");  
   },
+
   // Acción de logout
   logout: (req, res) => {
     req.session.destroy();

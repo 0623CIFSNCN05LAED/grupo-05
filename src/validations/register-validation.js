@@ -7,7 +7,7 @@ module.exports = [
     body("email").notEmpty().withMessage("Debe completar este campo")
       .bail()
       .isEmail().withMessage("Debe ser un email válido"),
-    body("birthDate").notEmpty().withMessage("Debe completar este campo"),
+    body("birthDay").notEmpty().withMessage("Debe completar este campo"),
     body("address").notEmpty().withMessage("Debe completar este campo"),
     body("zipcode").notEmpty().withMessage("Debe completar este campo"),
     body("password").notEmpty().withMessage("Debe completar este campo"),

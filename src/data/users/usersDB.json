@@ -1,20 +1,26 @@
 [
-    {
-        "id":"xxca4874-590d-4ff8-87a2-15f3bb096c09",
-        "firstName": "Nombre usuario 1",
-        "lastName": "Apellido usuario 1",
-        "email": "email.usuario1@gmail.com",
-        "password": "123456",
-        "category": "admin",
-        "image":"default.jpg"
-    },
-    {
-        "id":"u7r4d638-cfc1-47e8-a957-0ab716d61335",
-        "firstName": "Nombre usuario 2",
-        "lastName": "Apellido usuario 2",
-        "email": "email.usuario2@gmail.com",
-        "password": "123456",
-        "category": "visitor",
-        "image":"default.jpg"
-    }
+  {
+    "id": "xxca4874-590d-4ff8-87a2-15f3bb096c09",
+    "firstName": "Nombre usuario 1",
+    "lastName": "Apellido usuario 1",
+    "email": "email.usuario1@gmail.com",
+    "birthday": "30/08/1979/",
+    "address": "Calle 18 nro 725",
+    "zipcode": "1896",
+    "password": "123456",
+    "category": "",
+    "image": "" 
+  },
+  {
+    "id": "a5522eb6-ee41-4d29-a244-0f4e36d66b6f",
+    "firstName": "MAGALI",
+    "lastName": "ANGLADA",
+    "emai": "Magali.anglada@gmail.com",
+    "birthDay": "1979-08-30",
+    "address": "Calle 13A nro 343",
+    "zipcode": "1896",
+    "password": "123456",
+    "category": "",
+    "image": "" 
+  }
 ]

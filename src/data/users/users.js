@@ -1,6 +1,7 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const fs = require('fs');
 const path = require('path');
+const { v4: uuidv4 } = require("uuid");
 
 module.exports = {
     getUsers: function () {
@@ -14,12 +15,12 @@ module.exports = {
     },
     createUser: function (users) {
         console.log(`Creating user ${users.nameFirst} ${users.nameLast}`);
-        const users = this.getUSers();
+        const usersDB = this.getUsers();
         const newUser = {
           id: uuidv4(),
-          ...user,
+          ...users,
         };
-        users.push(newuser);
-        this.saveUsers(users);
+        usersDB.push(newUser);
+        this.saveUsers(usersDB);
       },
     };
