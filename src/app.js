@@ -5,6 +5,7 @@ const express = require('express');
 const path = require('path');
 const mainRouter = require('./routes/main-router');
 const methodOverride = require("method-override"); 	
+const session = require('express-session');
 
 //  ** Express instances --------------------------------------------------------------------------------------
 const app = express();
@@ -12,6 +13,12 @@ const app = express();
 // ** Middlewares ---------------------------------------------------------------------------------------------
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(methodOverride("_method"));  
+app.use(session({
+    secret: "DevVision_secret",
+    resave: false,
+    saveUninitialized: false
+}));
+
 
 // Template Engine --------------------------------------------------------------------------------------------
 app.set('view engine', 'ejs');

@@ -12,39 +12,65 @@
         <%- include("partials/header") %>
      </header>
     <main class="main_style">
-        <form action="/register" method="POST" class="register-form">
+        <form action="/users/register" method="POST" class="register-form">
 
                 <div class="div-name">
                     <label class="label-register-form name" for="name" >Nombre</label>
-                    <input class="input-register-form name" type="text" id="name" name="name" required>
-            
+                    <input class="input-register-form name" type="text" id="name" name="name" value= "<%= oldData ? oldData.name : "" %>">
+                    <% if(errors && errors.name) { %>
+                        <p class="error-register-form"><%= errors.name.msg %></p> 
+                    <% } %>   
+
                     <label class="label-register-form surname" for="surname" >Apellido</label>
-                    <input class="input-register-form surname" type="text" id="surname" name="surname" required>
+                    <input class="input-register-form surname" type="text" id="surname" name="surname"  value= "<%= oldData ? oldData.surnmae : "" %>">
+                    <% if(errors && errors.surname) { %>
+                        <p class="error-register-form"><%= errors.surname.msg %></p> 
+                    <% } %>   
+        
                 </div>
 
                 <label class="label-register-form" for="email" >Email</label>
-                <input class="input-register-form" type="email" id="email" name="email" required>
-
+                <input class="input-register-form" type="email" id="email" name="email"  value= "<%= oldData ? oldData.email : "" %>">
+                <% if(errors && errors.email) { %>
+                    <p class="error-register-form"><%= errors.email.msg %></p> 
+                <% } %>   
+    
                 <label class="label-register-form" for="birth" >Fecha de Nacimiento</label>
-                <input class="input-register-form" type="date" id="birth" name="birth">
-
+                <input class="input-register-form" type="date" id="birthDay" name="birthDay" value= "<%= oldData ? oldData.birthDay : "" %>">
+                <% if(errors && errors.birthDay) { %>
+                    <p class="error-register-form"><%= errors.birthDay.msg %></p> 
+                <% } %>   
+    
                 <label class="label-register-form" for="address" >Domiciolio</label>
-                <input class="input-register-form domicilio" type="text" id="address" name="address" required>
+                <input class="input-register-form domicilio" type="text" id="address" name="address"  value= "<%= oldData ? oldData.address : "" %>">
+                <% if(errors && errors.address) { %>
+                    <p class="error-register-form"><%= errors.address.msg %></p> 
+                <% } %>   
+    
                 <select class="input-register-form tipo-domicilio" name="choose" id="choose" required>
                     <option value="Casa">Casa</option>
                     <option value="Departamento">Depatamento</option>
                 </select>
                 
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>
-                <input class="input-register-form" type="text" id="zipcode" name="zipcode" required> 
-                
+                <input class="input-register-form" type="text" id="zipcode" name="zipcode" value= "<%= oldData ? oldData.zipcode : "" %>"> 
+                <% if(errors && errors.zipcode) { %>
+                    <p class="error-register-form"><%= errors.zipcode.msg %></p> 
+                <% } %>   
+    
                 <label class="label-register-form" for="password" >Contraseña</label>
-                <input class="input-register-form"  type="password" id="password" name="password" required>
-
+                <input class="input-register-form"  type="password" id="password" name="password" value= "<%= oldData ? oldData.password : "" %>">
+                <% if(errors && errors.password) { %>
+                    <p class="error-register-form"><%= errors.password.msg %></p> 
+                <% } %>   
+    
                 <label class="label-register-form" for="confirmPassword" >Confirmar contraseña</label>
-                <input class="input-register-form"  type="password" id="confirmPassword" name="confirmPassword" required>
-
-                <a class="register-register-form" href="/login">¡Ya tengo una cuenta! Ingresar</a>
+                <input class="input-register-form"  type="password" id="confirmPassword" name="confirmPassword"  value= "<%= oldData ? oldData.confirmPassword : "" %>">
+                <% if(errors && errors.confirmPassword) { %>
+                    <p class="error-register-form"><%= errors.confirmPassword.msg %></p> 
+                <% } %>   
+    
+                <a class="register-register-form" href="/users/login">¡Ya tengo una cuenta! Ingresar</a>
 
                 <button class="buttom-register-form" type="submit">Crear Cuenta</button>
         </form>

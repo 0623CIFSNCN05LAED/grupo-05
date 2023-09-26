@@ -12,7 +12,7 @@ module.exports = {
       const usersFilePath = path.join(__dirname, "./usersDB.json");
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
     },
-    create: function (users) {
+    createUser: function (users) {
         console.log(`Creating user ${users.nameFirst} ${users.nameLast}`);
         const users = this.getUSers();
         const newUser = {
@@ -20,6 +20,6 @@ module.exports = {
           ...user,
         };
         users.push(newuser);
-        this.saveProducts(users);
+        this.saveUsers(users);
       },
     };
