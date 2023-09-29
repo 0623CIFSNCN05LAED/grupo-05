@@ -43,17 +43,18 @@ module.exports = {
 
   // Acción de creación (a donde se envía el formulario)    
   register: (req, res) => {
-
+    console.log(req.body);
     const user = {
     firstName: req.body.name,
     lastName: req.body.surname,
     emai: req.body.email,
     birthDay: req.body.birthDay,
     address: req.body.address,
+    buildtype: req.body.buildtype,
     zipcode: req.body.zipcode,
     password: req.body.password,
-//  req.body.category": "admin",
-//  req.body.image":"default.jpg"  
+    category: "admin",
+    image: req.file ? req.file.filename : 'default_user.png' 
     };
     console.log("Users-controler user:", user);
     userService.createUser(user);

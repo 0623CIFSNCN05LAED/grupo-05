@@ -33,10 +33,9 @@ router.get('/list', usersController.userList);
 // Detalle de un producto particular
 router.get('/detail/:id', usersController.userDetail);
 
-
 //router.post('/login', urlencoded({extended: false,}),validations,validateforms,mainController.login);
 router.post('/logout', usersController.logout);
-router.post('/register', urlencoded({extended: false,}),validationsRegister,validateformsRegister,usersController.register);
+router.post('/register', upload.single("image"), urlencoded({extended: false,}),validationsRegister,validateformsRegister,usersController.register);
 
 // Formulario de edición de usuario
 router.get('/edit/:id', usersController.userEdit);

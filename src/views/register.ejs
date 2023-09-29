@@ -12,8 +12,7 @@
         <%- include("partials/header") %>
      </header>
     <main class="main_style">
-        <form action="/users/register" method="POST" class="register-form">
-
+        <form action="/users/register" method="POST" class="register-form" enctype="multipart/form-data">
                 <div class="div-name">
                     <label class="label-register-form name" for="name" >Nombre</label>
                     <input class="input-register-form name" type="text" id="name" name="name" value= "<%= oldData ? oldData.name : "" %>">
@@ -47,9 +46,10 @@
                     <p class="error-register-form"><%= errors.address.msg %></p> 
                 <% } %>   
     
-                <select class="input-register-form tipo-domicilio" name="choose" id="choose" required>
-                    <option value="Casa">Casa</option>
-                    <option value="Departamento">Depatamento</option>
+                <select class="input-register-form tipo-domicilio" name="buildtype" id="buildtype" required>
+                    <option value=" " <%= oldData && oldData.buildtype === ' ' ? "selected" : "" %>> </option>
+                    <option value="Casa" <%= oldData && oldData.buildtype === 'Casa' ? "selected" : "" %>>Casa</option>
+                    <option value="Departamento"<%= oldData && oldData.buildtype === 'Departamento' ? "selected" : "" %>>Depatamento</option>
                 </select>
                 
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>
@@ -69,7 +69,9 @@
                 <% if(errors && errors.confirmPassword) { %>
                     <p class="error-register-form"><%= errors.confirmPassword.msg %></p> 
                 <% } %>   
-    
+                <label class="label-register-form" for="image" >Imagen de perfil</label>
+                <input class="input-register-form image" type="file" id="image" name="image"  accept="image/*">
+                
                 <a class="register-register-form" href="/users/login">¡Ya tengo una cuenta! Ingresar</a>
 
                 <button class="buttom-register-form" type="submit">Crear Cuenta</button>
