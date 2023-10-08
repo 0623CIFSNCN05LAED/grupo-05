@@ -1,8 +1,8 @@
 const { Router, urlencoded } = require('express');
 const router = Router();
 const path = require("path");
-const validationsRegister = require('../validations/register-validation');
-const validateformsRegister = require('../middlewares/validate-register-form');
+const validationsAuth= require('../validations/validation-auth');
+const validateforms = require('../middlewares/validate-form');
 const userGuard = require('../middlewares/user-guard');
 const multer = require("multer");
 
@@ -34,8 +34,9 @@ router.get('/list', usersController.userList);
 router.get('/detail/:id', usersController.userDetail);
 
 //router.post('/login', urlencoded({extended: false,}),validations,validateforms,mainController.login);
+router.post("/login", urlencoded({extended: false,}),validationsAuth.login,validateforms.login,usersController.login)
 router.post('/logout', usersController.logout);
-router.post('/register', upload.single("image"), urlencoded({extended: false,}),validationsRegister,validateformsRegister,usersController.register);
+router.post('/register', upload.single("image"), urlencoded({extended: false,}),validationsAuth.register,validateforms.register,usersController.register);
 
 // Formulario de edición de usuario
 router.get('/edit/:id', usersController.userEdit);

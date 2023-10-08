@@ -9,6 +9,12 @@ module.exports = {
         const users = JSON.parse(fs.readFileSync(usersFilePath,"utf-8"));
         return users;
       },
+    getUserByEmail: function (email) {
+      const users = this.getUsers()
+      const userEmail = users.find((user) => user.email === email)
+      return userEmail != undefined ? userEmail : false
+    },
+
     saveUsers: function (users) {
       const usersFilePath = path.join(__dirname, "./usersDB.json");
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));

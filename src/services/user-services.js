@@ -11,13 +11,27 @@ module.exports = {
     const user =  db.users.findById(id); 
     return user;
     },  
-// Create a new product
+// Create a new User
   createUser: (user) => {
         db.users.createUser(user)
       },
 
-  // Delete a new product
+  // Delete a User
   deleteUser: (id) => {
     db.users.deleteUser(id);
   },
+  //autentificacion
+  authentication: (email, password)  => {
+    const data = db.users.getUserByEmail(email)
+    if(data.password === password){
+      return  {
+        id: data.id,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,       
+      }
+    }else{
+      return false
+    }
+  }
 }

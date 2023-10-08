@@ -22,11 +22,27 @@ module.exports = {
   },
   // Vista formulario de Login
   showLogin: (req, res) => {
-     res.render('login');
+    const errors = req.session.errors;
+    const oldData = req.session.oldData;
+    req.session.errors = null;
+    req.session.oldData = null;
+    console.log(req.session);
+     res.render('login',{
+      errors: errors ? errors : null,
+      oldData: oldData ? oldData : null
+    });
   },
   // Acción de Login
   login: (req, res) => {
-    //    res.render('login');
+    console.log(req.body)
+    const authentication = userService.authentication(req.body.email,req.body.password)
+    if(authentication){
+      console.log("ESTOY ACA")
+      console.log(authentication)
+    }else{
+      req.session.userData =  authentication
+      console.log(authentication)
+    }
   },
 
   // Vista formulario de creación de usuario
@@ -47,7 +63,7 @@ module.exports = {
     const user = {
     firstName: req.body.name,
     lastName: req.body.surname,
-    emai: req.body.email,
+    email: req.body.email,
     birthDay: req.body.birthDay,
     address: req.body.address,
     buildtype: req.body.buildtype,
