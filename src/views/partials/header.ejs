@@ -13,7 +13,11 @@
     <div class="fc-header-item-menu">
         <ul type="none" class="fc">
             <li class="fc-header-item-icon">
-                <a href="/users/login"><i class="fa-regular fa-user color_white"></i></a>
+                <% if(userData) {%>
+                    <a href="/users/login"></a>
+                <%}else {%>
+                    <a href="/users/login"><i class="fa-regular fa-user color_white"></i></a>
+                <%}%>
             </li>
             <li class="fc-header-item-icon shopping-cart">
                 <a href="/productcart" class="shopping-cart"><i class="fa-solid fa-cart-plus color_white"></i></a>
@@ -23,7 +27,9 @@
                 <i class="fa-solid fa-bars color_white"></i>
             </li>
             <li>
-                <p class="display-none">nombre.apellido@dominio.com</p>
+                <% if(userData) {%>
+                <p><%= userData.email %></p>
+                <%}%>
             </li>
         </ul>
     </div>

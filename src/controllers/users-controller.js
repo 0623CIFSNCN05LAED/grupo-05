@@ -29,7 +29,8 @@ module.exports = {
     console.log(req.session);
      res.render('login',{
       errors: errors ? errors : null,
-      oldData: oldData ? oldData : null
+      oldData: oldData ? oldData : null,
+      userData: !req.session.userData ? req.session.userData : null
     });
   },
   // Acción de Login
@@ -37,10 +38,10 @@ module.exports = {
     console.log(req.body)
     const authentication = userService.authentication(req.body.email,req.body.password)
     if(authentication){
-      console.log("ESTOY ACA")
-      console.log(authentication)
-    }else{
       req.session.userData =  authentication
+      console.log(authentication)
+      res.redirect("/")
+    }else{
       console.log(authentication)
     }
   },
@@ -74,7 +75,7 @@ module.exports = {
     };
     console.log("Users-controler user:", user);
     userService.createUser(user);
-    res.redirect("/users/register");  
+    res.redirect("/users/login");  
   },
 
   // Acción de logout
