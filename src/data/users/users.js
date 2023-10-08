@@ -9,6 +9,11 @@ module.exports = {
         const users = JSON.parse(fs.readFileSync(usersFilePath,"utf-8"));
         return users;
       },
+    getUserById: function(id) {
+      const users = this.getUsers()
+      const userId = users.find((user) => user.id === id)
+      return userId != undefined ? userId : false
+    },
     getUserByEmail: function (email) {
       const users = this.getUsers()
       const userEmail = users.find((user) => user.email === email)

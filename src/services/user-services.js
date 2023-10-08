@@ -1,5 +1,6 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const db = require("../data/db");
+const bcrypt = require("bcrypt");
 
 module.exports = {
 // Get the complete list of users that exist in the database  
@@ -8,22 +9,38 @@ module.exports = {
       },  
   // Get user from DB  
   getUser: (id) => {
-    const user =  db.users.findById(id); 
+    const user =  db.users.getUserById(id); 
     return user;
     },  
 // Create a new User
   createUser: (user) => {
         db.users.createUser(user)
       },
-
+  updateUser: (user) => {
+    let userSave = {
+      ...db.users.getUserById(user.id),
+      user
+    }
+  },
   // Delete a User
   deleteUser: (id) => {
     db.users.deleteUser(id);
   },
+  //Encriptar password
+  encryptedPassword: function (password) {
+    let passEncrypted = bcrypt.hashSync(password,10)
+    return passEncrypted
+  },
+  descryptedPassword: function (password,hashPassword) {
+    let passCheck = bcrypt.compareSync(password,hashPassword)
+    return passCheck
+  },
+
   //autentificacion
-  authentication: (email, password)  => {
+  authentication: function (email, password)  {
     const data = db.users.getUserByEmail(email)
-    if(data.password === password){
+
+    if(this.descryptedPassword(password,data.password)){
       return  {
         id: data.id,
         firstName: data.firstName,

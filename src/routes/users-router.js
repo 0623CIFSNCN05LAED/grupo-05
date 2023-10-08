@@ -38,10 +38,11 @@ router.post("/login", urlencoded({extended: false,}),validationsAuth.login,valid
 router.post('/logout', usersController.logout);
 router.post('/register', upload.single("image"), urlencoded({extended: false,}),validationsAuth.register,validateforms.register,usersController.register);
 
+
 // Formulario de edición de usuario
 router.get('/edit/:id', usersController.userEdit);
 //Acción de edición 
-router.put('users/:id', usersController.update);
+router.post('/update/:id',upload.single("image"), urlencoded({extended: false,}),usersController.update);
 
 //Acción de borrado
 router.delete('/:id', usersController.delete);

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>  
+    <link rel="stylesheet" href="/css/styles_Register.css">
+    <title>DevVision - Crear Cuenta</title>
+</head>
+
+<body class="bg-grey">
+    <header class="header_style">    
+        <%- include("partials/header") %>
+     </header>
+    <main class="main_style">
+        <form action="/users/update/<%= user.id %>" method="post" class="register-form" enctype="multipart/form-data">
+                <div class="div-name">
+                    <label class="label-register-form name" for="firstName" >Nombre</label>
+                    <input class="input-register-form name" type="text" id="name" name="firstName" value= "<%= user ? user.firstName : "" %>">
+                    <% if(errors && errors.name) { %>
+                        <p class="error-register-form"><%= errors.name.msg %></p> 
+                    <% } %>   
+
+                    <label class="label-register-form surname" for="lastName" >Apellido</label>
+                    <input class="input-register-form surname" type="text" id="lastName" name="lastName"  value= "<%= user ? user.lastName : "" %>">
+                    <% if(errors && errors.surname) { %>
+                        <p class="error-register-form"><%= errors.surname.msg %></p> 
+                    <% } %>   
+        
+                </div>
+
+                <label class="label-register-form" for="email" >Email</label>
+                <input class="input-register-form" type="email" id="email" name="email"  value= "<%= user ? user.email : "" %>">
+                <% if(errors && errors.email) { %>
+                    <p class="error-register-form"><%= errors.email.msg %></p> 
+                <% } %>   
+    
+                <label class="label-register-form" for="birth" >Fecha de Nacimiento</label>
+                <input class="input-register-form" type="date" id="birthDay" name="birthDay" value= "<%= user ? user.birthDay : "" %>">
+                <% if(errors && errors.birthDay) { %>
+                    <p class="error-register-form"><%= errors.birthDay.msg %></p> 
+                <% } %>   
+    
+                <label class="label-register-form" for="address" >Domiciolio</label>
+                <input class="input-register-form domicilio" type="text" id="address" name="address"  value= "<%= user ? user.address : "" %>">
+                <% if(errors && errors.address) { %>
+                    <p class="error-register-form"><%= errors.address.msg %></p> 
+                <% } %>   
+    
+                <select class="input-register-form tipo-domicilio" name="buildtype" id="buildtype" required>
+                    <option value=" " <%= user && user.buildtype === ' ' ? "selected" : "" %>> </option>
+                    <option value="Casa" <%= user && user.buildtype === 'Casa' ? "selected" : "" %>>Casa</option>
+                    <option value="Departamento"<%= user && user.buildtype === 'Departamento' ? "selected" : "" %>>Depatamento</option>
+                </select>
+                
+                <label class="label-register-form" for="zipcode" >Codigo Postal</label>
+                <input class="input-register-form" type="text" id="zipcode" name="zipcode" value= "<%= user ? user.zipcode : "" %>"> 
+                <% if(errors && errors.zipcode) { %>
+                    <p class="error-register-form"><%= errors.zipcode.msg %></p> 
+                <% } %>   
+    
+                <label class="label-register-form" for="password" >Contraseña</label>
+                <input class="input-register-form"  type="password" id="password" name="password" placeholder="Si desea cambair la contraseña, escriba una nueva">
+    
+                <label class="label-register-form" for="confirmPassword" >Confirmar contraseña</label>
+                <input class="input-register-form"  type="password" id="confirmPassword" name="confirmPassword" placeholder="Si desea cambair la contraseña, escriba una nueva">
+
+                <label class="label-register-form" for="image" >Imagen de perfil</label>
+                    <input class="input-register-form image" type="file" id="image" name="image"  accept="image/*">
+
+                <button class="buttom-register-form" type="submit">Editar</button>
+        </form>
+    </main>
+    <footer class="footer_style">
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

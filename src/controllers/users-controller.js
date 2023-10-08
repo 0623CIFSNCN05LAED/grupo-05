@@ -16,6 +16,14 @@ module.exports = {
   },
   // Vista formulario de edición de un usuario
   userEdit: (req, res) => {
+    const id = req.params.id;
+    const errors = req.session.errors;
+    const user = userService.getUser(id);
+    res.render('edit-user', {
+      userData: req.session.userData,
+      user: user,
+      errors: errors ? errors : null,
+    })
   },
   // Vista formulario de borrado de usuario
   userDelete: (req, res) => {
@@ -30,12 +38,11 @@ module.exports = {
      res.render('login',{
       errors: errors ? errors : null,
       oldData: oldData ? oldData : null,
-      userData: !req.session.userData ? req.session.userData : null
+      userData: req.session.userData ? req.session.userData : null
     });
   },
   // Acción de Login
   login: (req, res) => {
-    console.log(req.body)
     const authentication = userService.authentication(req.body.email,req.body.password)
     if(authentication){
       req.session.userData =  authentication
@@ -54,13 +61,15 @@ module.exports = {
     req.session.oldData = null;
     res.render('register', {
       errors: errors ? errors : null,
-      oldData: oldData ? oldData : null
+      oldData: oldData ? oldData : null,
+      userData: req.session.userData ? req.session.userData : null
     });
   },
 
   // Acción de creación (a donde se envía el formulario)    
   register: (req, res) => {
     console.log(req.body);
+    let password = userService.encryptedPassword(req.body.password)
     const user = {
     firstName: req.body.name,
     lastName: req.body.surname,
@@ -69,7 +78,7 @@ module.exports = {
     address: req.body.address,
     buildtype: req.body.buildtype,
     zipcode: req.body.zipcode,
-    password: req.body.password,
+    password: password,
     category: "admin",
     image: req.file ? req.file.filename : 'default_user.png' 
     };
@@ -86,7 +95,17 @@ module.exports = {
 
   // Acción de edición (a donde se envía el formulario):   
   update: (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    console.log(req.body)
+    if(req.body.password ) {
+       let password = userService.encryptedPassword(req.body.password)
+       userService.update()
+    }else {
+      console.log("no se cambio la contraseña")
+    }
 
+    res.redirect(`/users/detail/${id}`)
   },
   // Acción de borrado de un usuario en la BD
   delete: (req, res) => {

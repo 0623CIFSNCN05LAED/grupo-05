@@ -163,5 +163,18 @@
     "password": "jorge123",
     "category": "admin",
     "image": "default_user.png"
+  },
+  {
+    "id": "44d9f85c-4cb1-414b-95b8-40fab609edfe",
+    "firstName": "Jorge",
+    "lastName": "Koury",
+    "email": "jorge@me.com",
+    "birthDay": "1997-03-12",
+    "address": "jorge viva 123",
+    "buildtype": "Departamento",
+    "zipcode": "1111",
+    "password": "$2b$10$laaxB1TWMKVo.3TsTn9Dsuf0dgo7uH1pK/MhqPpxkpum5XMTSB5Jq",
+    "category": "admin",
+    "image": "default_user.png"
   }
 ]

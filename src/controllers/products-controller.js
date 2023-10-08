@@ -14,7 +14,9 @@ module.exports = {
   productDetail: (req, res) => {
     const id = req.params.id;
     const product = productService.getProduct(id);
-    res.render('product-detail', {product} );
+    res.render('product-detail', {
+      product: product,
+      userData: req.session.userData ? req.session.userData : null} );
   },
   // Vista formulario de edición de productos
   productEdit: (req, res) => {
@@ -23,13 +25,13 @@ module.exports = {
     res.render('product-edit', {
       colorList: colorServices.listColors(),
       sizeList: sizeServices.listsizes(), 
-      product
-    }
-    );
+      product,
+      userData: req.session.userData ? req.session.userData : null
+    });
   },
   // Vista formulario de borrado de producto
   productDelete: (req, res) => {
-    res.render('product-delete');
+    res.render('product-delete', {userData: req.session.userData ? req.session.userData : null});
   },
 
   // Vista formulario de creación de producto
@@ -37,6 +39,7 @@ module.exports = {
     res.render('product-new', {
       colorList: colorServices.listColors(),
       sizeList: sizeServices.listsizes(),
+      userData: req.session.userData ? req.session.userData : null
     }
     );
   },
