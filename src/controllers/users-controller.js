@@ -96,13 +96,17 @@ module.exports = {
   // Acción de edición (a donde se envía el formulario):   
   update: (req, res) => {
     const id = req.params.id;
-    console.log(id)
-    console.log(req.body)
-    if(req.body.password ) {
+    if(req.body.password) {
        let password = userService.encryptedPassword(req.body.password)
-       userService.update()
+       let newData = { 
+        ...req.body,
+        password : password,
+      }
+       userService.updateUser(newData,id)
     }else {
+      userService.updateUser(req.body,id)
       console.log("no se cambio la contraseña")
+      
     }
 
     res.redirect(`/users/detail/${id}`)

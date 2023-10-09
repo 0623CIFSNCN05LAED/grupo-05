@@ -16,11 +16,11 @@ module.exports = {
   createUser: (user) => {
         db.users.createUser(user)
       },
-  updateUser: (user) => {
-    let userSave = {
-      ...db.users.getUserById(user.id),
-      user
-    }
+  updateUser: (user,id) => {
+    const userdata = db.users.getUserById(id)
+    const updateUser = user.filter(atribbute => atribbute !== "");
+
+
   },
   // Delete a User
   deleteUser: (id) => {
