@@ -97,19 +97,20 @@ module.exports = {
   update: (req, res) => {
     const id = req.params.id;
     if(req.body.password) {
-       let password = userService.encryptedPassword(req.body.password)
+       let passwordNew = userService.encryptedPassword(req.body.password)
+       let {password,...data} = req.body
        let newData = { 
-        ...req.body,
-        password : password,
+        ...data,
+        password : passwordNew,
       }
        userService.updateUser(newData,id)
+
     }else {
-      userService.updateUser(req.body,id)
-      console.log("no se cambio la contraseña")
-      
+      let {password,confirmPassword,...data} = req.body
+      userService.updateUser(data,id)
     }
 
-    res.redirect(`/users/detail/${id}`)
+    res.redirect(`/users/edit/${id}`)
   },
   // Acción de borrado de un usuario en la BD
   delete: (req, res) => {

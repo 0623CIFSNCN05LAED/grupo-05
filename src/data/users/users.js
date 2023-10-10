@@ -24,6 +24,19 @@ module.exports = {
       const usersFilePath = path.join(__dirname, "./usersDB.json");
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
     },
+    update: function (user) {
+      const users = this.getUsers();
+      
+      const updatedUsers = users.map(u => {
+          if(u.id === user.id) {
+              return { ...u, ...user };
+          }
+          return u;
+      });
+  
+      this.saveUsers(updatedUsers);
+  }
+    ,
     createUser: function (users) {
         console.log(`Creating user ${users.nameFirst} ${users.nameLast}`);
         const usersDB = this.getUsers();

@@ -167,14 +167,15 @@
   {
     "id": "44d9f85c-4cb1-414b-95b8-40fab609edfe",
     "firstName": "Jorge",
-    "lastName": "Koury",
+    "lastName": "pedro",
     "email": "jorge@me.com",
     "birthDay": "1997-03-12",
-    "address": "jorge viva 123",
+    "address": "jorge viva 123444",
     "buildtype": "Departamento",
-    "zipcode": "1111",
-    "password": "$2b$10$laaxB1TWMKVo.3TsTn9Dsuf0dgo7uH1pK/MhqPpxkpum5XMTSB5Jq",
+    "zipcode": "2222",
+    "password": "$2b$10$8PORRGVUisAV3EyP1kF58epL4UKs5rCRDCea6PZ5PX46PuQLvy97e",
     "category": "admin",
-    "image": "default_user.png"
+    "image": "default_user.png",
+    "confirmPassword": ""
   }
 ]

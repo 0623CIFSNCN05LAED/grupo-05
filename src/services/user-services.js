@@ -17,9 +17,11 @@ module.exports = {
         db.users.createUser(user)
       },
   updateUser: (user,id) => {
-    const userdata = db.users.getUserById(id)
-    const updateUser = user.filter(atribbute => atribbute !== "");
-
+    const userData = {
+      id: id,
+      ...user
+    }
+    db.users.update(userData)
 
   },
   // Delete a User
