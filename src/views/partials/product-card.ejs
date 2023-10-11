@@ -9,12 +9,12 @@
                 <% if(!product.discount) { %>
                     <p class="old-product-price" style="visibility: hidden;">Antes: <span class="old-price">$ <%= product.name %></span></p>
                 <% } else { %> 
-                    <p class="old-product-price">Antes: <span class="old-price">$ <%= product.name %></span></p>
+                    <p class="old-product-price">Antes: <span class="old-price">$ <%= product.price %></span></p>
                     <span class="discount">-<%= product.discount %>%</span>
                 <% } %>
 
                 
-                <p class="product-price">$ <%= product.price %></p>
+                <p class="product-price">$ <%= getFinalPrice(product) %></p>
             </article>
         </a>
     </section>

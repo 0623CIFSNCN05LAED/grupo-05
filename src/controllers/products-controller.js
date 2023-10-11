@@ -7,7 +7,7 @@ module.exports = {
   // Vista listado de productos 
   productList: (req, res) => {
     const allProducts = productService.getAllProducts();
-    //console.log(allProducts);
+    
     res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts});
     //{products: mainServicies.getAllProducts()}
   },
