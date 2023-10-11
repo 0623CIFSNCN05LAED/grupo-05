@@ -1,0 +1,21 @@
+<div class="col-12 col-sm-6 col-lg-3">
+    <section class="product-box">
+        <a href="/products/detail/<%= product.id %>">
+            <figure class="product-box_image">
+                <img src="/images/products/<%= product.image %>" alt="imagen de producto <%= product.name %>" class="img-product">
+            </figure>
+            <article class="product-box_data">
+                <h2><%= product.name%></h2>
+                <% if(!product.discount) { %>
+                    <p class="old-product-price" style="visibility: hidden;">Antes: <span class="old-price">$ <%= product.name %></span></p>
+                <% } else { %> 
+                    <p class="old-product-price">Antes: <span class="old-price">$ <%= product.name %></span></p>
+                    <span class="discount">-<%= product.discount %>%</span>
+                <% } %>
+
+                
+                <p class="product-price">$ <%= product.price %></p>
+            </article>
+        </a>
+    </section>
+</div>
