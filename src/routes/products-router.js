@@ -23,7 +23,7 @@ const upload = multer({
 });
 
 // Listado de productos
-router.get('/list', productsController.productList);
+router.get('/', productsController.productList);
 // Detalle de un producto particular
 router.get('/detail/:id', productsController.productDetail);
 

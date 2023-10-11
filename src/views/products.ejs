@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include("partials/head") %>  
+        <link rel="stylesheet" href="/css/styles_Products.css">
+        <link rel="stylesheet" href="/css/styles_Product-card.css">
+        <title>DevVision - Nuestros productos</title>
+    </head>
+
+    <body class="bg-grey">
+
+        <header class="header_style">    
+            <%- include("partials/header") %>
+        </header>
+        <!-- todos los productos -->
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Todos los productos</h2>
+                </div>
+
+                <% allProducts.forEach(product => { %>
+                    <%- include("partials/product-card", {product}) %>
+                    <% }) %>
+                
+
+            </div>
+        </div>
+        <!-- /todos los productos -->
+
+        <!-- <main class="main_style PC-md-w PC-md-flex PC-md-m PC-md-relative">
+            <div class="sitio-en-contruccion">
+                <img src="/images/Sitio-en-contruccion.png" alt="Sitio-en-contruccion">
+            </div>
+        </main> -->
+        
+        <footer class="footer_style">
+            <%- include("partials/footer") %>
+        </footer>
+</body>
+</html>
