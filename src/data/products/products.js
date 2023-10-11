@@ -31,7 +31,7 @@ module.exports = {
   update: function (product) {
     const products = this.getProducts();
 
-    const updatedProducts = product.map(p => {
+    const updatedProducts = products.map(p => {
       if (p.id === product.id) {
         return { ...p, ...product };
       }

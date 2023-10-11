@@ -1,5 +1,5 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
-const { Router } = require('express');
+const { Router, urlencoded } = require('express');
 const router = Router();
 const path = require("path");
 const multer = require("multer");
@@ -29,14 +29,15 @@ router.get('/detail/:id', productsController.productDetail);
 
 // Formulario de creación de productos
 router.get('/create', productsController.create);
+
 //Acción de creación 
 router.post("/", upload.single("image"), productsController.createNew);
 
 // Formulario de edición de productos
 router.get('/edit/:id', productsController.productEdit);
 //Acción de edición 
-router.post('/update/:id', productsController.update);
-    
+router.post('/update/:id', upload.single("image"), urlencoded({extended: false,}), productsController.update);
+
 //Acción de borrado
 router.delete('/:id', productsController.delete);
 
