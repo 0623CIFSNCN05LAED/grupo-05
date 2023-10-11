@@ -35,8 +35,8 @@ router.post("/", upload.single("image"), productsController.createNew);
 // Formulario de edición de productos
 router.get('/edit/:id', productsController.productEdit);
 //Acción de edición 
-router.put('products/:id', productsController.update);
-
+router.post('/update/:id', productsController.update);
+    
 //Acción de borrado
 router.delete('/:id', productsController.delete);
 

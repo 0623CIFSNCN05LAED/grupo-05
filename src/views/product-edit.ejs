@@ -2,81 +2,92 @@
 <html lang="es">
 
 <head>
-    <%- include("partials/head") %>  
-    <link rel="stylesheet" href="/css/styles_PE.css">
-
-    <title>Editar Producto - DevVision</title>
+    <%- include("partials/head") %>
+        <link rel="stylesheet" href="/css/styles_PE.css">
+        <title>Editar Producto - DevVision</title>
 </head>
 
 <body class="bg-grey">
-    <header class="header_style">    
+    <header class="header_style">
         <%- include("partials/header") %>
-     </header>
+    </header>
     <main class="main_style">
-        <h1 class="title">Editar Producto</h1>
-        <form action="/productEdit" method="POST" class="productEdit-form">
+        <h1 class="title">Editar Producto - <%= product.id %>
+        </h1>
+        <form action="/products/update/<%= product.id %>" method="POST" class="productEdit-form" enctype="multipart/form-data">
             <div class="dataProduct">
-            <label class="label-productEdit-form" for="art" >Art</label>
-            <input class="input-productEdit-form" type="text" id="art" name="art" required>
+                <label class="label-productEdit-form" for="art">Art</label>
+                <input class="input-productEdit-form" type="text" id="art" name="art" value="<%= product.art %>"
+                    required>
 
-            <label class="label-productEdit-form" for="nameProduct" >Nombre</label>
-            <input class="input-productEdit-form" type="text" id="nameProduct" name="nameProduct" required>
+                <label class="label-productEdit-form" for="nameProduct">Nombre</label>
+                <input class="input-productEdit-form" type="text" id="nameProduct" name="nameProduct"
+                    value="<%= product.name %>" required>
 
-            <label class="label-productEdit-form" for="brand" >Marca</label>
-            <input class="input-productEdit-form" type="text" id="brand" name="brand" required>
+                <label class="label-productEdit-form" for="brand">Marca</label>
+                <input class="input-productEdit-form" type="text" id="brand" name="brand" value="<%= product.brand %>"
+                    required>
 
-            <label class="label-productEdit-form" for="collection" >Coleccion</label>
-            <input class="input-productEdit-form" type="text" id="collection" name="collection" required>
+                <label class="label-productEdit-form" for="collection">Coleccion</label>
+                <input class="input-productEdit-form" type="text" id="collection" name="collection"
+                    value="<%= product.collection %>" required>
 
-            <label class="label-productEdit-form" for="model" >Modelo</label>
-            <input class="input-productEdit-form" type="text" id="model" name="model" required>
+                <label class="label-productEdit-form" for="model">Modelo</label>
+                <input class="input-productEdit-form" type="text" id="model" name="model" value="<%= product.model %>"
+                    required>
 
 
-            <label class="label-productEdit-form" for="gender" >Genero</label>
-            <select class="select-productEdit-form" id="gender" name="gender" required>
-                <option value="">Seleccione una opción...</option>
-                <option value="Unisex">Unisex</option>
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
-            </select>
+                <label class="label-productEdit-form" for="gender">Genero</label>
+                <select class="select-productEdit-form" id="gender" name="gender" required>
+                    <option value="">Seleccione una opción...</option>
+                    <option value="Unisex">Unisex</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                </select>
 
-            <label class="label-productEdit-form" for="gender" >Año</label>
-            <input type="month" name="fecha" id="fecha" class="input-productEdit-form" required>
-            <div class="checkbox-block">
-                <div class="checkbox-subblock"> 
-                    <span>Talles</span>
-                    <div class="checkbox-group">
-                        <% sizeList.forEach(size => { %>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="<%= size.name %>" name="<%= size.name %>" value="<%= size.id %>">
-                                <label for="<%= size.name %>"><%= size.name %></label>
-                            </div>
-                            <% }) %>
-                    </div>
-                </div>
-
-                <div class="checkbox-subblock"> 
-                    <span>Colores</span>
-                    <div class="checkbox-group">
-                        <% colorList.forEach(color => { %>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="<%= color.name %>" name="<%= color.name %>" value="<%= color.id %>">
-                            <label for="<%= color.name %>"><%= color.name %></label>
-                            <div class="hexColor" style="background-color: <%= color.codeHex %>;"></div>
+                <label class="label-productEdit-form" for="gender">Año</label>
+                <input type="month" name="fecha" id="fecha" class="input-productEdit-form" value="<%= product.date %>"
+                    required>
+                <div class="checkbox-block">
+                    <div class="checkbox-subblock">
+                        <span>Talles</span>
+                        <div class="checkbox-group">
+                            <% sizeList.forEach(size=> { %>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="<%= size.name %>" name="<%= size.name %>"
+                                        value="<%= size.id %>" <% if ( product.size.find((value)=> value == size.shortName)){%> checked <%}%>>
+                                        <label for="<%= size.name %>">
+                                            <%= size.name %>
+                                        </label>
+                                </div>
+                                <% }) %>
                         </div>
-                        <% }) %>
+                    </div>
+
+                    <div class="checkbox-subblock">
+                        <span>Colores</span>
+                        <div class="checkbox-group">
+                            <% colorList.forEach(color=> { %>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="<%= color.name %>" name="<%= color.name %>" value="<%= color.id %>" <% if ( product.color.find((value)=> value == color.codeHex)){%> checked <%}%>>
+                                        <label for="<%= color.name %>">
+                                            <%= color.name %>
+                                        </label>
+                                        <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
+                                </div>
+                                <% }) %>
+                        </div>
                     </div>
                 </div>
+
+                <label class="label-productEdit-form" for="description">Descripcion</label>
+                <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength="250" 
+                <% if ( product.description==null ){%> placeholder="Escribir un maximo 250 caracteres..." <%}%> required>
+                <% if ( product.description !== null ){%> <%= product.description %> <%}%>
+                </textarea>
+                <label class="label-productEdit-form" for="discount">Descuento %</label>
+                <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>" required>
             </div>
-
-            <label class="label-productEdit-form" for="description" >Descripcion</label>
-            <textarea class="input-productEdit-form" type="textarea" id="description" name="description" placeholder="Escribir un maximo 250 caracteres..." cols="30" rows="6" maxlength="250" required></textarea>
-            
-            <label class="label-productEdit-form" for="discount" >Descuento %</label>
-            <input class="input-productEdit-form" type="text" id="discount" name="discount" required>
-
-
-        </div>
             <div class="buttoms">
                 <button class="buttom-productEdit-form" type="submit">Editar Producto</button>
             </div>
@@ -86,4 +97,5 @@
         <%- include("partials/footer") %>
     </footer>
 </body>
+
 </html>

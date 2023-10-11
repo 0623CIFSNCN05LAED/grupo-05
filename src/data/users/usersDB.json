@@ -177,5 +177,18 @@
     "category": "admin",
     "image": "default_user.png",
     "confirmPassword": ""
+  },
+  {
+    "id": "c0f4dc9c-f1db-47c7-ad8c-7a6bdc00e12c",
+    "firstName": "MAGALI",
+    "lastName": "ANGLADA",
+    "email": "Magali.anglada@devvision.com",
+    "birthDay": "1979-08-30",
+    "address": "Calle 13A nro 343",
+    "buildtype": " ",
+    "zipcode": "1896",
+    "password": "$2b$10$dRYWB3TKwy96lzk4pHaKVe8IaSGZnnUYB6zKigbL1kbze9kmlmqwO",
+    "category": "admin",
+    "image": "image-1697023296742.png"
   }
 ]

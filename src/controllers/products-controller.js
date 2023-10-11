@@ -67,7 +67,12 @@ module.exports = {
 
   // Acción de edición (a donde se envía el formulario):   
   update: (req, res) => {
-
+    const productId = req.params.id;
+    console.log("Update:" + req.body.name);
+   // const data = req.body.namedata;
+   //productService.updateProduct(id,data)
+   
+    res.redirect(`/products/detail/${productId}`)
   },
   // Acción de borrado de un producto en la BD
   delete: (req, res) => {
