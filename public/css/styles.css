@@ -71,6 +71,14 @@ header a {
     color: #ffffff;
 }
 
+header a:hover {
+    color: #C5FF49;
+}
+
+.active-page a {
+    text-decoration: underline #C5FF49;
+}
+
 .shopping-cart {
     position: relative;
 }
