@@ -70,7 +70,14 @@ module.exports = {
   update: (req, res) => {
     const productId = req.params.id;
     const originalProduct = productService.getProduct(productId);
-  
+    let updatedImage;
+
+    if ( req.file == undefined){
+      updatedImage = originalProduct.image;
+    }else{
+      updatedImage = req.file ? req.file.filename : "default-image.png";
+    }
+
     const updatedProduct = {
       art: req.body.art,
       name: req.body.name,
@@ -84,10 +91,8 @@ module.exports = {
       description: req.body.description,
       price: Number(req.body.price),
       discount: Number(req.body.discount),
-      image: req.file ? ( req.file.filename ? req.file.filename : originalProduct.filename ) : "default-image.png",
+      image: updatedImage,
     };
-    console.log('Original:', originalProduct );
-    console.log('Updated:', updatedProduct );
     
     productService.updateProduct(productId,updatedProduct)  
     res.redirect(`/products/detail/${productId}`);
