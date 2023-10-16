@@ -17,6 +17,10 @@
         <form action="/products/update/<%= product.id %>" method="POST" class="productEdit-form" enctype="multipart/form-data">
             <div class="dataProduct">
 
+                                <div class="PD-product-image">
+                    <img src="/images/products/<%=product.image%>" alt=<%= product.name %> height="25%">
+                </div>
+  
                 <label class="label-productEdit-form" for="art">Art</label>
                 <input class="input-productEdit-form" type="text" id="art" name="art" value="<%= product.art %>" required>
 
@@ -51,10 +55,8 @@
                                 <div class="checkbox-option">
                                     <input type="checkbox" id="<%= size.name %>" name="size"
                                         value="<%= size.id %>" <% if ( product.size.find((value)=> value == size.shortName)){%> checked <%}%>>
-                                        <label for="<%= size.name %>">
-                                            <%= size.name %>
-                                        </label>
-                                </div>
+                                        <label for="<%= size.name %>"><%= size.name %></label>
+                                    </div>
                                 <% }) %>
                         </div>
                     </div>
@@ -65,9 +67,8 @@
                             <% colorList.forEach(color=> { %>
                                 <div class="checkbox-option">
                                     <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>" <% if ( product.color.find((value)=> value == color.codeHex)){%> checked <%}%>>
-                                        <label for="<%= color.name %>">
-                                            <%= color.name %>
-                                        </label>
+                                        <label for="<%= color.name %>"><%= color.name %></label>
+                                        <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
                                 </div>
                                 <% }) %>
                         </div>
@@ -86,7 +87,7 @@
                 <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>" required>
        
                 <label class="label-productEdit-form" for="image" >Imagen</label>
-                <input class="input-productEdit-form image" type="file" id="image" name="image" accept="image/*" value= "<%= product.image %>">
+                <input class="input-productEdit-form image" type="file" id="image" name="image" accept="image/*">
             </div>
             <div class="buttoms">
                 <button class="buttom-productEdit-form" type="submit">Editar Producto</button>

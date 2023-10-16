@@ -24,14 +24,14 @@ const upload = multer({
 
 // Listado de productos
 router.get('/', productsController.productList);
+
 // Detalle de un producto particular
 router.get('/detail/:id', productsController.productDetail);
 
 // Formulario de creación de productos
-router.get('/create', productsController.create);
-
+router.get('/create', productsController.productCreate);
 //Acción de creación 
-router.post("/", upload.single("image"), productsController.createNew);
+router.post("/", upload.single("image"), productsController.create);
 
 // Formulario de edición de productos
 router.get('/edit/:id', productsController.productEdit);

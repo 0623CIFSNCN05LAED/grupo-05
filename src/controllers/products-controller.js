@@ -9,7 +9,7 @@ module.exports = {
     const allProducts = productService.getAllProducts();
     
     res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts});
-    //{products: mainServicies.getAllProducts()}
+
   },
   // Vista detalle de un producto particular
   productDetail: (req, res) => {
@@ -36,7 +36,7 @@ module.exports = {
   },
 
   // Vista formulario de creación de producto
-  create: (req, res) => {
+  productCreate: (req, res) => {
     res.render('product-new', {
       colorList: colorServices.listColors(),
       sizeList: sizeServices.listsizes(),
@@ -46,7 +46,7 @@ module.exports = {
   },
 
   // Acción de creación (a donde se envía el formulario)    
-  createNew: (req, res) => {
+  create: (req, res) => {
     const product = {
       art: req.body.art,
       name: req.body.name,
@@ -63,17 +63,34 @@ module.exports = {
       image: req.file ? req.file.filename : "default-image.png",
     };
     productService.createProduct(product);
-    res.redirect("/products/create"); // se usa redirect 
+    res.redirect("/products/create"); 
   },
 
   // Acción de edición (a donde se envía el formulario):   
   update: (req, res) => {
     const productId = req.params.id;
-    console.log("Update:" + req.body.name);
-   // const data = req.body.namedata;
-   //productService.updateProduct(id,data)
-   
-    res.redirect(`/products/detail/${productId}`)
+    const originalProduct = productService.getProduct(productId);
+  
+    const updatedProduct = {
+      art: req.body.art,
+      name: req.body.name,
+      brand: req.body.brand,
+      collection: req.body.collection,
+      model: req.body.model,
+      gender: req.body.gender,
+      size: req.body.size,
+      color: req.body.color,
+      date: req.body.date,
+      description: req.body.description,
+      price: Number(req.body.price),
+      discount: Number(req.body.discount),
+      image: req.file ? ( req.file.filename ? req.file.filename : originalProduct.filename ) : "default-image.png",
+    };
+    console.log('Original:', originalProduct );
+    console.log('Updated:', updatedProduct );
+    
+    productService.updateProduct(productId,updatedProduct)  
+    res.redirect(`/products/detail/${productId}`);
   },
   // Acción de borrado de un producto en la BD
   delete: (req, res) => {
