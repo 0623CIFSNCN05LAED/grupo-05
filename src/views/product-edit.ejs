@@ -12,7 +12,7 @@
         <%- include("partials/header") %>
     </header>
     <main class="main_style">
-        <h1 class="title">Editar Producto - <%= product.id %>
+        <h1 class="title">Editar Producto - <%= product.name %>
         </h1>
         <form action="/products/update/<%= product.id %>" method="POST" class="productEdit-form" enctype="multipart/form-data">
             <div class="dataProduct">
@@ -90,7 +90,7 @@
                 <input class="input-productEdit-form image" type="file" id="image" name="image" accept="image/*">
             </div>
             <div class="buttoms">
-                <button class="buttom-productEdit-form" type="submit">Editar Producto</button>
+                <button class="buttom-productEdit-form" type="submit">Guardar producto</button>
             </div>
         </form>
     </main>
