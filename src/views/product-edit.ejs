@@ -46,7 +46,7 @@
                 </select>
 
                 <label class="label-productEdit-form" for="gender">Año</label>
-                <input type="month" name="date" id="date" class="input-productEdit-form" value="<%= product.date %> " required>
+                <input type="number" name="date" id="date" min="1900" max="2099" step="1" class="input-productEdit-form" value="<%= product.date %>" required>
                 <div class="checkbox-block">
                     <div class="checkbox-subblock">
                         <span>Talles</span>

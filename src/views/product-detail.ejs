@@ -39,7 +39,7 @@
                         <p><%= product.discount %>% OFF</p>
                     </div>
                     <div class="PD-flex-container-products-price">
-                        <p>$<%= product.price %></p>
+                        <p>$ <%= getFinalPrice(product) %></p>
                     </div>
                     <div class="añadir">
                         <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">

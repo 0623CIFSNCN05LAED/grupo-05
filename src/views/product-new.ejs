@@ -41,8 +41,8 @@
             </select>
 
             <label class="label-productNew-form" for="date" >Año</label>
-            <input type="month" name="date" id="date" class="input-productNew-form" required>
-            
+            <input type="number" name="date" id="date" min="1900" max="2099" step="1" class="input-productNew-form" required>
+        
             <div class="checkbox-block">
                 <div class="checkbox-subblock"> 
                     <span>Talles</span>
@@ -78,7 +78,7 @@
 
 
             <label class="label-productNew-form" for="discount" >Descuento %</label>
-            <input class="input-productNew-form" type="text" id="discount" name="discount" required>
+            <input class="input-productNew-form" type="text" id="discount" name="discount">
 
             <label class="label-productNew-form" for="image" >Imagen</label>
             <input class="input-productNew-form image" type="file" id="image" name="image"  accept="image/*">
