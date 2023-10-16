@@ -63,7 +63,7 @@ module.exports = {
       image: req.file ? req.file.filename : "default-image.png",
     };
     productService.createProduct(product);
-    res.redirect("/products/create"); 
+    res.redirect("/products"); 
   },
 
   // Acción de edición (a donde se envía el formulario):   
