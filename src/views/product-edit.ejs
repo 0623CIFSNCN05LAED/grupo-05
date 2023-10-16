@@ -76,10 +76,7 @@
                 </div>
 
                 <label class="label-productEdit-form" for="description">Descripcion</label>
-                <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength="250" 
-                <% if ( product.description==null ){%> placeholder="Escribir un maximo 250 caracteres..." <%}%> required>
-                <% if ( product.description !== null ){%> <%= product.description %> <%}%>
-                </textarea>
+                <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength= "500" required><% if ( product.description !== null ){%><%= product.description %><%}%></textarea>
                 <label class="label-productEdit-form" for="price">Precio</label>
                 <input class="input-productEdit-form" type="text" id="price" name="price" value="<%= product.price %>" required>
 
