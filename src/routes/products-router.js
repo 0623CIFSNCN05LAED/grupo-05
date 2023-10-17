@@ -26,7 +26,8 @@ const upload = multer({
 router.get('/', productsController.productList);
 // Listado de productos - Descuentos
 router.get('/discounts', productsController.productDiscountList)
-
+// Listado de productos - Lo último/Novedades
+router.get('/news', productsController.productNewsList)
 
 // Detalle de un producto particular
 router.get('/detail/:id', productsController.productDetail);

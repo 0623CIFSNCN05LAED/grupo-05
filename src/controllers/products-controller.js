@@ -24,9 +24,13 @@ module.exports = {
   },
   // Vista listado de productos - Novedades
   productNewsList: (req, res) => {
-    const allProducts = productService.getAllProducts();
-    
-    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts});
+    const title = 'Novedades';
+    const Products = productService.getAllProducts();
+    const allProducts = Products.filter((product)=>{ 
+      return product.news == 'X';
+    })
+    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts, title});
+
 
   },  
   // Vista detalle de un producto particular
@@ -79,6 +83,7 @@ module.exports = {
       price: Number(req.body.price),
       discount: Number(req.body.discount),
       image: req.file ? req.file.filename : "default-image.png",
+      news: req.body.news == 'on' ? 'X' : ""
     };
     productService.createProduct(product);
     res.redirect("/products"); 
@@ -110,6 +115,7 @@ module.exports = {
       price: Number(req.body.price),
       discount: Number(req.body.discount),
       image: updatedImage,
+      news: req.body.news == 'on' ? 'X' : ""
     };
     
     productService.updateProduct(productId,updatedProduct)  

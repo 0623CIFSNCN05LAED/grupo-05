@@ -20,7 +20,8 @@
     "description": "Gafas De Sol Oakley 9263 para hombre, en inyectada, tipo de montura aro completo con lente Prizm, fabricadas en USA.",
     "price": 61800,
     "discount": 0,
-    "image": "image-1697515457176.png"
+    "image": "image-1697515457176.png",
+    "news": "X"
   },
   {
     "id": "28d9214a-3231-4977-98ef-ae4c88416ddd",
@@ -44,7 +45,8 @@
     "description": "Gafas de sol Ray-Ban 2132 New Wayfarer, para mujer y hombre, aro completo, en nylon y varillas 145mm, fabricadas en Italia.",
     "price": 49000,
     "discount": 20,
-    "image": "image-1697515751654.png"
+    "image": "image-1697515751654.png",
+    "news": ""
   },
   {
     "id": "4cee5e28-525a-4156-a914-32bd43183cac",
@@ -69,7 +71,8 @@
     "description": "Gafas De Sol Prada 01YS para hombre, en inyectada, tipo de montura careta con lente Espejado, fabricadas en Italia.",
     "price": 125800,
     "discount": 0,
-    "image": "image-1697515939391.png"
+    "image": "image-1697515939391.png",
+    "news": ""
   },
   {
     "id": "14bf4334-8647-4108-a51b-ac1280402b9b",
@@ -92,7 +95,8 @@
     "description": "Gafas de sol Versace 2240 para mujer, aro completo, fabricadas en Italia.",
     "price": 105000,
     "discount": 10,
-    "image": "image-1697516155582.png"
+    "image": "image-1697516155582.png",
+    "news": ""
   },
   {
     "id": "454f099a-6ef9-45ea-8c86-0ec5eed14fba",
@@ -106,12 +110,15 @@
       "1",
       "4"
     ],
-    "color": ["2"],
+    "color": [
+      "2"
+    ],
     "date": "2020",
     "description": "Gafas De Sol Dolce & Gabbana 2233 para hombre, en metálica, tipo de montura careta con lente Espejado, fabricadas en Italia.",
     "price": 982000,
     "discount": 20,
-    "image": "image-1697516498757.png"
+    "image": "image-1697516498757.png",
+    "news": ""
   },
   {
     "id": "dfea73aa-2b43-4f88-a1d4-5f92fa2a4665",
@@ -127,12 +134,15 @@
       "3",
       "4"
     ],
-    "color": ["3"],
+    "color": [
+      "3"
+    ],
     "date": "2022",
     "description": "Gafas De Sol Oakley 9208 Radar Ev Path , para hombre, ranuradas, inyectadas y varillas 128mm, fabricadas en USA.",
     "price": 70700,
     "discount": 0,
-    "image": "image-1697516698477.png"
+    "image": "image-1697516698477.png",
+    "news": ""
   },
   {
     "id": "7535d7c3-72a2-48ad-9d05-a54c9a80b8f0",
@@ -156,7 +166,8 @@
     "description": "Gafas De Sol Ray-Ban 0707S para mujer, en acetato, tipo de montura aro completo con lente Degradado, fabricadas en Italia.",
     "price": 59600,
     "discount": 35,
-    "image": "image-1697517043831.png"
+    "image": "image-1697517043831.png",
+    "news": "X"
   },
   {
     "id": "de909231-fa01-4f46-9640-fb175c412b09",
@@ -180,6 +191,7 @@
     "description": "Producto Nuevo",
     "price": 0,
     "discount": 0,
-    "image": "default-image.png"
+    "image": "default-image.png",
+    "news": ""
   }
 ]

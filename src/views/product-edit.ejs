@@ -82,9 +82,15 @@
 
                 <label class="label-productEdit-form" for="discount">Descuento %</label>
                 <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>" required>
-       
+                
+                <div class="checkbox-option">
+                    <input type="checkbox" id=news name=news <% if (product.news == 'X'){%> checked <%}%>>
+                    <label for="news">Nuevo lanzamiento</label>               
+                </div>
+
                 <label class="label-productEdit-form" for="image" >Imagen (<%=product.image%>)</label>
                 <input class="input-productEdit-form image" type="file" id="image" name="image" accept="image/*">
+
             </div>
             <div class="buttoms">
                 <button class="buttom-productEdit-form" type="submit">Guardar producto</button>
