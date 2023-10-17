@@ -1,59 +1,58 @@
 [
   {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
+    "id": "371ab9cd-3b80-42cd-8803-2e566a787e90",
+    "art": "4555l",
+    "name": "Oakley 9263 Turbine",
+    "brand": "Oakley ",
+    "collection": "Verano",
+    "model": "079231-147",
     "gender": "Unisex",
     "size": [
       "1",
       "2",
-      "4"
+      "3"
     ],
     "color": [
-      "2",
-      "3",
-      "4"
-    ],
-    "date": "2000",
-    "description": "los mejores lentes",
-    "price": 20000,
-    "discount": 10,
-    "image": "image-1694733415604.PNG"
-  },
-  {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1076",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
-    "gender": "Unisex",
-    "size": [
       "1",
-      "2",
-      "4"
+      "2"
     ],
-    "color": [
-      "2",
-      "3",
-      "4"
-    ],
-    "date": "1999",
-    "description": "los mejores lentes",
-    "price": 2000,
+    "date": "2023",
+    "description": "Gafas De Sol Oakley 9263 para hombre, en inyectada, tipo de montura aro completo con lente Prizm, fabricadas en USA.",
+    "price": 61800,
     "discount": 0,
-    "image": "default-image.PNG"
+    "image": "image-1697515457176.png"
   },
   {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
+    "id": "28d9214a-3231-4977-98ef-ae4c88416ddd",
+    "art": "545sf",
+    "name": "Ray-Ban New Wayfarer",
+    "brand": "Ray-Ban",
+    "collection": "Verano",
+    "model": "035272-127",
+    "gender": "Hombre",
+    "size": [
+      "1",
+      "3",
+      "4"
+    ],
+    "color": [
+      "1",
+      "2",
+      "4"
+    ],
+    "date": "2022",
+    "description": "Gafas de sol Ray-Ban 2132 New Wayfarer, para mujer y hombre, aro completo, en nylon y varillas 145mm, fabricadas en Italia.",
+    "price": 49000,
+    "discount": 20,
+    "image": "image-1697515751654.png"
+  },
+  {
+    "id": "4cee5e28-525a-4156-a914-32bd43183cac",
+    "art": "5wfff",
+    "name": "Prada 01YS 1BO06F",
+    "brand": "Prada",
+    "collection": "Verano",
+    "model": "079966-123",
     "gender": "Unisex",
     "size": [
       "1",
@@ -61,27 +60,91 @@
       "4"
     ],
     "color": [
+      "1",
       "2",
       "3",
       "4"
     ],
-    "date": "2000",
-    "description": "los mejores lentes",
-    "price": 20000,
-    "discount": 10,
-    "image": "image-1694733415604.PNG"
+    "date": "2023",
+    "description": "Gafas De Sol Prada 01YS para hombre, en inyectada, tipo de montura careta con lente Espejado, fabricadas en Italia.",
+    "price": 125800,
+    "discount": 0,
+    "image": "image-1697515939391.png"
   },
   {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
-    "gender": "Unisex",
+    "id": "14bf4334-8647-4108-a51b-ac1280402b9b",
+    "art": "f2220f",
+    "name": "Versace 2240",
+    "brand": "Versace ",
+    "collection": "Verano",
+    "model": "076187-121",
+    "gender": "Hombre",
+    "size": [
+      "1",
+      "4"
+    ],
+    "color": [
+      "1",
+      "2",
+      "4"
+    ],
+    "date": "2021",
+    "description": "Gafas de sol Versace 2240 para mujer, aro completo, fabricadas en Italia.",
+    "price": 105000,
+    "discount": 10,
+    "image": "image-1697516155582.png"
+  },
+  {
+    "id": "454f099a-6ef9-45ea-8c86-0ec5eed14fba",
+    "art": "fw222",
+    "name": " D&G 2233 3277K1",
+    "brand": "Dolce & Gabbana",
+    "collection": "Verano",
+    "model": "079323-163",
+    "gender": "Hombre",
+    "size": [
+      "1",
+      "4"
+    ],
+    "color": "2",
+    "date": "2020",
+    "description": "Gafas De Sol Dolce & Gabbana 2233 para hombre, en metálica, tipo de montura careta con lente Espejado, fabricadas en Italia.",
+    "price": 982000,
+    "discount": 20,
+    "image": "image-1697516498757.png"
+  },
+  {
+    "id": "dfea73aa-2b43-4f88-a1d4-5f92fa2a4665",
+    "art": "d0222d",
+    "name": "Oakley Radar Ev Path",
+    "brand": "Oakley ",
+    "collection": "Verano",
+    "model": "9208",
+    "gender": "Hombre",
     "size": [
       "1",
       "2",
+      "3",
+      "4"
+    ],
+    "color": "3",
+    "date": "2022",
+    "description": "Gafas De Sol Oakley 9208 Radar Ev Path , para hombre, ranuradas, inyectadas y varillas 128mm, fabricadas en USA.",
+    "price": 70700,
+    "discount": 0,
+    "image": "image-1697516698477.png"
+  },
+  {
+    "id": "7535d7c3-72a2-48ad-9d05-a54c9a80b8f0",
+    "art": "d22c4",
+    "name": "Ray-Ban 664051",
+    "brand": "Ray-Ban",
+    "collection": "Verano",
+    "model": "0707S",
+    "gender": "Mujer",
+    "size": [
+      "2",
+      "3",
       "4"
     ],
     "color": [
@@ -89,58 +152,34 @@
       "3",
       "4"
     ],
-    "date": "2000",
-    "description": "los mejores lentes",
-    "price": 20000,
-    "discount": 10,
-    "image": "image-1694733415604.PNG"
+    "date": "2022",
+    "description": "Gafas De Sol Ray-Ban 0707S para mujer, en acetato, tipo de montura aro completo con lente Degradado, fabricadas en Italia.",
+    "price": 59600,
+    "discount": 35,
+    "image": "image-1697517043831.png"
   },
   {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
+    "id": "de909231-fa01-4f46-9640-fb175c412b09",
+    "art": "XXX",
+    "name": "Producto Nuevo",
+    "brand": "NN",
+    "collection": "NN",
+    "model": "NN",
     "gender": "Unisex",
     "size": [
       "1",
       "2",
-      "4"
+      "3"
     ],
     "color": [
-      "2",
-      "3",
-      "4"
-    ],
-    "date": "2000",
-    "description": "los mejores lentes",
-    "price": 20000,
-    "discount": 10,
-    "image": "image-1694733415604.PNG"
-  },
-  {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
-    "gender": "Unisex",
-    "size": [
       "1",
       "2",
-      "4"
+      "3"
     ],
-    "color": [
-      "2",
-      "3",
-      "4"
-    ],
-    "date": "2000",
-    "description": "los mejores lentes",
-    "price": 20000,
-    "discount": 10,
-    "image": "image-1694733415604.PNG"
+    "date": "2020",
+    "description": "Producto Nuevo",
+    "price": 0,
+    "discount": 0,
+    "image": "default-image.png"
   }
 ]
