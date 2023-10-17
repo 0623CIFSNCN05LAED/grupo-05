@@ -79,7 +79,7 @@ module.exports = {
     buildtype: req.body.buildtype,
     zipcode: req.body.zipcode,
     password: password,
-    category: "admin",
+    category: "viewer",
     image: req.file ? req.file.filename : 'default_user.png' 
     };
     console.log("Users-controler user:", user);
