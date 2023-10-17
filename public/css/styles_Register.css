@@ -42,6 +42,7 @@
 
 .buttom-register-form{
     background-color: #c5ff49;
+
     width: 60%;
     font-size: 14px;
     margin-top: 15px;
@@ -61,8 +62,32 @@
     font-size: 10px;
 }
 
+.div-bottom {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+}
+.delete {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
 
 
+.img-profile{
+    max-width:150px;
+    border: #666;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
 
 @media (min-width: 481px) {
 
@@ -84,7 +109,13 @@
         font-size: 18px;
         width: 40%;
     }
+    .img-profile{
+        max-width:200px;
 
+    }
+    .div-bottom{
+        justify-content: space-between;
+    }
 
 }
    

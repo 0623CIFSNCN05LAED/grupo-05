@@ -13,6 +13,11 @@
      </header>
     <main class="main_style">
         <form action="/users/update/<%= user.id %>" method="post" class="register-form" enctype="multipart/form-data">
+                <div >
+                    <img src="/images/users/<%= user ? user.image : "" %>" alt="" class="img-profile">
+                </div>
+                <label class="label-register-form" for="image" >Nueva imagen de perfil</label>
+                <input class="input-register-form image" type="file" id="image" name="image"  accept="image/*" value="/images/users/<%= user ? user.image : "" %>">
                 <div class="div-name">
                     <label class="label-register-form name" for="firstName" >Nombre</label>
                     <input class="input-register-form name" type="text" id="name" name="firstName" value= "<%= user ? user.firstName : "" %>">
@@ -63,11 +68,11 @@
     
                 <label class="label-register-form" for="confirmPassword" >Confirmar contraseña</label>
                 <input class="input-register-form"  type="password" id="confirmPassword" name="confirmPassword" placeholder="Si desea cambair la contraseña, escriba una nueva">
+                <div class="div-bottom">
+                    <a class="buttom-register-form delete" href="/users/delete/<%= user.id %>">Eliminar Usuario</a>
+                    <button class="buttom-register-form" type="submit">Guardar cambios</button>
+                </div>
 
-                <label class="label-register-form" for="image" >Imagen de perfil</label>
-                    <input class="input-register-form image" type="file" id="image" name="image"  accept="image/*">
-
-                <button class="buttom-register-form" type="submit">Editar</button>
         </form>
     </main>
     <footer class="footer_style">

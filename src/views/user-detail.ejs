@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>  
+    <link rel="stylesheet" href="/css/styles_Register.css">
+    <title>DevVision - Crear Cuenta</title>
+</head>
+
+<body class="bg-grey">
+    <header class="header_style">    
+        <%- include("partials/header") %>
+     </header>
+    <main class="main_style">
+        <form action="/users/edit/<%= user.id %>" method="get" class="register-form" enctype="multipart/form-data">
+                <div >
+                    <img src="/images/users/<%= user ? user.image : "" %>" alt="" class="img-profile">
+                </div>
+                <div class="div-name">
+                    <label class="label-register-form name" for="firstName" >Nombre</label>
+                    <input class="input-register-form name color_white" type="text" id="name" name="firstName" value= "<%= user ? user.firstName : "" %>" disabled>
+
+
+                    <label class="label-register-form surname" for="lastName" >Apellido</label>
+                    <input class="input-register-form surname color_white" type="text" id="lastName" name="lastName"  value= "<%= user ? user.lastName : "" %>" disabled>
+ 
+        
+                </div>
+
+                <label class="label-register-form" for="email">Email</label>
+                <input class="input-register-form color_white" type="email" id="email" name="email"  value= "<%= user ? user.email : "" %>" disabled>
+
+    
+                <label class="label-register-form" for="birth" >Fecha de Nacimiento</label>
+                <input class="input-register-form color_white" type="date" id="birthDay" name="birthDay" value= "<%= user ? user.birthDay : "" %>" disabled>
+
+    
+                <label class="label-register-form" for="address" >Domiciolio</label>
+                <input class="input-register-form domicilio color_white" type="text" id="address" name="address"  value= "<%= user ? user.address : "" %>" disabled>
+ 
+                <input class="input-register-form tipo-domicilio color_white" type="text" name="buildtype" id="buildtype" value= "<%= user ? user.buildtype : "" %>" disabled>
+                
+                <label class="label-register-form" for="zipcode" >Codigo Postal</label>
+                <input class="input-register-form color_white" type="text" id="zipcode" name="zipcode" value= "<%= user ? user.zipcode : "" %>" disabled> 
+
+                <div class="div-bottom">
+                    <a class="buttom-register-form delete" href="/users/logout/<%= user.id %>">Cerrar sesion</a>
+                    <button class="buttom-register-form" type="submit">Editar</button>
+                </div>
+        </form>
+    </main>
+    <footer class="footer_style">
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

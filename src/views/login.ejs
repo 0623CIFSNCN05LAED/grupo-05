@@ -14,15 +14,18 @@
     <main class="main_style">
         <form action="/users/login" method="POST" class="login-form">
                 <label class="label-login-form" for="email" >Email</label>
-                <input class="input-login-form" type="text" id="email" name="email">
+                <input class="input-login-form" type="text" id="email" name="email" autocomplete="on">
                 <% if(errors && errors.email) { %>
                     <p class="error-login-form"><%= errors.email.msg %></p> 
                 <% } %>   
                 <label class="label-login-form" for="password" >Contraseña</label>
-                <input class="input-login-form"  type="password" id="password" name="password">
+                <input class="input-login-form"  type="password" id="password" name="password" autocomplete="on">
                 <% if(errors && errors.password) { %>
                     <p class="error-login-form"><%= errors.password.msg %></p> 
-                <% } %>   
+                <% } %>
+                <% if(errors && errors.login) { %>
+                    <p class="error-login-form"><%= errors.login.msg %></p> 
+                <% } %>    
                 <a class="forgot-login-form" href="">¿Has olvidado tu contraseña?</a>
                 <a class="register-login-form" href="/users/register">¿No tenes cuenta? Crear una cuenta</a>
                 <button class="buttom-login-form" type="submit">Ingresar</button>

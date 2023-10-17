@@ -12,7 +12,9 @@ module.exports = {
   userDetail: (req, res) => {
     const id = req.params.id;
     const user = userService.getUser(id);
-    //    res.render('user-detail', { user });
+      res.render('user-detail', { 
+        user,
+        userData: req.session.userData ? req.session.userData : null });
   },
   // Vista formulario de edición de un usuario
   userEdit: (req, res) => {
@@ -46,10 +48,10 @@ module.exports = {
     const authentication = userService.authentication(req.body.email,req.body.password)
     if(authentication){
       req.session.userData =  authentication
-      console.log(authentication)
       res.redirect("/")
     }else{
-      console.log(authentication)
+      req.session.errors = {login:{msg:"Email o contraseña incorrecta"}}
+      res.redirect("/users/login")
     }
   },
 
@@ -82,9 +84,9 @@ module.exports = {
     category: "viewer",
     image: req.file ? req.file.filename : 'default_user.png' 
     };
-    console.log("Users-controler user:", user);
     userService.createUser(user);
-    res.redirect("/users/login");  
+      res.redirect("/users/login")
+
   },
 
   // Acción de logout
@@ -110,10 +112,14 @@ module.exports = {
       userService.updateUser(data,id)
     }
 
-    res.redirect(`/users/edit/${id}`)
+    res.redirect(`/users/detail/${id}`)
   },
   // Acción de borrado de un usuario en la BD
   delete: (req, res) => {
+    const id = req.params.id;
+    userService.deleteUser(id)
+    res.redirect("/users/login")
+
   },
 }
 
