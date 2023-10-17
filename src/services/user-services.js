@@ -47,7 +47,8 @@ module.exports = {
         id: data.id,
         firstName: data.firstName,
         lastName: data.lastName,
-        email: data.email,       
+        email: data.email,  
+        category: data.category     
       }
     }else{
       return false

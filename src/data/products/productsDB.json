@@ -17,9 +17,57 @@
       "3",
       "4"
     ],
-    "date": "2023-02",
+    "date": "2000",
+    "description": "los mejores lentes",
+    "price": 20000,
+    "discount": 10,
+    "image": "image-1694733415604.PNG"
+  },
+  {
+    "id": "e91c08b3-2052-4653-9a8b-de6040ef1076",
+    "art": "4099",
+    "name": "Anteojo",
+    "brand": "prada",
+    "collection": "chester",
+    "model": "234KJL",
+    "gender": "Unisex",
+    "size": [
+      "1",
+      "2",
+      "4"
+    ],
+    "color": [
+      "2",
+      "3",
+      "4"
+    ],
+    "date": "1999",
     "description": "los mejores lentes",
     "price": 2000,
+    "discount": 0,
+    "image": "default-image.PNG"
+  },
+  {
+    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
+    "art": "4099",
+    "name": "Anteojo",
+    "brand": "prada",
+    "collection": "chester",
+    "model": "234KJL",
+    "gender": "Unisex",
+    "size": [
+      "1",
+      "2",
+      "4"
+    ],
+    "color": [
+      "2",
+      "3",
+      "4"
+    ],
+    "date": "2000",
+    "description": "los mejores lentes",
+    "price": 20000,
     "discount": 10,
     "image": "image-1694733415604.PNG"
   },
@@ -41,35 +89,11 @@
       "3",
       "4"
     ],
-    "date": "2023-02",
+    "date": "2000",
     "description": "los mejores lentes",
-    "price": 2000,
-    "discount": "",
-    "image": "default-image.PNG"
-  },
-  {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
-    "gender": "Unisex",
-    "size": [
-      "1",
-      "2",
-      "4"
-    ],
-    "color": [
-      "2",
-      "3",
-      "4"
-    ],
-    "date": "2023-02",
-    "description": "los mejores lentes",
-    "price": 2000,
+    "price": 20000,
     "discount": 10,
-    "image": "default-image.PNG"
+    "image": "image-1694733415604.PNG"
   },
   {
     "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
@@ -89,35 +113,11 @@
       "3",
       "4"
     ],
-    "date": "2023-02",
+    "date": "2000",
     "description": "los mejores lentes",
-    "price": 2000,
-    "discount": "",
-    "image": "default-image.PNG"
-  },
-  {
-    "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
-    "art": "4099",
-    "name": "Anteojo",
-    "brand": "prada",
-    "collection": "chester",
-    "model": "234KJL",
-    "gender": "Unisex",
-    "size": [
-      "1",
-      "2",
-      "4"
-    ],
-    "color": [
-      "2",
-      "3",
-      "4"
-    ],
-    "date": "2023-02",
-    "description": "los mejores lentes",
-    "price": 2000,
+    "price": 20000,
     "discount": 10,
-    "image": "default-image.PNG"
+    "image": "image-1694733415604.PNG"
   },
   {
     "id": "e91c08b3-2052-4653-9a8b-de6040ef1075",
@@ -137,10 +137,10 @@
       "3",
       "4"
     ],
-    "date": "2023-02",
+    "date": "2000",
     "description": "los mejores lentes",
-    "price": 2000,
-    "discount": "",
-    "image": "default-image.PNG"
+    "price": 20000,
+    "discount": 10,
+    "image": "image-1694733415604.PNG"
   }
 ]
