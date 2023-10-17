@@ -6,11 +6,29 @@ module.exports = {
 
   // Vista listado de productos 
   productList: (req, res) => {
+    const title = 'Todos los productos';
+    const allProducts = productService.getAllProducts();
+    
+    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts, title });
+
+  },
+  // Vista listado de productos - Descuentos
+  productDiscountList: (req, res) => {
+    const title = 'Descuentos';
+    const Products = productService.getAllProducts();
+    const allProducts = Products.filter((product)=>{ 
+      return product.discount > 0;
+    })
+    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts, title});
+
+  },
+  // Vista listado de productos - Novedades
+  productNewsList: (req, res) => {
     const allProducts = productService.getAllProducts();
     
     res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts});
 
-  },
+  },  
   // Vista detalle de un producto particular
   productDetail: (req, res) => {
     const id = req.params.id;

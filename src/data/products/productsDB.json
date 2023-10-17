@@ -106,7 +106,7 @@
       "1",
       "4"
     ],
-    "color": "2",
+    "color": ["2"],
     "date": "2020",
     "description": "Gafas De Sol Dolce & Gabbana 2233 para hombre, en metálica, tipo de montura careta con lente Espejado, fabricadas en Italia.",
     "price": 982000,
@@ -127,7 +127,7 @@
       "3",
       "4"
     ],
-    "color": "3",
+    "color": ["3"],
     "date": "2022",
     "description": "Gafas De Sol Oakley 9208 Radar Ev Path , para hombre, ranuradas, inyectadas y varillas 128mm, fabricadas en USA.",
     "price": 70700,

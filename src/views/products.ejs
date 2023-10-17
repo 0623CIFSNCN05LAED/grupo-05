@@ -4,7 +4,7 @@
         <%- include("partials/head") %>  
         <link rel="stylesheet" href="/css/styles_Products.css">
         <link rel="stylesheet" href="/css/styles_Product-card.css">
-        <title>DevVision - Nuestros productos</title>
+        <title>DevVision - <%= title %></title>
     </head>
 
     <body class="bg-grey">
@@ -16,7 +16,7 @@
         <div class="container products-wrapper">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="products-title">Todos los productos</h2>
+                    <h2 class="products-title"><%= title %></h2>
                 </div>
 
                 <% allProducts.forEach(product => { %>
