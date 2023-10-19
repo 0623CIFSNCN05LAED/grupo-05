@@ -35,9 +35,14 @@
                     <% }); %>
                 </div>
                 <div class="PD-flex-container-products-amount">
-                    <div class="PD-flex-container-products-discount">
-                        <p><%= product.discount %>% OFF</p>
-                    </div>
+                    <% if (product.discount) { %>
+                        <div>
+                            
+                        </div>
+                        <div class="PD-flex-container-products-discount">
+                            <span class="old-price">$ <%= product.price %></span> /-<%= product.discount %>% OFF
+                        </div>
+                    <% } %>
                     <div class="PD-flex-container-products-price">
                         <p>$ <%= getFinalPrice(product) %></p>
                     </div>
