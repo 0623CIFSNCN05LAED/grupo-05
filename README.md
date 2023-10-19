@@ -50,3 +50,7 @@ https://www.figma.com/file/KWgF2K8i4QqDQi26x3ghTc/Opcional?type=design&node-id=0
 
 ## URL del Trello 
 https://trello.com/b/fWbCBZ2v/devvision-backlog
+
+
+## Modelo DER
+https://drive.google.com/file/d/1V3eSExierZ7bOfZ8fxian4M8g8hhoUWc/view?usp=sharing
