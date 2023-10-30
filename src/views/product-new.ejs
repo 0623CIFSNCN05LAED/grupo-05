@@ -23,7 +23,12 @@
             <input class="input-productNew-form" type="text" id="name" name="name" required>
 
             <label class="label-productNew-form" for="brand" >Marca</label>
-            <input class="input-productNew-form" type="text" id="brand" name="brand" required>
+            <select class="select-productNew-form" id="brand" name="brand" required>
+                <option value="">Seleccione una opción...</option>
+                <% brandList.forEach(brand=> { %>                    
+                <option value="<%= brand.id %>"><%= brand.name %></option>
+                <% }) %>
+            </select>
 
             <label class="label-productNew-form" for="collection" >Coleccion</label>
             <input class="input-productNew-form" type="text" id="collection" name="collection" required>
@@ -33,15 +38,15 @@
 
 
             <label class="label-productNew-form" for="gender" >Genero</label>
-            <select class="select-productNew-form" id="gender" name="gender" required>
+             <select class="select-productNew-form" id="gender" name="gender" required>
                 <option value="">Seleccione una opción...</option>
-                <option value="Unisex">Unisex</option>
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
+                <% genderList.forEach(gender=> { %>                    
+                <option value="<%= gender.id %>"><%= gender.name %></option>
+                <% }) %>
             </select>
 
             <label class="label-productNew-form" for="date" >Año</label>
-            <input type="number" name="date" id="date" min="1900" max="2099" step="1" class="input-productNew-form" required>
+            <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productNew-form" required>
         
             <div class="checkbox-block">
                 <div class="checkbox-subblock"> 
@@ -81,8 +86,8 @@
             <input class="input-productNew-form" type="text" id="discount" name="discount">
 
             <div class="label-productNew-form">
-                <input type="checkbox" id=news name=news>
-                <label for="news">Nuevo lanzamiento</label>               
+                <input type="checkbox" id="is_news" name="is_news">
+                <label for="is_news">Nuevo lanzamiento</label>               
             </div>
 
             <label class="label-productNew-form" for="image" >Imagen</label>

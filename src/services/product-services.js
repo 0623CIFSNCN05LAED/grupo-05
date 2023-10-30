@@ -1,45 +1,42 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const db = require("../data/db");
-const colorsServices = require("../services/colors-services");
-const sizesServices = require("../services/sizes-services");
 
-/* Funcion mixeo de atributos
-function createVariation (product) {
-  let newproduct = []
-  product.size.forEach(sizesVariation =>{
-      product.color.forEach(colorVariation => {
-           let newVariation ={
-              ...product,
-              size: sizesVariation,
-              color: colorVariation,
-              hex: colors.findByName(colorVariation).codeHex
-          }
-          newproduct.push(newVariation)
-      })    
-  })
-      return newproduct
-
-};
-*/
+const colorsServicesDB = require("./colors-services");
+const sizesServicesDB = require("./sizes-services");
 
 module.exports = {
 // Get the complete list of product that exist in the database  
   getAllProducts: () => {
-      return db.products.getProducts();
-      },  
+    return products = db.products.getProducts();
+    },  
+  getDiscountedProducts: () => 
+  {
+    return products = db.products.getDiscountedProducts();
+  },
+  getNewsProducts: () => 
+  {
+    return products = db.products.getNewsProducts();
+  },  
   // Get the complete list of product that exist in the database  
-  getProduct: (id) => {
-    const product =  db.products.findById(id); 
-    for (i=0; i< product.color.length; i++)
+  getProduct: async (id) => {
+    const product =  await db.products.findById(id); 
+    
+//    const color = await colorsServicesDB.findById(product.id_color);
+//    product.color = ""; 
+//    const size = await sizesServicesDB.findById(product.id_size);
+//    product.size[i] = size.shortName;
+
+ /*   for (i=0; i< product.color.length; i++)
     {
-      const color = colorsServices.findById(product.color[i]);
+      const color = await colorsServicesDB.findById(product.color[i]);
       product.color[i] = color.codeHex;
     }; 
     for (i=0; i< product.size.length; i++)
     {
-      const size = sizesServices.findById(product.size[i]);
+      const size = await sizesServicesDB.findById(product.size[i]);
       product.size[i] = size.shortName;
     };
+  */
     return product;
     },  
 // Create a new product

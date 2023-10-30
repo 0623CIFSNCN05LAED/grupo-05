@@ -18,22 +18,11 @@
                 <div class="col-12">
                     <h2 class="products-title"><%= title %></h2>
                 </div>
-
-                <% allProducts.forEach(product => { %>
+                <% console.log(allProducts); allProducts.forEach(product => { %>
                     <%- include("partials/product-card", {product}) %>
                     <% }) %>
-                
-
             </div>
-        </div>
-        <!-- /todos los productos -->
-
-        <!-- <main class="main_style PC-md-w PC-md-flex PC-md-m PC-md-relative">
-            <div class="sitio-en-contruccion">
-                <img src="/images/Sitio-en-contruccion.png" alt="Sitio-en-contruccion">
-            </div>
-        </main> -->
-        
+        </div>       
         <footer class="footer_style">
             <%- include("partials/footer") %>
         </footer>

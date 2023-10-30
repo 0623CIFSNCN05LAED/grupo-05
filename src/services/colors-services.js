@@ -1,31 +1,20 @@
-const dataColors = require("../data/colors");
+const { Colors } = require('../database/models/index')
 
 module.exports = {
-    colors : dataColors,
-    listName : function () {
-        return this.colors.map((color) => color.name)  
+    listName: function () {
+        return Colors.findAll({ attributes: ['name'] });
     },
-    findById : function(id){
-        let idFound = this.colors.find((color) => color.id == id);
+    listColors: function () {
+        return Colors.findAll({ attributes: ['id', 'name', 'codeHex'] });
+    },
 
-        if (idFound) {
-            return idFound;
-          } else {
-            return null;
-          }
-    } ,
-    findByName : function(name){
-      let nameFound = this.colors.find((color) => color.name == name);
-
-      if (nameFound) {
-          return nameFound;
-        } else {
-          return null;
-        }
-  } ,
-
-    listColors : function () {
-      return this.colors
+    findById: function (id) {
+        return Colors.findByPk(id, {attributes: ['id', 'name', 'codeHex']}).then((color) => {
+            return {
+                id: color.id,
+                name: color.name,
+                codeHex: color.codeHex
+            }
+        });
     }
-
 }

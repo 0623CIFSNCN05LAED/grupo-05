@@ -13,16 +13,6 @@ CREATE TABLE `categories` (
   UNIQUE KEY `category_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO devvision_dev.categories (name)
-VALUES
-('Admin'),
-('Viewer'), 
-('Guest');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
 /*-----------*/
 /* BRANDS    */
 /*-----------*/
@@ -33,19 +23,6 @@ CREATE TABLE `brands` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `brand_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-LOCK TABLES `brands` WRITE;
-/*!40000 ALTER TABLE `brands` DISABLE KEYS */;
-INSERT INTO devvision_dev.brands (name)
-VALUES
-('Oakley'),
-('Ray-Ban'), 
-('Prada'),
-('Versace'),
-('Dolce & Gabbana');
-
-/*!40000 ALTER TABLE `brands` ENABLE KEYS */;
-UNLOCK TABLES;
 
 /*-----------*/
 /* GENDERS   */
@@ -58,17 +35,6 @@ CREATE TABLE `genders` (
   UNIQUE KEY `genders_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-LOCK TABLES `genders` WRITE;
-/*!40000 ALTER TABLE `genders` DISABLE KEYS */;
-INSERT INTO devvision_dev.genders (name)
-VALUES
-('Femenino'),
-('Masculino'), 
-('Unisex');
-
-/*!40000 ALTER TABLE `genders` ENABLE KEYS */;
-UNLOCK TABLES;
-
 /*-----------*/
 /* COLORS    */
 /*-----------*/
@@ -79,18 +45,6 @@ CREATE TABLE `colors` (`id` int(1) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE KEY `colors_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-LOCK TABLES `colors` WRITE;
-/*!40000 ALTER TABLE `colors` DISABLE KEYS */;
-INSERT INTO devvision_dev.colors (name, codeHex)
-VALUES
-('Azul','#0000FF'),
-('Rojo','#FF0000'), 
-('Amarillo','#FFFF00'),
-('Violeta','#EE82EE');
-
-/*!40000 ALTER TABLE `colors` ENABLE KEYS */;
-UNLOCK TABLES;
 
 /*-----------*/
 /* SIZES     */
@@ -103,18 +57,6 @@ CREATE TABLE `sizes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sizes_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-LOCK TABLES `sizes` WRITE;
-/*!40000 ALTER TABLE `sizes` DISABLE KEYS */;
-INSERT INTO devvision_dev.sizes (name,shortName)
-VALUES
-('Small','S'),
-('Medium','M'), 
-('Large','L'),
-('Extra Large','XL');
-
-/*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
-UNLOCK TABLES;
 
 /*-----------*/
 /* USERS     */ 
@@ -137,37 +79,30 @@ CREATE TABLE `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO devvision_dev.users
-(id, firstName, lastName, email, birthday, password, id_category )
-VALUES(0, 'Administrator', 'Devvision', 'admin@devvision.com.ar', '2011-01-01', '$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616','1');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
 /*-----------*/
 /* PRODUCTS  */
 /*-----------*/
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` varchar(40) NOT null default '',
   `art` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `id_brand` int(10) unsigned NOT NULL,
   `collection` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `model` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `id_gender` int(10) unsigned NOT NULL,
+  `id_color` int(10) unsigned NOT NULL,
+  `id_size` int(10) unsigned NOT NULL,
   `year` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `price` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `discount` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `is_news` tinyint(1) NOT NULL DEFAULT '0',
-  `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `created_by` int(10),
+  `is_news` boolean NOT NULL DEFAULT '0',
+  `is_active` boolean NOT NULL DEFAULT '1',
+  `created_by` int(10) NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_by` int(10),
+  `updated_by` int(10) NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,	
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -176,10 +111,9 @@ CREATE TABLE `products` (
 DROP TABLE IF EXISTS `sku`;
 CREATE TABLE `sku` (
   `id` int(1) unsigned NOT NULL AUTO_INCREMENT,
-  `id_product` int(1) NOT NULL,
+  `id_product` varchar(40) NOT null default '',
   `id_color` int(1) NOT NULL,
   `id_size` int(1) NOT NULL,
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-

@@ -17,7 +17,7 @@
         <form action="/products/update/<%= product.id %>" method="POST" class="productEdit-form" enctype="multipart/form-data">
             <div class="dataProduct">
 
-                                <div class="PD-product-image">
+                <div class="PD-product-image">
                     <img src="/images/products/<%=product.image%>" alt=<%= product.name %> height="25%">
                 </div>
   
@@ -28,7 +28,12 @@
                 <input class="input-productEdit-form" type="text" id="name" name="name" value="<%= product.name %>" required>
 
                 <label class="label-productEdit-form" for="brand">Marca</label>
-                <input class="input-productEdit-form" type="text" id="brand" name="brand" value="<%= product.brand %>" required>
+                <select class="select-productEdit-form" id="brand" name="brand" required>
+                    <option value="">Seleccione una opción...</option>
+                    <% brandList.forEach(brand=> { %>                    
+                    <option value="<%= brand.id %>"<% if (product.id_brand == brand.id ){%> selected <%}%>><%= brand.name %></option>
+                    <% }) %>
+                </select>
 
                 <label class="label-productEdit-form" for="collection">Coleccion</label>
                 <input class="input-productEdit-form" type="text" id="collection" name="collection" value="<%= product.collection %>" required>
@@ -40,37 +45,33 @@
                 <label class="label-productEdit-form" for="gender">Genero</label>
                 <select class="select-productEdit-form" id="gender" name="gender" required>
                     <option value="">Seleccione una opción...</option>
-                    <option value="Unisex" <% if (product.gender == 'Unisex'){%> selected <%}%>>Unisex</option>
-                    <option value="Hombre" <% if (product.gender == 'Hombre'){%> selected <%}%>>Hombre</option>
-                    <option value="Mujer" <% if (product.gender == 'Mujer'){%> selected <%}%>>Mujer</option>
+                    <% genderList.forEach(gender=> { %>                    
+                    <option value="<%= gender.id %>"<% if (product.id_gender == gender.id ){%> selected <%}%>><%= gender.name %></option>
+                    <% }) %>
                 </select>
 
                 <label class="label-productEdit-form" for="gender">Año</label>
-                <input type="number" name="date" id="date" min="1900" max="2099" step="1" class="input-productEdit-form" value="<%= product.date %>" required>
+                <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productEdit-form" value="<%= product.year %>" required>
                 <div class="checkbox-block">
                     <div class="checkbox-subblock">
                         <span>Talles</span>
                         <div class="checkbox-group">
-                            <% sizeList.forEach(size=> { %>
-                                <div class="checkbox-option">
-                                    <input type="checkbox" id="<%= size.name %>" name="size"
-                                        value="<%= size.id %>" <% if ( product.size.find((value)=> value == size.shortName)){%> checked <%}%>>
-                                        <label for="<%= size.name %>"><%= size.name %></label>
-                                    </div>
-                                <% }) %>
+                           
+
+
+
+
                         </div>
                     </div>
 
                     <div class="checkbox-subblock">
                         <span>Colores</span>
                         <div class="checkbox-group">
-                            <% colorList.forEach(color=> { %>
-                                <div class="checkbox-option">
-                                    <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>" <% if ( product.color.find((value)=> value == color.codeHex)){%> checked <%}%>>
-                                        <label for="<%= color.name %>"><%= color.name %></label>
-                                        <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
-                                </div>
-                                <% }) %>
+                         
+                            
+
+
+
                         </div>
                     </div>
                 </div>
@@ -84,8 +85,8 @@
                 <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>" required>
                 
                 <div class="checkbox-option">
-                    <input type="checkbox" id=news name=news <% if (product.news == 'X'){%> checked <%}%>>
-                    <label for="news">Nuevo lanzamiento</label>               
+                    <input type="checkbox" id=is_news name=is_news <% if (product.is_news == '1'){%> checked <%}%>>
+                    <label for="is_news">Nuevo lanzamiento</label>               
                 </div>
 
                 <label class="label-productEdit-form" for="image" >Imagen (<%=product.image%>)</label>

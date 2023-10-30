@@ -9,7 +9,7 @@
     "buildtype": "Departamento",
     "zipcode": "1122",
     "password": "$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616",
-    "category": "viewer",
+    "category": "admin",
     "image": "image-1697570421864.png"
   },
   {
@@ -63,5 +63,18 @@
     "password": "$2a$10$aqG8ME2H4V5252HyFhIAlOiHsnzk/UjavbcN4K7h5xv2IGpv5NbI.",
     "category": "viewer",
     "image": "default_user.png"
+  },
+  {
+    "id": "b9814188-62b0-4c73-bc20-e4471788c470",
+    "firstName": "MAGALI",
+    "lastName": "ANGLADA",
+    "email": "Magali.anglada@gmail.com",
+    "birthDay": "1979-08-30",
+    "address": "Calle 13A nro 343",
+    "buildtype": " ",
+    "zipcode": "1896",
+    "password": "$2a$10$kKiceJjMW4PAA9QepZJ09.mpt0f9s16yeGnWZrKFScG8o5MFn7Hxa",
+    "category": "viewer",
+    "image": "image-1698634909605.png"
   }
 ]

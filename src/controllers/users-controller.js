@@ -27,9 +27,6 @@ module.exports = {
       errors: errors ? errors : null,
     })
   },
-  // Vista formulario de borrado de usuario
-  userDelete: (req, res) => {
-  },
   // Vista formulario de Login
   showLogin: (req, res) => {
     const errors = req.session.errors;
@@ -118,8 +115,8 @@ module.exports = {
   delete: (req, res) => {
     const id = req.params.id;
     userService.deleteUser(id)
-    res.redirect("/users/login")
-
+    req.session.destroy();
+    res.redirect("/users/login");
   },
 }
 

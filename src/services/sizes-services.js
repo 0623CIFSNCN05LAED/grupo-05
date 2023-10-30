@@ -1,21 +1,20 @@
-const datasizes = require("../data/sizes");
+const { Sizes } = require('../database/models/index')
 
 module.exports = {
-    sizes : datasizes,
     listName : function () {
-        return this.sizes.map((size) => size.name)  
+        return Sizes.findAll({attributes: ['name']});
     },
-    findById : function(id){
-        let idFound = this.sizes.find((size) => size.id == id);
+    listSizes: () => {       
+       return Sizes.findAll({attributes: ['id', 'name', 'shortName']});
+    },
 
-        if (idFound) {
-            return idFound;
-          } else {
-            return null;
-          }
-    } ,
-    listsizes : function () {
-      return this.sizes
-    }
-
+    findById: (id) => {
+        return Sizes.findByPk(id, { attributes: ['id', 'name', 'shortName']}).then((size) => {
+            return {
+                    id: size.id,
+                    name: size.name,
+                    shortName: size.shortName,
+                }
+            });
+    },
 }

@@ -1,9 +1,11 @@
-/*
 module.exports = (sequelize, DataTypes) => {
 
     const Model = sequelize.define('Sizes', 
     {
-        id: DataTypes.INTEGER, 
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true
+        },
         name: DataTypes.STRING,
         shortName: DataTypes.STRING,     
     }, 
@@ -14,4 +16,3 @@ module.exports = (sequelize, DataTypes) => {
  
     return Model;
 };
-*/
