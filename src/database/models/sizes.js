@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         name: DataTypes.STRING,
-        shortName: DataTypes.STRING,     
+        short_name: DataTypes.STRING,     
     }, 
     {
         tableName: 'sizes',

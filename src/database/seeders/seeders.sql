@@ -18,19 +18,19 @@ UNLOCK TABLES;
 
 LOCK TABLES `colors` WRITE;
 /*!40000 ALTER TABLE `colors` DISABLE KEYS */;
-INSERT INTO devvision_dev.colors (name, codeHex) VALUES ('Verde','#008000'),('Azul','#0000FF'), ('Rojo','#FF0000'), ('Amarillo','#FFFF00'), ('Violeta','#EE82EE');
+INSERT INTO devvision_dev.colors (name, code_hex) VALUES ('Verde','#008000'),('Azul','#0000FF'), ('Rojo','#FF0000'), ('Amarillo','#FFFF00'), ('Violeta','#EE82EE');
 /*!40000 ALTER TABLE `colors` ENABLE KEYS */;
 UNLOCK TABLES;
 
 LOCK TABLES `sizes` WRITE;
 /*!40000 ALTER TABLE `sizes` DISABLE KEYS */;
-INSERT INTO devvision_dev.sizes (name,shortName) VALUES ('Extra Small','XS'), ('Small','S'), ('Medium','M'), ('Large','L'), ('Extra Large','XL');
+INSERT INTO devvision_dev.sizes (name,short_name) VALUES ('Extra Small','XS'), ('Small','S'), ('Medium','M'), ('Large','L'), ('Extra Large','XL');
 /*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO devvision_dev.users (id, firstName, lastName, email, birthday, password, id_category ) 
+INSERT INTO devvision_dev.users (id, first_name, last_name, email, birthday, password, id_category ) 
 VALUES(0, 'Administrator', 'Devvision', 'admin@devvision.com.ar', '2011-01-01', '$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616','1');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

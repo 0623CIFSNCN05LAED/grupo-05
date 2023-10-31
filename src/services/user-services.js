@@ -44,8 +44,8 @@ module.exports = {
     if (data && this.descryptedPassword(password, data.password)) {
         return {
             id: data.id,
-            firstName: data.firstName,
-            lastName: data.lastName,
+            firstName: data.first_name,
+            lastName: data.last_name,
             email: data.email,
             category: data.category
         };

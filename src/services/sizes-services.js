@@ -5,15 +5,15 @@ module.exports = {
         return Sizes.findAll({attributes: ['name']});
     },
     listSizes: () => {       
-       return Sizes.findAll({attributes: ['id', 'name', 'shortName']});
+       return Sizes.findAll({attributes: ['id', 'name', 'short_name']});
     },
 
     findById: (id) => {
-        return Sizes.findByPk(id, { attributes: ['id', 'name', 'shortName']}).then((size) => {
+        return Sizes.findByPk(id, { attributes: ['id', 'name', 'short_name']}).then((size) => {
             return {
                     id: size.id,
                     name: size.name,
-                    shortName: size.shortName,
+                    shortName: size.short_name,
                 }
             });
     },

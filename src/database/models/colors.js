@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         name: DataTypes.STRING,
-        codeHex: DataTypes.STRING,     
+        code_hex: DataTypes.STRING,     
     }, 
     {
         tableName: 'colors',

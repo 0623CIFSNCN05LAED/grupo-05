@@ -41,7 +41,7 @@ CREATE TABLE `genders` (
 DROP TABLE IF EXISTS `colors`;
 CREATE TABLE `colors` (`id` int(1) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `codeHex` varchar(7) NOT null,
+  `code_hex` varchar(7) NOT null,
   PRIMARY KEY (`id`),
   UNIQUE KEY `colors_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `sizes`;
 CREATE TABLE `sizes` (
   `id` int(1) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `shortName` varchar(3) NOT NULL,
+  `short_name` varchar(3) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sizes_name_unique` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -64,12 +64,12 @@ CREATE TABLE `sizes` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `lastName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `first_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `buildtype` varchar(25) COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `id_build_type` varchar(25) COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `zipcode` varchar(8) NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `id_category` int(1) unsigned NOT NULL,

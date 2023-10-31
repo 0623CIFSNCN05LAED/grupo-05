@@ -20,13 +20,13 @@
                 <input class="input-register-form image" type="file" id="image" name="image"  accept="image/*" value="/images/users/<%= user ? user.image : "" %>">
                 <div class="div-name">
                     <label class="label-register-form name" for="firstName" >Nombre</label>
-                    <input class="input-register-form name" type="text" id="name" name="firstName" value= "<%= user ? user.firstName : "" %>">
+                    <input class="input-register-form name" type="text" id="name" name="firstName" value= "<%= user ? user.first_name : "" %>">
                     <% if(errors && errors.name) { %>
                         <p class="error-register-form"><%= errors.name.msg %></p> 
                     <% } %>   
 
                     <label class="label-register-form surname" for="lastName" >Apellido</label>
-                    <input class="input-register-form surname" type="text" id="lastName" name="lastName"  value= "<%= user ? user.lastName : "" %>">
+                    <input class="input-register-form surname" type="text" id="lastName" name="lastName"  value= "<%= user ? user.last_name : "" %>">
                     <% if(errors && errors.surname) { %>
                         <p class="error-register-form"><%= errors.surname.msg %></p> 
                     <% } %>           

@@ -62,7 +62,7 @@ module.exports = {
     const allColorsPromise = colorServicesDB.listColors();
     const allBrandsPromise = brandServicesDB.listBrands();
     const allGendersPromise = genderServicesDB.listGenders();
-    const [product, allSizes, allColors, allBrands, allGenders] = await Promise.all([productPromise, allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
+    const [allSizes, allColors, allBrands, allGenders] = await Promise.all([allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
 
     res.render('product-new', {
       colorList: allColors,
