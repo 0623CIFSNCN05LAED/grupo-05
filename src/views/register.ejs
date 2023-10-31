@@ -47,9 +47,10 @@
                 <% } %>   
     
                 <select class="input-register-form tipo-domicilio" name="buildtype" id="buildtype" required>
-                    <option value=" " <%= oldData && oldData.buildtype === ' ' ? "selected" : "" %>> </option>
-                    <option value="Casa" <%= oldData && oldData.buildtype === 'Casa' ? "selected" : "" %>>Casa</option>
-                    <option value="Departamento"<%= oldData && oldData.buildtype === 'Departamento' ? "selected" : "" %>>Depatamento</option>
+                    <option value="">Seleccione una opción...</option>
+                    <% buildTypeList.forEach(buildtype=> { %>                    
+                    <option value="<%= buildtype.id %>"><%= buildtype.name %></option>
+                    <% }) %>
                 </select>
                 
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>

@@ -35,6 +35,12 @@ VALUES(0, 'Administrator', 'Devvision', 'admin@devvision.com.ar', '2011-01-01', 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
+LOCK TABLES `build_types` WRITE;
+/*!40000 ALTER TABLE `build_types` DISABLE KEYS */;
+INSERT INTO devvision_dev.build_types (name) VALUES ('Casa'), ('Departamento'), ('Oficina');
+/*!40000 ALTER TABLE `build_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
 LOCK TABLES `products` WRITE;
 INSERT INTO devvision_dev.products
 (id, art, name, id_brand, collection, model, id_gender, id_color, id_size, `year`, description, price, discount, image, is_news, is_active, created_by, created_at, updated_by, updated_at)

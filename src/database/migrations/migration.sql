@@ -79,6 +79,17 @@ CREATE TABLE `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*-------------*/
+/* BUILD TYPES */
+/*-------------*/
+DROP TABLE IF EXISTS `build_types`;
+CREATE TABLE `build_types` (
+  `id` int(1) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `build_types_name_unique` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 /*-----------*/
 /* PRODUCTS  */
 /*-----------*/

@@ -29,8 +29,7 @@
                     <input class="input-register-form surname" type="text" id="lastName" name="lastName"  value= "<%= user ? user.lastName : "" %>">
                     <% if(errors && errors.surname) { %>
                         <p class="error-register-form"><%= errors.surname.msg %></p> 
-                    <% } %>   
-        
+                    <% } %>           
                 </div>
 
                 <label class="label-register-form" for="email" >Email</label>
@@ -52,9 +51,10 @@
                 <% } %>   
     
                 <select class="input-register-form tipo-domicilio" name="buildtype" id="buildtype" required>
-                    <option value=" " <%= user && user.buildtype === ' ' ? "selected" : "" %>> </option>
-                    <option value="Casa" <%= user && user.buildtype === 'Casa' ? "selected" : "" %>>Casa</option>
-                    <option value="Departamento"<%= user && user.buildtype === 'Departamento' ? "selected" : "" %>>Depatamento</option>
+                    <option value="">Seleccione una opción...</option>
+                    <% buildTypeList.forEach(buildType=> { %>                    
+                    <option value="<%= buildType.id %>"<% if (buildType.id_gender == user.buildtype ){%> selected <%}%>><%= buildType.name %></option>
+                    <% }) %>
                 </select>
                 
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>

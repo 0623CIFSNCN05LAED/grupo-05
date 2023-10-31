@@ -1,4 +1,5 @@
 const userService = require("../services/user-services");
+const buildTypesServicesDB = require("../services/buildtypes-services");
 
 module.exports = {
   // Vista listado de usuarios 
@@ -17,13 +18,16 @@ module.exports = {
         userData: req.session.userData ? req.session.userData : null });
   },
   // Vista formulario de edición de un usuario
-  userEdit: (req, res) => {
+  userEdit: async (req, res) => {
     const id = req.params.id;
     const errors = req.session.errors;
     const user = userService.getUser(id);
+    const allBuildTypes = await buildTypesServicesDB.listBuildTypes();
+
     res.render('edit-user', {
       userData: req.session.userData,
       user: user,
+      buildTypeList: allBuildTypes,
       errors: errors ? errors : null,
     })
   },
@@ -53,14 +57,16 @@ module.exports = {
   },
 
   // Vista formulario de creación de usuario
-  showRegister: (req, res) => {
+  showRegister: async (req, res) => {
     const errors = req.session.errors;
     const oldData = req.session.oldData;
+    const allBuildTypes = await buildTypesServicesDB.listBuildTypes();
     req.session.errors = null;
     req.session.oldData = null;
     res.render('register', {
       errors: errors ? errors : null,
       oldData: oldData ? oldData : null,
+      buildTypeList: allBuildTypes,
       userData: req.session.userData ? req.session.userData : null
     });
   },
