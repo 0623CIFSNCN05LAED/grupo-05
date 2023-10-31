@@ -1,6 +1,3 @@
-//const colorServices = require("../services/colors-services");
-//const sizeServices = require("../services/sizes-services");
-
 const productServiceDB = require("../services/product-services");
 const colorServicesDB = require("../services/colors-services");
 const sizeServicesDB = require("../services/sizes-services");
@@ -12,69 +9,69 @@ module.exports = {
   // Vista listado de productos 
   productList: async (req, res) => {
     const title = 'Todos los productos';
-    const allProducts = await productServiceDB.getAllProducts();    
-    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts, title });
+    const allProducts = await productServiceDB.getAllProducts();
+    res.render('products', { userData: req.session.userData ? req.session.userData : null, allProducts, title });
   },
   // Vista listado de productos - Descuentos
   productDiscountList: async (req, res) => {
     const title = 'Descuentos';
     const allProducts = await productServiceDB.getDiscountedProducts();
-    console.log('Vista listado de descuentos: ' + allProducts);
-    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts, title});
+    res.render('products', { userData: req.session.userData ? req.session.userData : null, allProducts, title });
   },
   // Vista listado de productos - Novedades
   productNewsList: async (req, res) => {
     const title = 'Novedades';
     const allProducts = await productServiceDB.getNewsProducts();
-    res.render('products', {userData: req.session.userData ? req.session.userData : null, allProducts, title});
-  },  
+    res.render('products', { userData: req.session.userData ? req.session.userData : null, allProducts, title });
+  },
   // Vista detalle de un producto particular
   productDetail: async (req, res) => {
     const id = req.params.id;
     const product = await productServiceDB.getProduct(id);
     res.render('product-detail', {
       product: product,
-      userData: req.session.userData ? req.session.userData : null} );
+      userData: req.session.userData ? req.session.userData : null
+    });
   },
   // Vista formulario de edición de productos
   productEdit: async (req, res) => {
     const id = req.params.id;
-    const product =  await productServiceDB.getProduct(id);
-    const allSizes = await sizeServicesDB.listSizes().then();
-    const allColors = await colorServicesDB.listColors().then();
-    const allBrands = await brandServicesDB.listBrands().then();
-    const allGenders = await genderServicesDB.listGenders().then();
+    const productPromise = productServiceDB.getProduct(id);
+    const allSizesPromise = sizeServicesDB.listSizes();
+    const allColorsPromise = colorServicesDB.listColors();
+    const allBrandsPromise = brandServicesDB.listBrands();
+    const allGendersPromise = genderServicesDB.listGenders();
+    const [product, allSizes, allColors, allBrands, allGenders] = await Promise.all([productPromise, allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
 
     res.render('product-edit', {
-      colorList: allColors, //colorServices.listColors(),
-      sizeList: allSizes, //sizeServices.listsizes(), 
-      brandList: allBrands,   
-      genderList: allGenders, 
+      colorList: allColors,
+      sizeList: allSizes,
+      brandList: allBrands,
+      genderList: allGenders,
       product,
       userData: req.session.userData ? req.session.userData : null
     });
   },
   // Vista formulario de borrado de producto
   productDelete: (req, res) => {
-    res.render('product-delete', {userData: req.session.userData ? req.session.userData : null});
+    res.render('product-delete', { userData: req.session.userData ? req.session.userData : null });
   },
-
   // Vista formulario de creación de producto
   productCreate: async (req, res) => {
-    const allColors = await colorServicesDB.listColors().then();
-    const allSizes = await sizeServicesDB.listSizes().then();
-    const allBrands = await brandServicesDB.listBrands().then();
-    const allGenders = await genderServicesDB.listGenders().then();
+    const allSizesPromise = sizeServicesDB.listSizes();
+    const allColorsPromise = colorServicesDB.listColors();
+    const allBrandsPromise = brandServicesDB.listBrands();
+    const allGendersPromise = genderServicesDB.listGenders();
+    const [product, allSizes, allColors, allBrands, allGenders] = await Promise.all([productPromise, allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
 
     res.render('product-new', {
-      colorList: allColors, //colorServices.listColors(),
-      sizeList: allSizes, //sizeServices.listsizes(),
+      colorList: allColors,
+      sizeList: allSizes,
       brandList: allBrands,
-      genderList: allGenders, 
+      genderList: allGenders,
       userData: req.session.userData ? req.session.userData : null
-      });
-},
-
+    });
+  },
   // Acción de creación (a donde se envía el formulario)    
   create: (req, res) => {
     const product = {
@@ -84,8 +81,6 @@ module.exports = {
       collection: req.body.collection,
       model: req.body.model,
       id_gender: req.body.gender,
-      id_size: req.body.size,
-      id_color: req.body.color,
       year: req.body.year,
       description: req.body.description,
       price: Number(req.body.price),
@@ -94,18 +89,17 @@ module.exports = {
       is_news: req.body.is_news == 'on' ? '1' : "0"
     };
     productServiceDB.createProduct(product);
-    res.redirect("/products"); 
+    res.redirect("/products");
   },
-
   // Acción de edición (a donde se envía el formulario):   
   update: async (req, res) => {
     const productId = req.params.id;
     const originalProduct = await productServiceDB.getProduct(productId);
     let updatedImage;
 
-    if ( req.file == undefined){
+    if (req.file == undefined) {
       updatedImage = originalProduct.image;
-    }else{
+    } else {
       updatedImage = req.file ? req.file.filename : "default-image.png";
     }
     const updatedProduct = {
@@ -115,8 +109,6 @@ module.exports = {
       collection: req.body.collection,
       model: req.body.model,
       id_gender: req.body.gender,
-//      size: req.body.size,
-//      color: req.body.color,
       year: req.body.year,
       description: req.body.description,
       price: Number(req.body.price),
@@ -124,8 +116,7 @@ module.exports = {
       image: updatedImage,
       is_news: req.body.is_news == 'on' ? '1' : "0"
     };
-    
-    productServiceDB.updateProduct(productId,updatedProduct)  
+    productServiceDB.updateProduct(productId,updatedProduct)
     res.redirect(`/products/detail/${productId}`);
   },
   // Acción de borrado de un producto en la BD

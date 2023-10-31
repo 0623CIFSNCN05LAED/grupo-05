@@ -14,7 +14,7 @@
     <main class="main_style">
         <h1 class="title">Editar Producto - <%= product.name %>
         </h1>
-        <form action="/products/update/<%= product.id %>" method="POST" class="productEdit-form" enctype="multipart/form-data">
+        <form action="/products/update/<%= product.id %>?_method=PUT" method="POST" class="productEdit-form" enctype="multipart/form-data">
             <div class="dataProduct">
 
                 <div class="PD-product-image">

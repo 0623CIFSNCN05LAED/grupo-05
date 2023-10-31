@@ -114,7 +114,7 @@ module.exports = {
   // Acción de borrado de un usuario en la BD
   delete: (req, res) => {
     const id = req.params.id;
-    userService.deleteUser(id)
+    userService.deleteUser(id);
     req.session.destroy();
     res.redirect("/users/login");
   },

@@ -1,61 +1,99 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
-const db = require("../data/db");
-
+const { v4: uuidv4 } = require("uuid");
+const { Products } = require('../database/models/index')
+const db = require('../database/models/index')
+const Op = db.Sequelize.Op
 const colorsServicesDB = require("./colors-services");
 const sizesServicesDB = require("./sizes-services");
 
 module.exports = {
-// Get the complete list of product that exist in the database  
+  // Get the complete list of product that exist in the database  
   getAllProducts: () => {
-    return products = db.products.getProducts();
-    },  
-  getDiscountedProducts: () => 
-  {
-    return products = db.products.getDiscountedProducts();
+    return Products.findAll();
   },
-  getNewsProducts: () => 
-  {
-    return products = db.products.getNewsProducts();
-  },  
+  getDiscountedProducts: () => {
+    return Products.findAll({ where: { discount: { [Op.gt]: 0 } } });
+  },
+  getNewsProducts: () => {
+    return Products.findAll({ where: { is_news: 1 } });
+  },
   // Get the complete list of product that exist in the database  
   getProduct: async (id) => {
-    const product =  await db.products.findById(id); 
-    
-//    const color = await colorsServicesDB.findById(product.id_color);
-//    product.color = ""; 
-//    const size = await sizesServicesDB.findById(product.id_size);
-//    product.size[i] = size.shortName;
-
- /*   for (i=0; i< product.color.length; i++)
-    {
-      const color = await colorsServicesDB.findById(product.color[i]);
-      product.color[i] = color.codeHex;
-    }; 
-    for (i=0; i< product.size.length; i++)
-    {
-      const size = await sizesServicesDB.findById(product.size[i]);
-      product.size[i] = size.shortName;
-    };
-  */
-    return product;
-    },  
-// Create a new product
+    return Products.findByPk(id, {
+      include: ['brand', 'gender']
+    }).then((product) => {
+      return {
+        id: product.id,
+        art: product.art,
+        name: product.name,
+        id_brand: product.id_brand,
+        brand: product.brand.name,
+        collection: product.collection,
+        model: product.model,
+        id_gender: product.id_gender,
+        gender: product.gender.name,
+        id_color: product.id_color,
+        id_size: product.id_size,
+        year: product.year,
+        description: product.description,
+        price: product.price,
+        discount: product.discount,
+        image: product.image,
+        is_news: product.is_news,
+        is_active: product.is_active,
+      }
+    });
+  },
+  // Create a new product
   createProduct: (product) => {
-        /*let newProducts = createVariation(product);
-        newProducts.map((newProduct) => db.products.create(newProduct))
-        */
-        db.products.create(product)
-      },
+    Products.create(
+      {
+        id: uuidv4(),
+        art: product.art,
+        name: product.name,
+        id_brand: product.id_brand,
+        collection: product.collection,
+        model: product.model,
+        id_gender: product.id_gender,
+        year: product.year,
+        description: product.description,
+        price: product.price,
+        discount: product.discount,
+        image: product.image,
+        is_news: product.is_news,
+        is_active: product.is_active
+      });
+    console.log(`Creating product ${product.name} ${product.id}`);
+  },
   // Delete a new product
-  updateProduct: (id, product) => {
-       const productData = {
+  updateProduct: (id, productChanged) => {
+    const product = {
       id: id,
-      ...product
+      ...productChanged
     }
-    db.products.update(productData);
+    Products.update(
+      {
+        art: product.art,
+        name: product.name,
+        id_brand: product.id_brand,
+        collection: product.collection,
+        model: product.model,
+        id_gender: product.id_gender,
+        year: product.year,
+        description: product.description,
+        price: product.price,
+        discount: product.discount,
+        image: product.image,
+        is_news: product.is_news,
+        is_active: product.is_active
+      },
+      {
+        where: { id: product.id }
+      });
   },
   // Delete a new product
   deleteProduct: (id) => {
-    db.products.delete(id);
+    console.log(`Deleting product with id ${id}`);
+    return Products.destroy({ where: { id: id } });
   },
 }
