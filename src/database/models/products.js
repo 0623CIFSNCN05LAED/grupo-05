@@ -12,8 +12,6 @@ module.exports = (sequelize, DataTypes) => {
             collection: DataTypes.STRING,
             model: DataTypes.STRING,
             id_gender: DataTypes.INTEGER,
-            id_color: DataTypes.INTEGER,
-            id_size: DataTypes.INTEGER,
             year: DataTypes.STRING,
             description: DataTypes.STRING,
             price: DataTypes.INTEGER,
@@ -44,7 +42,20 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: "id_gender",
 
             });
-
+        Model.belongsToMany(db.Sizes, {
+                as: "sizes",
+                through: "products_sizes",
+                foreignKey: "id_product",
+                otherKey: "id_size",
+                timestamps: false,
+              });
+        Model.belongsToMany(db.Colors, {
+                as: "colors",
+                through: "products_colors",
+                foreignKey: "id_product",
+                otherKey: "id_color",
+                timestamps: false,
+              });              
     }
 
     return Model;

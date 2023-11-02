@@ -39,7 +39,8 @@ CREATE TABLE `genders` (
 /* COLORS    */
 /*-----------*/
 DROP TABLE IF EXISTS `colors`;
-CREATE TABLE `colors` (`id` int(1) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `colors` (
+  `id` int(1) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `code_hex` varchar(7) NOT null,
   PRIMARY KEY (`id`),
@@ -102,8 +103,6 @@ CREATE TABLE `products` (
   `collection` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `model` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `id_gender` int(10) unsigned NOT NULL,
-  `id_color` int(10) unsigned NOT NULL,
-  `id_size` int(10) unsigned NOT NULL,
   `year` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `price` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -118,13 +117,24 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+/*-----------------*/
+/* PRODUCTS_COLORS */
+/*------------------*/
+DROP TABLE IF EXISTS `products_colors`;
+CREATE TABLE `products_colors` (
+  `id` varchar(40) NOT null,
+  `id_product` varchar(40) NOT NULL,
+  `id_color` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `sku`;
-CREATE TABLE `sku` (
-  `id` int(1) unsigned NOT NULL AUTO_INCREMENT,
-  `id_product` varchar(40) NOT null default '',
-  `id_color` int(1) NOT NULL,
-  `id_size` int(1) NOT NULL,
-  
+/*------------------*/
+/* PRODUCTS_SIZES   */
+/*------------------*/
+DROP TABLE IF EXISTS `products_sizes`;
+CREATE TABLE `products_sizes` (
+  `id` varchar(40) NOT null,
+  `id_product` varchar(40) NOT NULL,
+  `id_size` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

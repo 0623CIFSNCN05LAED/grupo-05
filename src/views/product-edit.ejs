@@ -56,22 +56,27 @@
                     <div class="checkbox-subblock">
                         <span>Talles</span>
                         <div class="checkbox-group">
-                           
-
-
-
-
+                            <% sizeList.forEach(size=> { %>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="<%= size.name %>" name="size" value="<%= size.id %>" 
+                                    <%if ( (product.sizes) && product.sizes.find((value)=> value.id == size.id)){%>checked<%}%>>
+                                        <label for="<%= size.name %>"><%= size.name %></label>
+                                    </div>
+                                <% }) %>                            
                         </div>
                     </div>
 
                     <div class="checkbox-subblock">
                         <span>Colores</span>
                         <div class="checkbox-group">
-                         
-                            
-
-
-
+                                  <% colorList.forEach(color=> { %>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>"
+                                        <% if ( (product.colors) && product.colors.find((value)=> value.id == color.id)){%>checked<%}%>>
+                                            <label for="<%= color.name %>"><%= color.name %></label>
+                                            <div class="hexColor" style="background-color: <%= color.code_hex %>"></div>
+                                    </div>
+                                    <% }) %>
                         </div>
                     </div>
                 </div>
