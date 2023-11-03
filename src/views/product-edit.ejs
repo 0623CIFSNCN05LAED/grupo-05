@@ -87,7 +87,7 @@
                 <input class="input-productEdit-form" type="text" id="price" name="price" value="<%= product.price %>" required>
 
                 <label class="label-productEdit-form" for="discount">Descuento %</label>
-                <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>" required>
+                <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>">
                 
                 <div class="checkbox-option">
                     <input type="checkbox" id=is_news name=is_news <% if (product.is_news == '1'){%> checked <%}%>>

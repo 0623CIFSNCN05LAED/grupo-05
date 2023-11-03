@@ -8,6 +8,10 @@
             <li class="fc-nav-bar-item"><a href="/products">Nuestros productos</a></li>
             <li class="fc-nav-bar-item"><a href="/products/news">Lo último</a></li>
             <li class="fc-nav-bar-item"><a href="/products/discounts">Descuentos</a></li>
+            <%  if (userData) {
+                if(userData.category == 'admin') {%>
+            <li class="fc-nav-bar-item"><a href="/products/create">Nuevo producto</a></li>
+            <%} }%>
         </ul>
     </div>
     <div class="fc-header-item-menu">
