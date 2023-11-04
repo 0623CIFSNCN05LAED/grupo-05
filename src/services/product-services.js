@@ -9,13 +9,23 @@ const sizesServicesDB = require("./sizes-services");
 module.exports = {
   // Get the complete list of product that exist in the database  
   getAllProducts: () => {
-    return Products.findAll();
+    return Products.findAll({ where: { is_active: 1 } });
   },
   getDiscountedProducts: () => {
-    return Products.findAll({ where: { discount: { [Op.gt]: 0 } } });
+    return Products.findAll({
+      where: {
+        discount: { [Op.gt]: 0 },
+        is_active: 1
+      }
+    });
   },
   getNewsProducts: () => {
-    return Products.findAll({ where: { is_news: 1 } });
+    return Products.findAll({
+      where: {
+        is_news: 1,
+        is_active: 1
+      }
+    });
   },
   // Get the complete list of product that exist in the database  
   getProduct: async (id) => {
@@ -93,7 +103,13 @@ module.exports = {
   },
   // Delete a new product
   deleteProduct: (id) => {
-    console.log(`Deleting product with id ${id}`);
-    return Products.destroy({ where: { id: id } });
+    console.log(`is_active for product with id ${id} is 0`);
+     return Products.update(
+      {
+        is_active: 0
+      },
+      {
+        where: { id: id }
+      });
   },
 }
