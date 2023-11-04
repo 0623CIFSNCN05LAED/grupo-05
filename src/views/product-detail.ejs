@@ -2,9 +2,9 @@
 <html lang="es">
 
 <head>
-    <%- include("partials/head") %>  
-    <link rel="stylesheet" href="/css/styles_PD.css">
-    <title>DevVision - Detalle de producto</title>
+    <%- include("partials/head") %>
+        <link rel="stylesheet" href="/css/styles_PD.css">
+        <title>DevVision - Detalle de producto</title>
 </head>
 
 <body class="bg-grey">
@@ -14,56 +14,81 @@
     <main class="main_style">
         <div class="PD-flex-container-products PD-md-flex-row">
             <div class="PD-flex-container-products-item">
-                <p class="title-1"><%= product.name %></p>
+                <p class="title-1">
+                    <%= product.name %>
+                </p>
                 <div class="PD-product-image">
-                    <img src="/images/products/<%=product.image%>" alt=<%= product.name %> height="25%">
+                    <img src="/images/products/<%=product.image%>" alt=<%=product.name %> height="25%">
                 </div>
             </div>
             <div class="PD-flex-container-products-item PD-md-flex-no-grow">
                 <p class="title-2  PD-md-m-t-40px">Colores disponibles:</p>
                 <div class="PD-flex-container-products-item-colors">
-               </div>
+                    <% if (product.colors) { %>
+                        <% product.colors.forEach((color)=> { %>
+                            <div class="PD-flex-container-products-item-color"
+                                style="background-color: <%= color.code_hex %>">-</div>
+                            <% }); %>
+                                <% } %>
+                </div>
                 <p class="title-2 PD-m-t-10px">Talles disponibles:</p>
                 <div class="PD-flex-container-products-item-sizes">
-            </div>
+                    <% if (product.sizes) { %>
+                        <% product.sizes.forEach((size)=> { %>
+                            <div class="PD-flex-container-products-item-size">
+                                <p class="PD-item-size">
+                                    <%=size.short_name%>
+                                </p>
+                            </div>
+                            <% }); %>
+                                <% } %>
+                </div>
                 <div class="PD-flex-container-products-amount">
                     <% if (product.discount) { %>
                         <div>
-                            
+
                         </div>
                         <div class="PD-flex-container-products-discount">
                             <span class="old-price">$ <%= product.price %></span> /-<%= product.discount %>% OFF
                         </div>
-                    <% } %>
-                    <div class="PD-flex-container-products-price">
-                        <p>$ <%= getFinalPrice(product) %></p>
-                    </div>
-                    <div class="añadir">
-                        <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
-                    </div>
+                        <% } %>
+                            <div class="PD-flex-container-products-price">
+                                <p>$ <%= getFinalPrice(product) %>
+                                </p>
+                            </div>
+                            <div class="añadir">
+                                <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
+                            </div>
                 </div>
-                <% if (userData){ if (userData.category == 'admin') { %>
+                <% if (userData){ if (userData.category=='admin' ) { %>
                     <div class="PD-edit-button-box">
                         <a href="/products/edit/<%= product.id %>" class="PD-edit-button-text">Editar producto</a>
                     </div>
                     <form action="/products/<%= product.id %>?_method=delete" method="POST">
                         <button class="PD-delete-button" type="submit">Borrar</button>
                     </form>
-                <%}} %>
+                    <%}} %>
             </div>
         </div>
         <div class="PD-flex-container-products-detail">
             <p class="title-2">Detalle</p>
             <div class="PD-brt-solid-ligthgrey-1px-p15px">
-                <p>Marca: <%= product.brand %></p>
-                <p>Colección: <%= product.collection %></p>
-                <p>Género: <%= product.gender %></p>
-                <p>Año: <%= product.year %></p>
-                <p>Nuevo lanzamiento: <% if (product.is_news == '1'){%> Si <%}else{%>No<%}%></p>
+                <p>Marca: <%= product.brand %>
+                </p>
+                <p>Colección: <%= product.collection %>
+                </p>
+                <p>Género: <%= product.gender %>
+                </p>
+                <p>Año: <%= product.year %>
+                </p>
+                <p>Nuevo lanzamiento: <% if (product.is_news=='1' ){%> Si <%}else{%>No<%}%>
+                </p>
             </div>
             <p class="title-2">Descripcion</p>
             <div class="PD-brt-solid-ligthgrey-1px-p15px">
-                <p> <%= product.description %></p>
+                <p>
+                    <%= product.description %>
+                </p>
             </div>
         </div>
     </main>

@@ -27,9 +27,11 @@ module.exports = {
   // Vista detalle de un producto particular
   productDetail: async (req, res) => {
     const id = req.params.id;
-    const product = await productServiceDB.getProduct(id);
+    const product = await productServiceDB.getProduct(id);   
+
     res.render('product-detail', {
       product: product,
+    
       userData: req.session.userData ? req.session.userData : null
     });
   },
@@ -41,7 +43,9 @@ module.exports = {
     const allColorsPromise = colorServicesDB.listColors();
     const allBrandsPromise = brandServicesDB.listBrands();
     const allGendersPromise = genderServicesDB.listGenders();
-    const [product, allSizes, allColors, allBrands, allGenders] = await Promise.all([productPromise, allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
+
+    const [product, allSizes, allColors, allBrands, allGenders] = 
+      await Promise.all([productPromise, allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
 
     res.render('product-edit', {
       colorList: allColors,
@@ -62,6 +66,7 @@ module.exports = {
     const allColorsPromise = colorServicesDB.listColors();
     const allBrandsPromise = brandServicesDB.listBrands();
     const allGendersPromise = genderServicesDB.listGenders();
+    
     const [allSizes, allColors, allBrands, allGenders] = await Promise.all([allSizesPromise, allColorsPromise, allBrandsPromise, allGendersPromise]);
 
     res.render('product-new', {

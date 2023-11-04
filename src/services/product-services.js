@@ -1,6 +1,8 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const { v4: uuidv4 } = require("uuid");
 const { Products } = require('../database/models/index')
+const { ProductsColors } = require('../database/models/index')
+const { ProductsSizes } = require('../database/models/index')
 const db = require('../database/models/index')
 const Op = db.Sequelize.Op
 const colorsServicesDB = require("./colors-services");
@@ -30,9 +32,9 @@ module.exports = {
   // Get the complete list of product that exist in the database  
   getProduct: async (id) => {
     return Products.findByPk(id, {
-      include: ['brand', 'gender']
+      include: ['brand', 'gender','sizes', 'colors']
     }).then((product) => {
-      return {
+        return {
         id: product.id,
         art: product.art,
         name: product.name,
@@ -42,8 +44,6 @@ module.exports = {
         model: product.model,
         id_gender: product.id_gender,
         gender: product.gender.name,
-        id_color: product.id_color,
-        id_size: product.id_size,
         year: product.year,
         description: product.description,
         price: product.price,
@@ -51,6 +51,20 @@ module.exports = {
         image: product.image,
         is_news: product.is_news,
         is_active: product.is_active,
+        sizes: product.sizes.map((size) => {
+          return {
+            id: size.id,
+            name: size.name,
+            short_name: size.short_name
+          };
+        }),
+        colors: product.colors.map((color) => {
+          return {
+            id: color.id,
+            name: color.name,
+            code_hex: color.code_hex
+          };
+        }),        
       }
     });
   },
@@ -111,5 +125,13 @@ module.exports = {
       {
         where: { id: id }
       });
+  },
+  getProductColors: (idProduct) => {  
+    return ProductsColors.findAll({     include: ['colors'],
+                                        where: { id_product: idProduct } });
+  },
+  getProductSizes: (idProduct) => {  
+    return ProductsSizes.findAll({     include: ['sizes'],
+                                        where: { id_product: idProduct } });
   },
 }
