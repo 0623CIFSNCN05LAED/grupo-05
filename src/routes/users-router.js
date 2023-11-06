@@ -8,21 +8,8 @@ const multer = require("multer");
 
 // ** Controller Requires's -----------------------------------------------------------------------------------
 const usersController = require("../controllers/users-controller");
-
-// Multer configuration for files management 
-const storage = multer.diskStorage({
-  destination: path.join(__dirname, "../../public/images/users"),
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-
-const upload = multer({
-  storage: storage,
-});
+// Multer Users
+const upload = require("../middlewares/multer-product")
 
 // Main Routes
 router.get('/register', usersController.showRegister);

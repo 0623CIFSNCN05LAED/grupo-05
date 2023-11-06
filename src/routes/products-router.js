@@ -6,21 +6,8 @@ const multer = require("multer");
 
 // ** Controller Requires's -----------------------------------------------------------------------------------
 const productsController = require("../controllers/products-controller");
-
-// Multer configuration for files management 
-const storage = multer.diskStorage({
-  destination: path.join(__dirname, "../../public/images/products"),
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-
-const upload = multer({
-  storage: storage,
-});
+// Multer Products
+const upload = require("../middlewares/multer-product")
 
 // Listado de productos
 router.get('/', productsController.productList);
