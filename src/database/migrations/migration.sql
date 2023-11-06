@@ -110,9 +110,9 @@ CREATE TABLE `products` (
   `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `is_news` boolean NOT NULL DEFAULT '0',
   `is_active` boolean NOT NULL DEFAULT '1',
-  `created_by` int(10) NULL DEFAULT NULL,
+  `created_by` VARCHAR(255) NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_by` int(10) NULL DEFAULT NULL,
+  `updated_by` VARCHAR(255) NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,	
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -91,7 +91,11 @@ module.exports = {
       price: Number(req.body.price),
       discount: Number(req.body.discount),
       image: req.file ? req.file.filename : "default-image.png",
-      is_news: req.body.is_news == 'on' ? '1' : "0"
+      is_news: req.body.is_news == 'on' ? '1' : "0",
+      is_active: 1,
+      created_by: req.session.userData.id
+
+
     };
     productServiceDB.createProduct(product);
     res.redirect("/products");
@@ -119,8 +123,10 @@ module.exports = {
       price: Number(req.body.price),
       discount: Number(req.body.discount),
       image: updatedImage,
-      is_news: req.body.is_news == 'on' ? '1' : "0"
+      is_news: req.body.is_news == 'on' ? '1' : "0",
+      updated_by: req.session.userData.id
     };
+    console.log(updatedProduct)
     productServiceDB.updateProduct(productId,updatedProduct)
     res.redirect(`/products/detail/${productId}`);
   },

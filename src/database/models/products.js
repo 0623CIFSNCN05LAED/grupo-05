@@ -18,14 +18,16 @@ module.exports = (sequelize, DataTypes) => {
             discount: DataTypes.INTEGER,
             image: DataTypes.STRING,
             is_news: DataTypes.BOOLEAN,
-            is_active: DataTypes.BOOLEAN
+            is_active: DataTypes.BOOLEAN,
+            created_by: DataTypes.STRING,
+            updated_by: DataTypes.STRING,
         },
         {
             tableName: 'products',
-        // If don't want createdAt
-        createdAt: false,
-       // If don't want updatedAt
-        updatedAt: false,              
+       
+            timestamps:true,
+            createdAt: 'created_at',
+            updatedAt: 'updated_at' ,          
         });
 
     Model.associate = (db) => {

@@ -85,7 +85,9 @@ module.exports = {
         discount: product.discount,
         image: product.image,
         is_news: product.is_news,
-        is_active: product.is_active
+        is_active: product.is_active,
+        updated_by: product.updated_by,
+        created_by: product.created_by,
       });
     console.log(`Creating product ${product.name} ${product.id}`);
   },
@@ -109,7 +111,8 @@ module.exports = {
         discount: product.discount,
         image: product.image,
         is_news: product.is_news,
-        is_active: product.is_active
+        is_active: product.is_active,
+        updated_by: product.updated_by
       },
       {
         where: { id: product.id }
