@@ -86,6 +86,8 @@ module.exports = {
       collection: req.body.collection,
       model: req.body.model,
       id_gender: req.body.gender,
+      sizes: req.body.size,
+      colors: req.body.color,
       year: req.body.year,
       description: req.body.description,
       price: Number(req.body.price),
@@ -94,8 +96,6 @@ module.exports = {
       is_news: req.body.is_news == 'on' ? '1' : "0",
       is_active: 1,
       created_by: req.session.userData.id
-
-
     };
     productServiceDB.createProduct(product);
     res.redirect("/products");
@@ -120,13 +120,15 @@ module.exports = {
       id_gender: req.body.gender,
       year: req.body.year,
       description: req.body.description,
+      sizes: req.body.size,
+      colors: req.body.color,
       price: Number(req.body.price),
       discount: Number(req.body.discount),
       image: updatedImage,
       is_news: req.body.is_news == 'on' ? '1' : "0",
-      updated_by: req.session.userData.id
+      updated_by: 0 //req.session.userData.id
     };
-    console.log(updatedProduct)
+ 
     productServiceDB.updateProduct(productId,updatedProduct)
     res.redirect(`/products/detail/${productId}`);
   },

@@ -32,9 +32,9 @@ module.exports = {
   // Get the complete list of product that exist in the database  
   getProduct: async (id) => {
     return Products.findByPk(id, {
-      include: ['brand', 'gender','sizes', 'colors']
+      include: ['brand', 'gender', 'sizes', 'colors']
     }).then((product) => {
-        return {
+      return {
         id: product.id,
         art: product.art,
         name: product.name,
@@ -64,15 +64,17 @@ module.exports = {
             name: color.name,
             code_hex: color.code_hex
           };
-        }),        
+        }),
       }
     });
   },
   // Create a new product
   createProduct: (product) => {
+    const new_product_id = uuidv4();
+
     Products.create(
       {
-        id: uuidv4(),
+        id: new_product_id,
         art: product.art,
         name: product.name,
         id_brand: product.id_brand,
@@ -89,7 +91,23 @@ module.exports = {
         updated_by: product.updated_by,
         created_by: product.created_by,
       });
-    console.log(`Creating product ${product.name} ${product.id}`);
+      product.colors.forEach(color => {
+        ProductsColors.create(
+          {
+            id: uuidv4(),
+            id_product: new_product_id,
+            id_color: color,
+          })
+      });
+      product.sizes.forEach(size => {
+        ProductsSizes.create(
+          {
+            id: uuidv4(),
+            id_product: new_product_id,
+            id_size: size,
+          })
+      });
+  
   },
   // Delete a new product
   updateProduct: (id, productChanged) => {
@@ -116,12 +134,37 @@ module.exports = {
       },
       {
         where: { id: product.id }
+      }
+    );
+    ProductsColors.destroy(
+      {
+        where: { id_product: product.id }
       });
+    product.colors.forEach(color => {
+      ProductsColors.create(
+        {
+          id: uuidv4(),
+          id_product: product.id,
+          id_color: color,
+        })
+    });
+    ProductsSizes.destroy(
+      {
+        where: { id_product: product.id }
+      });
+    product.sizes.forEach(size => {
+      ProductsSizes.create(
+        {
+          id: uuidv4(),
+          id_product: product.id,
+          id_size: size,
+        })
+    });
   },
   // Delete a new product
   deleteProduct: (id) => {
     console.log(`is_active for product with id ${id} is 0`);
-     return Products.update(
+    return Products.update(
       {
         is_active: 0
       },
@@ -129,12 +172,17 @@ module.exports = {
         where: { id: id }
       });
   },
-  getProductColors: (idProduct) => {  
-    return ProductsColors.findAll({     include: ['colors'],
-                                        where: { id_product: idProduct } });
+  getProductColors: (idProduct) => {
+    return ProductsColors.findAll({
+      include: ['colors'],
+      where: { id_product: idProduct }
+    });
   },
-  getProductSizes: (idProduct) => {  
-    return ProductsSizes.findAll({     include: ['sizes'],
-                                        where: { id_product: idProduct } });
+  getProductSizes: (idProduct) => {
+    return ProductsSizes.findAll({
+      include: ['sizes'],
+      where: { id_product: idProduct }
+    });
   },
+
 }
