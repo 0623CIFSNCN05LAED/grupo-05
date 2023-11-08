@@ -126,7 +126,7 @@ module.exports = {
       discount: Number(req.body.discount),
       image: updatedImage,
       is_news: req.body.is_news == 'on' ? '1' : "0",
-      updated_by: 0 //req.session.userData.id
+      updated_by: req.session.userData.id
     };
  
     productServiceDB.updateProduct(productId,updatedProduct)
