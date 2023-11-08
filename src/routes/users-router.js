@@ -1,9 +1,7 @@
 const { Router, urlencoded } = require('express');
 const router = Router();
-const path = require("path");
 const validationsAuth= require('../validations/validation-auth');
 const validateforms = require('../middlewares/validate-form');
-const userGuard = require('../middlewares/user-guard');
 const multer = require("multer");
 
 // ** Controller Requires's -----------------------------------------------------------------------------------
