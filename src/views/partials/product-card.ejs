@@ -6,7 +6,7 @@
             </figure>
             <article class="product-box_data">
                 <h2><%= product.name%></h2>
-                <% if(!product.discount) { %>
+                <% if(product.discount == 0) { %>
                     <p class="old-product-price" style="visibility: hidden;">Antes: <span class="old-price">$ <%= product.name %></span></p>
                 <% } else { %> 
                     <p class="old-product-price">Antes: <span class="old-price">$ <%= product.price %></span></p>
