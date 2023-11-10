@@ -16,15 +16,15 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: false,        
     });     
  
-/*     
+ 
     Model.associate = (db) => {
-        Model.hasMany( db.Products,
+        Model.hasMany( db.Users,
     {
-        as: "users",
+        as: "user",
         foreignKey: "id_build_type",
 
     });   
     }
-*/    
+  
     return Model;
 };

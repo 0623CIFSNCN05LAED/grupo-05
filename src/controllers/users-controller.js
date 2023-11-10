@@ -73,23 +73,10 @@ module.exports = {
 
   // Acción de creación (a donde se envía el formulario)    
   register: (req, res) => {
-    console.log(req.body);
-    let password = userService.encryptedPassword(req.body.password)
-    const user = {
-    firstName: req.body.name,
-    lastName: req.body.surname,
-    email: req.body.email,
-    birthDay: req.body.birthDay,
-    address: req.body.address,
-    buildtype: req.body.buildtype,
-    zipcode: req.body.zipcode,
-    password: password,
-    category: "viewer",
-    image: req.file ? req.file.filename : 'default_user.png' 
-    };
-    userService.createUser(user);
-      res.redirect("/users/login")
-
+    userService.saveInDb(req.body, req.file)
+      .then(()=>{
+        res.redirect("/users/login")
+      })
   },
 
   // Acción de logout

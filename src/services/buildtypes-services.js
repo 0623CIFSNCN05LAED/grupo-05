@@ -1,8 +1,8 @@
 const { BuildTypes } = require('../database/models/index')
 
 module.exports = {
-    listBuildTypes: () => {       
-       return BuildTypes.findAll({attributes: ['id', 'name']});
+    listBuildTypes: () => {
+        return BuildTypes.findAll({include:[{association: "user"}]}) ;
     },
 
     findById: (id) => {

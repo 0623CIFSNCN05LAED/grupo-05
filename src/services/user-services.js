@@ -1,6 +1,7 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const db = require("../data/db");
 const bcrypt = require("bcryptjs");
+const { Users } = require('../database/models/index')
 
 module.exports = {
 // Get the complete list of users that exist in the database  
@@ -13,9 +14,21 @@ module.exports = {
     return user;
     },  
 // Create a new User
-  createUser: (user) => {
-        db.users.createUser(user)
-      },
+  saveInDb: (newUser,file) => {
+    //newUser.password = this.encryptedPassword(newUser.password);
+    return Users.create({
+      first_name: newUser.name,
+      last_name: newUser.surname,
+      email: newUser.email,
+      birthday: newUser.birthDay,
+      address: newUser.address,
+      id_build_type: newUser.buildtype,
+      zipcode: newUser.zipcode,
+      password: newUser.password,
+      id_category: 0,
+      image: file ? file.filename : 'default_user.png'
+    },{include:[{association: "category"},{association: "build_type"}]});
+  },
   updateUser: (user,id) => {
     const userData = {
       id: id,
