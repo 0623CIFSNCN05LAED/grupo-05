@@ -74,6 +74,7 @@ CREATE TABLE `users` (
   `zipcode` varchar(8) NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `id_category` int(1) unsigned NOT NULL,
+  `image` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
