@@ -14,8 +14,7 @@ module.exports = {
     return user;
     },  
 // Create a new User
-  saveInDb: (newUser,file) => {
-    //newUser.password = this.encryptedPassword(newUser.password);
+  saveInDb: function (newUser,file) {
     return Users.create({
       first_name: newUser.name,
       last_name: newUser.surname,
@@ -24,7 +23,7 @@ module.exports = {
       address: newUser.address,
       id_build_type: newUser.buildtype,
       zipcode: newUser.zipcode,
-      password: newUser.password,
+      password: this.encryptedPassword(newUser.password),
       id_category: 0,
       image: file ? file.filename : 'default_user.png'
     },{include:[{association: "category"},{association: "build_type"}]});
