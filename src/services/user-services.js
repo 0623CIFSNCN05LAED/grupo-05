@@ -37,8 +37,10 @@ module.exports = {
 
   },
   // Delete a User
-  deleteUser: (id) => {
-    db.users.deleteUser(id);
+  deleteUser: (idUser) => {
+     return Users.destroy({
+            where: {id: idUser}
+        })
   },
   //Encriptar password
   encryptedPassword: function (password) {
