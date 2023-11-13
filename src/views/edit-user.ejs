@@ -39,12 +39,12 @@
                 <% } %>   
     
                 <label class="label-register-form" for="birth" >Fecha de Nacimiento</label>
-                <input class="input-register-form" type="date" id="birthDay" name="birthDay" value= "<%= user ? user.birthDay : "" %>">
+                <input class="input-register-form" type="date" id="birthDay" name="birthDay" value= "<%= user ? user.birthday : "" %>">
                 <% if(errors && errors.birthDay) { %>
                     <p class="error-register-form"><%= errors.birthDay.msg %></p> 
                 <% } %>   
     
-                <label class="label-register-form" for="address" >Domiciolio</label>
+                <label class="label-register-form" for="address" >Domicilio</label>
                 <input class="input-register-form domicilio" type="text" id="address" name="address"  value= "<%= user ? user.address : "" %>">
                 <% if(errors && errors.address) { %>
                     <p class="error-register-form"><%= errors.address.msg %></p> 
@@ -52,11 +52,14 @@
     
                 <select class="input-register-form tipo-domicilio" name="buildtype" id="buildtype" required>
                     <option value="">Seleccione una opción...</option>
-                    <% buildTypeList.forEach(buildType=> { %>                    
-                    <option value="<%= buildType.id %>"<% if (buildType.id_gender == user.buildtype ){%> selected <%}%>><%= buildType.name %></option>
+                    <%  buildTypeList.forEach(buildType => { %>
+                        <% if (buildType.id == user.id_build_type) {%>
+                            <option value="<%=buildType.id%>" selected> <%=buildType.name%> </option>
+                       <% } else {%>
+                        <option value="<%=buildType.id%>"> <%=buildType.name%> </option>
+                       <%} %>
                     <% }) %>
                 </select>
-                
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>
                 <input class="input-register-form" type="text" id="zipcode" name="zipcode" value= "<%= user ? user.zipcode : "" %>"> 
                 <% if(errors && errors.zipcode) { %>

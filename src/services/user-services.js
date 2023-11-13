@@ -6,12 +6,13 @@ const { Users } = require('../database/models/index')
 module.exports = {
 // Get the complete list of users that exist in the database  
   getAllUsers: () => {
-      return db.users.getUsers();
-      },  
+    return Users.findAll()
+    },  
   // Get user from DB  
   getUser: (id) => {
-    const user =  db.users.getUserById(id); 
-    return user;
+    return Users.findByPk(id,{
+      include:[{association: "category"},{association: "build_type"}]
+      })
     },  
 // Create a new User
   saveInDb: function (newUser,file) {
@@ -28,13 +29,25 @@ module.exports = {
       image: file ? file.filename : 'default_user.png'
     },{include:[{association: "category"},{association: "build_type"}]});
   },
-  updateUser: (user,id) => {
-    const userData = {
-      id: id,
-      ...user
-    }
-    db.users.update(userData)
-
+  updateUser: function (user,idUser,file) {
+    return Users.update(
+      {
+        first_name: user.name,
+        last_name: user.surname,
+        email: user.email,
+        birthday: user.birthDay,
+        address: user.address,
+        id_build_type: user.buildtype,
+        zipcode: user.zipcode,
+        password: this.encryptedPassword(user.password),
+        id_category: 0,
+        image: file ? file.filename : 'default_user.png'
+      },
+      {
+          where:{id: idUser}
+      },
+      {include:[{association: "category"},{association: "build_type"}]}
+    )
   },
   // Delete a User
   deleteUser: (idUser) => {

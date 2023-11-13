@@ -21,7 +21,7 @@ module.exports = {
   userEdit: async (req, res) => {
     const id = req.params.id;
     const errors = req.session.errors;
-    const user = userService.getUser(id);
+    const user = await userService.getUser(id);
     const allBuildTypes = await buildTypesServicesDB.listBuildTypes();
 
     res.render('edit-user', {
@@ -87,6 +87,7 @@ module.exports = {
 
   // Acción de edición (a donde se envía el formulario):   
   update: (req, res) => {
+    const file = req.file;
     const id = req.params.id;
     if(req.body.password) {
        let passwordNew = userService.encryptedPassword(req.body.password)
@@ -95,11 +96,11 @@ module.exports = {
         ...data,
         password : passwordNew,
       }
-       userService.updateUser(newData,id)
+       userService.updateUser(newData,id,file)
 
     }else {
       let {password,confirmPassword,...data} = req.body
-      userService.updateUser(data,id)
+      userService.updateUser(data,id,file)
     }
 
     res.redirect(`/users/detail/${id}`)
