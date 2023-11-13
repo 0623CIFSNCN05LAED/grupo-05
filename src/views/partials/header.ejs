@@ -18,7 +18,7 @@
         <ul type="none" class="fc">
             <li class="fc-header-item-icon">
                 <% if(userData) {%>
-                    <a href="/users/detail/<%= userData.id %>"><%= userData.firstName[0] + userData.lastName[0] %></a>
+                    <a href="/users/detail/<%= userData.id %>"><%= userData.first_name[0] + userData.last_name[0] %></a>
                 <%}else {%>
                     <a href="/users/login"><i class="fa-regular fa-user color_white"></i></a>
                 <%}%>

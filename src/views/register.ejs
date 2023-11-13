@@ -40,7 +40,7 @@
                     <p class="error-register-form"><%= errors.birthDay.msg %></p> 
                 <% } %>   
     
-                <label class="label-register-form" for="address" >Domiciolio</label>
+                <label class="label-register-form" for="address" >Domicilio</label>
                 <input class="input-register-form domicilio" type="text" id="address" name="address"  value= "<%= oldData ? oldData.address : "" %>">
                 <% if(errors && errors.address) { %>
                     <p class="error-register-form"><%= errors.address.msg %></p> 

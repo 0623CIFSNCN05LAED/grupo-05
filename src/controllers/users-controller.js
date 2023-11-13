@@ -10,9 +10,9 @@ module.exports = {
 
   },
   // Vista detalle de un usuario
-  userDetail: (req, res) => {
+  userDetail: async (req, res) => {
     const id = req.params.id;
-    const user = userService.getUser(id);
+    const user = await userService.getUser(id);
       res.render('user-detail', { 
         user,
         userData: req.session.userData ? req.session.userData : null });
@@ -45,10 +45,11 @@ module.exports = {
     });
   },
   // Acción de Login
-  login: (req, res) => {
-    const authentication = userService.authentication(req.body.email,req.body.password)
-    if(authentication){
-      req.session.userData =  authentication
+  login: async (req, res) => {
+    const authorizedUser = await userService.authentication(req.body.email,req.body.password)
+    console.log('authorizedUser: '+ authorizedUser);
+    if(authorizedUser){
+      req.session.userData =  authorizedUser;
       res.redirect("/")
     }else{
       req.session.errors = {login:{msg:"Email o contraseña incorrecta"}}

@@ -1,5 +1,4 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
-const db = require("../data/db");
 const bcrypt = require("bcryptjs");
 const { Users } = require('../database/models/index')
 
@@ -13,7 +12,15 @@ module.exports = {
     return Users.findByPk(id,{
       include:[{association: "category"},{association: "build_type"}]
       })
-    },  
+    },
+    // Get user from DB by Email
+    getUserByEmail: (userEmail) => {
+      return Users.findOne({
+        where: {
+          email: userEmail
+        }
+      })
+    },
 // Create a new User
   saveInDb: function (newUser,file) {
     return Users.create({
@@ -65,19 +72,13 @@ module.exports = {
     let passCheck = bcrypt.compareSync(password,hashPassword)
     return passCheck
   },
-  authentication: function (email, password) {
-    console.log(email,password)
-    const data = db.users.getUserByEmail(email);
-    if (data && this.descryptedPassword(password, data.password)) {
-        return {
-            id: data.id,
-            firstName: data.first_name,
-            lastName: data.last_name,
-            email: data.email,
-            category: data.category
-        };
+  authentication: async function (userEmail, password) {
+    console.log(userEmail, password)
+    const infoUser = await this.getUserByEmail(userEmail);
+    if (this.descryptedPassword(password, infoUser.password)) {
+      return infoUser
     } else {
-        return false;
+      return false;
     }
-}
+  }
 }
