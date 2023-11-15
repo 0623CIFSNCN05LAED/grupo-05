@@ -3,10 +3,11 @@ const buildTypesServicesDB = require("../services/buildtypes-services");
 
 module.exports = {
   // Vista listado de usuarios 
-  userList: (req, res) => {
-    const allUsers = usersService.getAllUsers();
+  userList: async (req, res) => {
+    const allUsers = await userService.getAllUsers();
     console.log(allUsers);
     // res.render('user-list', {users: userService.getAllusers()});*/
+    res.send('user-list');
 
   },
   // Vista detalle de un usuario
