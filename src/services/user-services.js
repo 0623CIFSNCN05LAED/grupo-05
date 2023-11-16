@@ -32,11 +32,12 @@ module.exports = {
       id_build_type: newUser.buildtype,
       zipcode: newUser.zipcode,
       password: this.encryptedPassword(newUser.password),
-      id_category: 0,
+      id_category: 2,
       image: file ? file.filename : 'default_user.png'
     },{include:[{association: "category"},{association: "build_type"}]});
   },
   updateUser: function (user,idUser,file) {
+    console.log(' Este es el user password' + user.password);
     return Users.update(
       {
         first_name: user.name,
@@ -47,7 +48,7 @@ module.exports = {
         id_build_type: user.buildtype,
         zipcode: user.zipcode,
         password: this.encryptedPassword(user.password),
-        id_category: 0,
+        id_category: user.id_category,
         image: file ? file.filename : 'default_user.png'
       },
       {

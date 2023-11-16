@@ -60,7 +60,7 @@
                                 <input type="button" name="add" id="ad" value="Añadir al carrito" class="PD-button">
                             </div>
                 </div>
-                <% if (userData){ if (userData.category=='admin' ) { %>
+                <% if (userData){ if (userData.id_category == '1' ) { %>
                     <div class="PD-edit-button-box">
                         <a href="/products/edit/<%= product.id %>" class="PD-edit-button-text">Editar producto</a>
                     </div>
