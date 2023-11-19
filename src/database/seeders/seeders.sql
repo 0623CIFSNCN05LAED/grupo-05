@@ -30,8 +30,8 @@ UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO devvision_dev.users (id, first_name, last_name, email, birthday, password, id_category, image ) 
-VALUES(0, 'Administrator', 'Devvision', 'admin@devvision.com', '2011-01-01', '$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616','1', "default_user.png");
+INSERT INTO devvision_dev.users (id, first_name, last_name, email, birthday, address, id_build_type, password, id_category, image ) 
+VALUES(0, 'Administrator', 'Devvision', 'admin@devvision.com', '2011-01-01', 'Buenos Aires', '2', '$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616','1', "default_user.png");
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
