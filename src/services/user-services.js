@@ -65,6 +65,19 @@ module.exports = {
       { include: [{ association: "category" }, { association: "build_type" }] }
     );
   },
+  // Accion de actualizar categoria del usuario desde el admin
+  updateUserByAdmin: function (idUser, data) {
+    return Users.update(
+      {
+        id_category: data.userCategory,
+      },
+      {
+        where: { id: idUser },
+      },
+      { include: [{ association: "category" }] }
+    );
+  },
+
   // Delete a User
   deleteUser: (idUser) => {
     return Users.destroy({

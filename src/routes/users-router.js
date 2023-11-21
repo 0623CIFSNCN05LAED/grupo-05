@@ -47,6 +47,13 @@ router.post(
   usersController.update
 );
 
+// Acción de actualización depermisos desde el admin
+router.post(
+  "/updatebyadmin/:id",
+  urlencoded({ extended: false }),
+  usersController.updateByAdmin
+);
+
 //Acción de borrado
 router.get("/delete/:id", usersController.delete);
 

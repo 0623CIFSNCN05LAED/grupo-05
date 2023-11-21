@@ -12,7 +12,7 @@
     <main class="main_style">
       <h2 class="title">Listado de usuarios</h2>
       <% users.forEach(user => { %> <% if (user.id != 0) { %>
-      <form action="/users/update/<%= user.id %>" method="post">
+      <form action="/users/updatebyadmin/<%= user.id %>" method="post">
         <div class="buttom-save-content">
           <button class="buttom-save-form" type="submit">
             Guardar cambios

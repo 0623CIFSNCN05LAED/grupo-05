@@ -111,6 +111,13 @@ module.exports = {
 
     res.redirect(`/users/detail/${id}`);
   },
+
+  // Acción de actualizar un usuario desde el admin
+  updateByAdmin: (req, res) => {
+    userService.updateUserByAdmin(req.params.id, req.body);
+    res.redirect("/users/list");
+  },
+
   // Acción de borrado de un usuario en la BD
   delete: (req, res) => {
     const id = req.params.id;
