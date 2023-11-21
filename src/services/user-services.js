@@ -1,12 +1,16 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const bcrypt = require("bcryptjs");
 const { Users } = require("../database/models/index");
+const { Categories } = require("../database/models/index");
 const { v4: uuidv4 } = require("uuid");
 
 module.exports = {
   // Get the complete list of users that exist in the database
   getAllUsers: () => {
     return Users.findAll();
+  },
+  getAllCategoryUser: () => {
+    return Categories.findAll({ include: [{ association: "user" }] });
   },
   // Get user from DB
   getUser: (id) => {
@@ -42,7 +46,6 @@ module.exports = {
     );
   },
   updateUser: function (user, idUser, file) {
-    console.log(" Este es el user password" + user.password);
     return Users.update(
       {
         first_name: user.name,
