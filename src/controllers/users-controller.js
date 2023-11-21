@@ -92,7 +92,7 @@ module.exports = {
     const file = req.file;
     const id = req.params.id;
     if(req.body.password) {
-       let passwordNew = userService.encryptedPassword(req.body.password)
+       let passwordNew = req.body.password;
        let {password,...data} = req.body
        let newData = { 
         ...data,

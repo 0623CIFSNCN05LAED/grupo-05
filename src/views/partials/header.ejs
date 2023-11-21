@@ -9,7 +9,7 @@
             <li class="fc-nav-bar-item"><a href="/products/news">Lo último</a></li>
             <li class="fc-nav-bar-item"><a href="/products/discounts">Descuentos</a></li>
             <%  if (userData) {
-                if(userData.category == 'admin') {%>
+                if(userData.id_category == '1') {%>
             <li class="fc-nav-bar-item"><a href="/products/create">Nuevo producto</a></li>
             <%} }%>
         </ul>
