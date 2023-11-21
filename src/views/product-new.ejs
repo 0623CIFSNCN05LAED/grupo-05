@@ -2,98 +2,113 @@
 <html lang="es">
 
 <head>
-    <%- include("partials/head") %>  
-    <link rel="stylesheet" href="/css/styles_PN.css">
-
-    <title>Crear Producto - DevVision</title>
+    <%- include("partials/head") %>
+        <link rel='stylesheet' href='/css/styles_errors.css' />
+        <link rel="stylesheet" href="/css/styles_PN.css">
+        <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+        <script src="/js/product-new-validator.js" defer></script>
+        <title>Crear Producto - DevVision</title>
 </head>
 
 <body class="bg-grey">
-    <header class="header_style">    
+    <header class="header_style">
         <%- include("partials/header") %>
-     </header>
+    </header>
     <main class="main_style">
         <h1 class="title">Crear Producto</h1>
         <form action="/products" method="POST" class="productNew-form" enctype="multipart/form-data">
             <div class="dataProduct">
-            <label class="label-productNew-form" for="art" >Art</label>
-            <input class="input-productNew-form" type="text" id="art" name="art" required>
+                <p>
+                    <label class="label-productNew-form" for="art">Art</label>
+                    <input class="input-productNew-form" type="text" id="art" name="art" required>
+                    <span class="errorMsg" id="artError"></span>
+                </p>
+                <label class="label-productNew-form" for="name">Nombre</label>
+                <input class="input-productNew-form" type="text" id="name" name="name" required>
 
-            <label class="label-productNew-form" for="name" >Nombre</label>
-            <input class="input-productNew-form" type="text" id="name" name="name" required>
-
-            <label class="label-productNew-form" for="brand" >Marca</label>
-            <select class="select-productNew-form" id="brand" name="brand" required>
-                <option value="">Seleccione una opción...</option>
-                <% brandList.forEach(brand=> { %>                    
-                <option value="<%= brand.id %>"><%= brand.name %></option>
-                <% }) %>
-            </select>
-
-            <label class="label-productNew-form" for="collection" >Coleccion</label>
-            <input class="input-productNew-form" type="text" id="collection" name="collection" required>
-
-            <label class="label-productNew-form" for="model" >Modelo</label>
-            <input class="input-productNew-form" type="text" id="model" name="model" required>
-
-
-            <label class="label-productNew-form" for="gender" >Genero</label>
-             <select class="select-productNew-form" id="gender" name="gender" required>
-                <option value="">Seleccione una opción...</option>
-                <% genderList.forEach(gender=> { %>                    
-                <option value="<%= gender.id %>"><%= gender.name %></option>
-                <% }) %>
-            </select>
-
-            <label class="label-productNew-form" for="date" >Año</label>
-            <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productNew-form" required>
-        
-            <div class="checkbox-block">
-                <div class="checkbox-subblock"> 
-                    <span>Talles</span>
-                    <div class="checkbox-group">
-                        <% sizeList.forEach(size => { %>
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="<%= size.name %>" name="size" value="<%= size.id %>">
-                                <label for="<%= size.name %>"><%= size.name %></label>
-                            </div>
-                            <% }) %>
-                    </div>
-                </div>
-
-                <div class="checkbox-subblock"> 
-                    <span>Colores</span>
-                    <div class="checkbox-group">
-                        <% colorList.forEach(color => { %>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
-                            <label for="<%= color.name %>"><%= color.name %></label>
-                            <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
-                        </div>
+                <label class="label-productNew-form" for="brand">Marca</label>
+                <select class="select-productNew-form" id="brand" name="brand" required>
+                    <option value="">Seleccione una opción...</option>
+                    <% brandList.forEach(brand=> { %>
+                        <option value="<%= brand.id %>">
+                            <%= brand.name %>
+                        </option>
                         <% }) %>
+                </select>
+
+                <label class="label-productNew-form" for="collection">Coleccion</label>
+                <input class="input-productNew-form" type="text" id="collection" name="collection" required>
+
+                <label class="label-productNew-form" for="model">Modelo</label>
+                <input class="input-productNew-form" type="text" id="model" name="model" required>
+
+
+                <label class="label-productNew-form" for="gender">Genero</label>
+                <select class="select-productNew-form" id="gender" name="gender" required>
+                    <option value="">Seleccione una opción...</option>
+                    <% genderList.forEach(gender=> { %>
+                        <option value="<%= gender.id %>">
+                            <%= gender.name %>
+                        </option>
+                        <% }) %>
+                </select>
+
+                <label class="label-productNew-form" for="date">Año</label>
+                <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productNew-form"
+                    required>
+
+                <div class="checkbox-block">
+                    <div class="checkbox-subblock">
+                        <span>Talles</span>
+                        <div class="checkbox-group">
+                            <% sizeList.forEach(size=> { %>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="<%= size.name %>" name="size" value="<%= size.id %>">
+                                    <label for="<%= size.name %>">
+                                        <%= size.name %>
+                                    </label>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-subblock">
+                        <span>Colores</span>
+                        <div class="checkbox-group">
+                            <% colorList.forEach(color=> { %>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="<%= color.name %>" name="color" value="<%= color.id %>">
+                                    <label for="<%= color.name %>">
+                                        <%= color.name %>
+                                    </label>
+                                    <div class="hexColor" style="background-color: <%= color.codeHex %>"></div>
+                                </div>
+                                <% }) %>
+                        </div>
                     </div>
                 </div>
+
+                <label class="label-productNew-form" for="description">Descripcion</label>
+                <textarea class="input-productNew-form" type="textarea" id="description" name="description"
+                    placeholder="Escribir un maximo 250 caracteres..." cols="30" rows="6" maxlength="500"
+                    required></textarea>
+
+                <label class="label-productNew-form" for="price">Precio</label>
+                <input class="input-productNew-form" type="text" id="price" name="price" required>
+
+
+                <label class="label-productNew-form" for="discount">Descuento %</label>
+                <input class="input-productNew-form" type="text" id="discount" name="discount">
+
+                <div class="label-productNew-form">
+                    <input type="checkbox" id="is_news" name="is_news">
+                    <label for="is_news">Nuevo lanzamiento</label>
+                </div>
+
+                <label class="label-productNew-form" for="image">Imagen</label>
+                <input class="input-productNew-form image" type="file" id="image" name="image" accept="image/*">
+
             </div>
-
-            <label class="label-productNew-form" for="description" >Descripcion</label>
-            <textarea class="input-productNew-form" type="textarea" id="description" name="description" placeholder="Escribir un maximo 250 caracteres..."  cols="30" rows="6"  maxlength="500" required></textarea>
-            
-            <label class="label-productNew-form" for="price" >Precio</label>
-            <input class="input-productNew-form" type="text" id="price" name="price" required>
-
-
-            <label class="label-productNew-form" for="discount" >Descuento %</label>
-            <input class="input-productNew-form" type="text" id="discount" name="discount">
-
-            <div class="label-productNew-form">
-                <input type="checkbox" id="is_news" name="is_news">
-                <label for="is_news">Nuevo lanzamiento</label>               
-            </div>
-
-            <label class="label-productNew-form" for="image" >Imagen</label>
-            <input class="input-productNew-form image" type="file" id="image" name="image"  accept="image/*">
-                
-        </div>
             <div class="buttoms">
                 <button class="buttom-productNew-form red" type="reset">Borrar</button>
                 <button class="buttom-productNew-form" type="submit">Crear Producto</button>
@@ -104,4 +119,5 @@
         <%- include("partials/footer") %>
     </footer>
 </body>
+
 </html>

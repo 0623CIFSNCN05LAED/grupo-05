@@ -1,0 +1,8 @@
+    .errorMsg {
+        display: none;
+        color: red;
+    }
+
+    .display {
+        display: block;
+    }
