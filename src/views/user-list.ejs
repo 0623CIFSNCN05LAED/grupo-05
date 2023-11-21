@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include("partials/head") %>
+    <link rel="stylesheet" href="/css/styles_Users-list.css" />
+    <title>DevVision - Listado de Usuarios</title>
+  </head>
+
+  <body class="bg-grey">
+    <header class="header_style"><%- include("partials/header") %></header>
+    <!-- todos los usuarios -->
+    <main class="main_style">
+      <h2 class="title">Listado de usuarios</h2>
+      <% users.forEach(user => { %> <% if (user.id != 0) { %>
+      <form action="/users/update/<%= user.id %>" method="post">
+        <div class="buttom-save-content">
+          <button class="buttom-save-form" type="submit">
+            Guardar cambios
+          </button>
+        </div>
+        <table class="table">
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Categoría del usuario</th>
+          </tr>
+
+          <tr>
+            <td><%= user.first_name%> <%= user.last_name%></td>
+            <td><%= user.email %></td>
+            <td class="edit-delete">
+              <select
+                class="input-categoria-usuario"
+                name="userCategory"
+                id="userCategory"
+                required
+              >
+                <option value="">Seleccione una opción...</option>
+                <% userCategories.forEach(userCategory => { %> <% if
+                (userCategory.id == user.id_category) {%>
+                <option value="<%=userCategory.id%>" selected>
+                  <%=userCategory.name%>
+                </option>
+                <% } else {%>
+                <option value="<%=userCategory.id%>">
+                  <%=userCategory.name%>
+                </option>
+                <%} %> <% }) %>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <% } %> <% }) %>
+    </main>
+
+    <!------------------------->
+    <footer class="footer_style"><%- include("partials/footer") %></footer>
+  </body>
+</html>
