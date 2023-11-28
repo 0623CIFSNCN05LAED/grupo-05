@@ -1,17 +1,19 @@
 const validations = [
     {
-      field: "art",
-      check: (input) => input.value.length >= 3,
-      message: "Debe contener al menos tres caracteres",
+      field: "name",
+      check: (input) => input.value.length >= 5,
+      message: "Debe contener al menos 3 caracteres",
+    },
+    {
+      field: "description",
+      check: (input) => input.value.length >= 20,
+      message: "Debe contener al menos 20 caracteres",
     }
- 
-/*     {
-      field: "release_date",
-      check: (input) => validator.isDate(input.value),
-      message: "Debe ser una fecha válida",
-    }, 
-*/
-
+/*  {
+      field: "image",
+      check: (input) => input.value.length >= 20,
+      message: "Debe contener al menos 20 caracteres",
+    },*/
   ];
   
   validations.forEach((validation) => {
