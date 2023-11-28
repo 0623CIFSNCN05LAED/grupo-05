@@ -19,6 +19,7 @@
         <p>
           <label class="label-productNew-form" for="art">Art</label>
           <input class="input-productNew-form" type="text" id="art" name="art"/>
+          <span class="errorMsg" id="artError"></span>
         </p>
         <label class="label-productNew-form" for="name">Nombre</label>
         <input class="input-productNew-form" type="text" id="name" name="name" />
@@ -33,15 +34,18 @@
             </option>
             <% }) %>
         </select>
+        <span class="errorMsg" id="brandError"></span>
 
         <label class="label-productNew-form" for="collection">Coleccion</label>
-        <input class="input-productNew-form" type="text" id="collection" name="collection" required />
+        <input class="input-productNew-form" type="text" id="collection" name="collection" />
+        <span class="errorMsg" id="collectionError"></span>
 
         <label class="label-productNew-form" for="model">Modelo</label>
-        <input class="input-productNew-form" type="text" id="model" name="model" required />
+        <input class="input-productNew-form" type="text" id="model" name="model" />
+        <span class="errorMsg" id="modelError"></span>
 
         <label class="label-productNew-form" for="gender">Genero</label>
-        <select class="select-productNew-form" id="gender" name="gender" required>
+        <select class="select-productNew-form" id="gender" name="gender" >
           <option value="">Seleccione una opción...</option>
           <% genderList.forEach(gender=> { %>
             <option value="<%= gender.id %>">
@@ -49,10 +53,11 @@
             </option>
             <% }) %>
         </select>
+        <span class="errorMsg" id="genderError"></span>
 
         <label class="label-productNew-form" for="date">Año</label>
-        <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productNew-form"
-          required />
+        <input type="number" name="year" id="year" step="1" class="input-productNew-form"/>
+        <span class="errorMsg" id="yearError"></span>
 
         <div class="checkbox-block">
           <div class="checkbox-subblock">
@@ -91,7 +96,8 @@
         <span class="errorMsg" id="descriptionError"></span>
 
         <label class="label-productNew-form" for="price">Precio</label>
-        <input class="input-productNew-form" type="text" id="price" name="price" required />
+        <input class="input-productNew-form" type="text" id="price" name="price" />
+        <span class="errorMsg" id="priceError"></span>
 
         <label class="label-productNew-form" for="discount">Descuento %</label>
         <input class="input-productNew-form" type="text" id="discount" name="discount" />

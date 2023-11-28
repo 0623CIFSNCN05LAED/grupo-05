@@ -25,14 +25,14 @@
                 </div>
   
                 <label class="label-productEdit-form" for="art">Art</label>
-                <input class="input-productEdit-form" type="text" id="art" name="art" value="<%= product.art %>" required>
+                <input class="input-productEdit-form" type="text" id="art" name="art" value="<%= product.art %>">
 
                 <label class="label-productEdit-form" for="name">Nombre</label>
                 <input class="input-productEdit-form" type="text" id="name" name="name" value="<%= product.name %>">
                 <span class="errorMsg" id="nameError"></span>
 
                 <label class="label-productEdit-form" for="brand">Marca</label>
-                <select class="select-productEdit-form" id="brand" name="brand" required>
+                <select class="select-productEdit-form" id="brand" name="brand">
                     <option value="">Seleccione una opción...</option>
                     <% brandList.forEach(brand=> { %>                    
                     <option value="<%= brand.id %>"<% if (product.id_brand == brand.id ){%> selected <%}%>><%= brand.name %></option>
@@ -40,14 +40,14 @@
                 </select>
 
                 <label class="label-productEdit-form" for="collection">Coleccion</label>
-                <input class="input-productEdit-form" type="text" id="collection" name="collection" value="<%= product.collection %>" required>
+                <input class="input-productEdit-form" type="text" id="collection" name="collection" value="<%= product.collection %>" >
 
                 <label class="label-productEdit-form" for="model">Modelo</label>
-                <input class="input-productEdit-form" type="text" id="model" name="model" value="<%= product.model %>" required>
+                <input class="input-productEdit-form" type="text" id="model" name="model" value="<%= product.model %>" >
 
 
                 <label class="label-productEdit-form" for="gender">Genero</label>
-                <select class="select-productEdit-form" id="gender" name="gender" required>
+                <select class="select-productEdit-form" id="gender" name="gender" >
                     <option value="">Seleccione una opción...</option>
                     <% genderList.forEach(gender=> { %>                    
                     <option value="<%= gender.id %>"<% if (product.id_gender == gender.id ){%> selected <%}%>><%= gender.name %></option>
@@ -55,7 +55,7 @@
                 </select>
 
                 <label class="label-productEdit-form" for="gender">Año</label>
-                <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productEdit-form" value="<%= product.year %>" required>
+                <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productEdit-form" value="<%= product.year %>" >
                 <div class="checkbox-block">
                     <div class="checkbox-subblock">
                         <span>Talles</span>
@@ -89,7 +89,7 @@
                 <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength= "500"><% if ( product.description !== null ){%><%= product.description %><%}%></textarea>
                 <span class="errorMsg" id="descriptionError"></span>
                 <label class="label-productEdit-form" for="price">Precio</label>
-                <input class="input-productEdit-form" type="text" id="price" name="price" value="<%= product.price %>" required>
+                <input class="input-productEdit-form" type="text" id="price" name="price" value="<%= product.price %>" >
 
                 <label class="label-productEdit-form" for="discount">Descuento %</label>
                 <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>">
