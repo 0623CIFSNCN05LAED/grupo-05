@@ -3,7 +3,10 @@
 
 <head>
     <%- include("partials/head") %>
-        <link rel="stylesheet" href="/css/styles_PE.css">
+        <link rel="stylesheet" href="/css/styles_errors.css" />
+        <link rel="stylesheet" href="/css/styles_PN.css" />
+        <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+        <script src="/js/product-validator.js" defer></script>        
         <title>DevVision - Editar Producto</title>
 </head>
 
@@ -25,7 +28,8 @@
                 <input class="input-productEdit-form" type="text" id="art" name="art" value="<%= product.art %>" required>
 
                 <label class="label-productEdit-form" for="name">Nombre</label>
-                <input class="input-productEdit-form" type="text" id="name" name="name" value="<%= product.name %>" required>
+                <input class="input-productEdit-form" type="text" id="name" name="name" value="<%= product.name %>">
+                <span class="errorMsg" id="nameError"></span>
 
                 <label class="label-productEdit-form" for="brand">Marca</label>
                 <select class="select-productEdit-form" id="brand" name="brand" required>
@@ -82,7 +86,8 @@
                 </div>
 
                 <label class="label-productEdit-form" for="description">Descripcion</label>
-                <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength= "500" required><% if ( product.description !== null ){%><%= product.description %><%}%></textarea>
+                <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength= "500"><% if ( product.description !== null ){%><%= product.description %><%}%></textarea>
+                <span class="errorMsg" id="descriptionError"></span>
                 <label class="label-productEdit-form" for="price">Precio</label>
                 <input class="input-productEdit-form" type="text" id="price" name="price" value="<%= product.price %>" required>
 

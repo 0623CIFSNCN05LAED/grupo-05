@@ -1,12 +1,12 @@
 const { body } = require("express-validator");
 
 
-module.exports ={  
+module.exports = {
   login: [
     body("email").notEmpty().withMessage("Debe completar este campo")
-    .bail()
-    .isEmail()
-    .withMessage("Debe ser un email válido"),
+      .bail()
+      .isEmail()
+      .withMessage("Debe ser un email válido"),
     body("password").notEmpty().withMessage("Debe completar este campo"),
   ],
   register: [
@@ -17,9 +17,9 @@ module.exports ={
       .isEmail().withMessage("Debe ser un email válido"),
     body("birthDay").notEmpty().withMessage("Debe completar este campo"),
     body("address").notEmpty().withMessage("Debe completar este campo"),
-    body("buildtype").notEmpty().withMessage("Debe completar este campo"), 
+    body("buildtype").notEmpty().withMessage("Debe completar este campo"),
     body("zipcode").notEmpty().withMessage("Debe completar este campo"),
     body("password").notEmpty().withMessage("Debe completar este campo"),
     body("confirmPassword").notEmpty().withMessage("Debe completar este campo"),
-  ],
+  ]
 }
