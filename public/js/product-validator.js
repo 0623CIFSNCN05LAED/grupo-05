@@ -1,5 +1,10 @@
 const validations = [
     {
+      field: "art",
+      check: (input) => true,
+      message: "",
+    },
+    {
       field: "name",
       check: (input) => input.value.length >= 5,
       message: "Debe contener al menos 3 caracteres",
