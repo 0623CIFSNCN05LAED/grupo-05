@@ -4,7 +4,7 @@ const PORT = 3002;
 const express = require('express');
 const path = require('path');
 const mainRouter = require('./routes/main-router');
-const methodOverride = require("method-override"); 	
+const methodOverride = require("method-override");
 const session = require('express-session');
 const viewUtils = require('./utils/view-utils');
 
@@ -14,13 +14,9 @@ const app = express();
 
 // ** Middlewares ---------------------------------------------------------------------------------------------
 app.use(express.static(path.join(__dirname, "../public")));
-app.use(methodOverride("_method"));  
-app.use(session({
-    secret: "DevVision_secret",
-    resave: false,
-    saveUninitialized: false
-}));
-
+app.use(methodOverride("_method"));
+app.use(session({secret: "DevVision_secret", resave: false, saveUninitialized: false}));
+app.use(express.json());
 
 // Template Engine --------------------------------------------------------------------------------------------
 app.set('view engine', 'ejs');

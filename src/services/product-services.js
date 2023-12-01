@@ -181,4 +181,12 @@ module.exports = {
       where: { id_product: idProduct },
     });
   },
+  getAllproductsAndCount: ({pageSize, offset}) => {
+    return Products.findAndCountAll({
+      limit: pageSize,
+      offset: offset
+    })
+  },
 };
+
+
