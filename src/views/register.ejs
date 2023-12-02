@@ -4,6 +4,8 @@
 <head>
     <%- include("partials/head") %>  
     <link rel="stylesheet" href="/css/styles_Register.css">
+    <link rel="stylesheet" href="/css/styles_errors.css">
+    <script type="module" src="/js/users-validator.js" defer></script>
     <title>DevVision - Crear Cuenta</title>
 </head>
 
@@ -16,12 +18,14 @@
                 <div class="div-name">
                     <label class="label-register-form name" for="name" >Nombre</label>
                     <input class="input-register-form name" type="text" id="name" name="name" value= "<%= oldData ? oldData.name : "" %>">
+                    <span class="errorMsg" id="nameError"></span>
                     <% if(errors && errors.name) { %>
                         <p class="error-register-form"><%= errors.name.msg %></p> 
                     <% } %>   
 
                     <label class="label-register-form surname" for="surname" >Apellido</label>
                     <input class="input-register-form surname" type="text" id="surname" name="surname"  value= "<%= oldData ? oldData.surname : "" %>">
+                    <span class="errorMsg" id="surnameError"></span>
                     <% if(errors && errors.surname) { %>
                         <p class="error-register-form"><%= errors.surname.msg %></p> 
                     <% } %>   
@@ -30,12 +34,14 @@
 
                 <label class="label-register-form" for="email" >Email</label>
                 <input class="input-register-form" type="email" id="email" name="email"  value= "<%= oldData ? oldData.email : "" %>">
+                <span class="errorMsg" id="emailError"></span>
                 <% if(errors && errors.email) { %>
                     <p class="error-register-form"><%= errors.email.msg %></p> 
                 <% } %>   
     
-                <label class="label-register-form" for="birth" >Fecha de Nacimiento</label>
+                <label class="label-register-form" for="birthDay" >Fecha de Nacimiento</label>
                 <input class="input-register-form" type="date" id="birthDay" name="birthDay" value= "<%= oldData ? oldData.birthDay : "" %>">
+                <span class="errorMsg" id="birthDayError"></span>
                 <% if(errors && errors.birthDay) { %>
                     <p class="error-register-form"><%= errors.birthDay.msg %></p> 
                 <% } %>   
@@ -52,21 +58,25 @@
                     <option value="<%= buildtype.id %>"><%= buildtype.name %></option>
                     <% }) %>
                 </select>
+                <span class="errorMsg" id="addressError"></span>
                 
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>
                 <input class="input-register-form" type="text" id="zipcode" name="zipcode" value= "<%= oldData ? oldData.zipcode : "" %>"> 
+                <span class="errorMsg" id="zipcodeError"></span>
                 <% if(errors && errors.zipcode) { %>
                     <p class="error-register-form"><%= errors.zipcode.msg %></p> 
                 <% } %>   
     
                 <label class="label-register-form" for="password" >Contraseña</label>
                 <input class="input-register-form"  type="password" id="password" name="password" value= "<%= oldData ? oldData.password : "" %>">
+                <span class="errorMsg" id="passwordError"></span>
                 <% if(errors && errors.password) { %>
                     <p class="error-register-form"><%= errors.password.msg %></p> 
                 <% } %>   
     
                 <label class="label-register-form" for="confirmPassword" >Confirmar contraseña</label>
                 <input class="input-register-form"  type="password" id="confirmPassword" name="confirmPassword"  value= "<%= oldData ? oldData.confirmPassword : "" %>">
+                <span class="errorMsg" id="confirmPasswordError"></span>
                 <% if(errors && errors.confirmPassword) { %>
                     <p class="error-register-form"><%= errors.confirmPassword.msg %></p> 
                 <% } %>   

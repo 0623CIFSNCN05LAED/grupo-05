@@ -4,6 +4,8 @@
 <head>
     <%- include("partials/head") %>  
     <link rel="stylesheet" href="/css/styles_Login.css">
+    <link rel="stylesheet" href="/css/styles_errors.css" />
+    <script  src="/js/users-validator.js" defer></script>
     <title>DevVision - Ingresar</title>
 </head>
 
@@ -12,14 +14,16 @@
         <%- include("partials/header") %>
      </header>
     <main class="main_style">
-        <form action="/users/login" method="POST" class="login-form">
+        <form action="/users/login" method="POST" class="login-form" id="form">
                 <label class="label-login-form" for="email" >Email</label>
-                <input class="input-login-form" type="text" id="email" name="email" autocomplete="on">
+                <input class="input-login-form" type="text" id="email" name="email" autocomplete="off">
+                <span class="errorMsg" id="emailError"></span>
                 <% if(errors && errors.email) { %>
                     <p class="error-login-form"><%= errors.email.msg %></p> 
                 <% } %>   
                 <label class="label-login-form" for="password" >Contraseña</label>
-                <input class="input-login-form"  type="password" id="password" name="password" autocomplete="on">
+                <input class="input-login-form"  type="password" id="password" name="password" autocomplete="off">
+                <span class="errorMsg" id="passwordError"></span>
                 <% if(errors && errors.password) { %>
                     <p class="error-login-form"><%= errors.password.msg %></p> 
                 <% } %>
