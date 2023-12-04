@@ -28,18 +28,19 @@ INSERT INTO devvision_dev.sizes (name,short_name) VALUES ('Extra Small','XS'), (
 /*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO devvision_dev.users (id, first_name, last_name, email, birthday, address, id_build_type, password, id_category, image ) 
-VALUES(0, 'Administrator', 'Devvision', 'admin@devvision.com', '2011-01-01', 'Buenos Aires', '2', '$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616','1', "default_user.png");
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
 LOCK TABLES `build_types` WRITE;
 /*!40000 ALTER TABLE `build_types` DISABLE KEYS */;
 INSERT INTO devvision_dev.build_types (name) VALUES ('Casa'), ('Departamento'), ('Oficina');
 /*!40000 ALTER TABLE `build_types` ENABLE KEYS */;
 UNLOCK TABLES;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO devvision_dev.users (id, first_name, last_name, email, birthday, address,id_build_type, password, id_category, image ) 
+VALUES('0', 'Administrator', 'Devvision', 'admin@devvision.com', '2011-01-01', 'Buenos Aires',2, '$2a$10$ots5gOjtTdvWQUr8JtKV7OG3aV6Ph6novUbeuGLycQ6INgpoTh616',1, "default_user.png");
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
