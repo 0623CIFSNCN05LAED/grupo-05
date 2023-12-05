@@ -2,7 +2,7 @@
 const { Router, urlencoded } = require('express');
 const router = Router();
 const validationsProduct = require("../validations/validation-product");
-const validateforms = require("../middlewares/validate-product-forms");
+const validateProductForms = require("../middlewares/validate-product-forms");
 const multer = require("multer");
 
 // ** Controller Requires's -----------------------------------------------------------------------------------
@@ -23,12 +23,12 @@ router.get('/detail/:id', productsController.productDetail);
 // Formulario de creación de productos
 router.get('/create', productsController.productCreate);
 //Acción de creación 
-router.post("/", upload.single("image"), validationsProduct.product_new, validateforms.product_new, productsController.create);
+router.post("/", upload.single("image"), validationsProduct.product_new, validateProductForms.product_new, productsController.create);
 
 // Formulario de edición de productos
 router.get('/edit/:id', productsController.productEdit);
 //Acción de edición 
-router.put('/update/:id', upload.single("image"), urlencoded({extended: false,}), validationsProduct.product_edit, validateforms.product_edit, productsController.update);
+router.put('/update/:id', upload.single("image"), urlencoded({extended: false,}),  validationsProduct.product_edit, validateProductForms.product_edit, productsController.update);
 
 //Acción de borrado
 router.delete('/:id', productsController.delete);

@@ -2,7 +2,7 @@ const validations = [
     {
       field: "art",
       check: (input) => input.value.length <= 100,
-      message: "Debe contener como màximo 100 caracteres",
+      message: "Debe contener como máximo 100 caracteres",
     },
     {
       field: "name",
@@ -32,7 +32,7 @@ const validations = [
     {
       field: "gender",
       check: (input) => input.value.length > 0,
-      message: "Debe especificar un genero",
+      message: "Debe especificar un género",
     },
     {
       field: "year",
@@ -42,7 +42,7 @@ const validations = [
     {
       field: "price",
       check: (input) => input.value.length > 0,
-      message: "",
+      message: "Debe especificar un precio superior a 0",
     }
   ];
   
@@ -82,7 +82,7 @@ const validations = [
   
   function inputValidation(validation, input, inputErrorMsg) {
     if (!input.value) {
-      inputErrorMsg.innerText = "El campo no debe estar vacío";
+      inputErrorMsg.innerText = "Debe completar este campo";
       inputErrorMsg.classList.add("display");
       return false;
     }

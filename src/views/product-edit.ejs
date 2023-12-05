@@ -4,9 +4,9 @@
 <head>
     <%- include("partials/head") %>
         <link rel="stylesheet" href="/css/styles_errors.css" />
-        <link rel="stylesheet" href="/css/styles_PN.css" />
-        <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
-        <script src="/js/product-validator.js" defer></script>        
+        <link rel="stylesheet" href="/css/styles_PE.css" />
+        <script src="https://unpkg.com/validator@latest/validator.min.js"></script>   
+        <script src="/js/product-validator.js" defer></script>
         <title>DevVision - Editar Producto</title>
 </head>
 
@@ -26,11 +26,16 @@
   
                 <label class="label-productEdit-form" for="art">Art</label>
                 <input class="input-productEdit-form" type="text" id="art" name="art" value="<%= product.art %>">
-
+                <span class="errorMsg" id="artError"></span>
+                <% if(errors && errors.art) { %>
+                    <p class="errorMsgBack"><%= errors.art.msg %></p> 
+                <% } %>  
                 <label class="label-productEdit-form" for="name">Nombre</label>
                 <input class="input-productEdit-form" type="text" id="name" name="name" value="<%= product.name %>">
                 <span class="errorMsg" id="nameError"></span>
-
+                <% if(errors && errors.name) { %>
+                    <p class="errorMsgBack"><%= errors.name.msg %></p> 
+                <% } %>  
                 <label class="label-productEdit-form" for="brand">Marca</label>
                 <select class="select-productEdit-form" id="brand" name="brand">
                     <option value="">Seleccione una opción...</option>
@@ -38,13 +43,22 @@
                     <option value="<%= brand.id %>"<% if (product.id_brand == brand.id ){%> selected <%}%>><%= brand.name %></option>
                     <% }) %>
                 </select>
-
+                <span class="errorMsg" id="brandError"></span>
+                <% if(errors && errors.brand) { %>
+                    <p class="errorMsgBack"><%= errors.brand.msg %></p> 
+                <% } %>  
                 <label class="label-productEdit-form" for="collection">Coleccion</label>
                 <input class="input-productEdit-form" type="text" id="collection" name="collection" value="<%= product.collection %>" >
-
+                <span class="errorMsg" id="collectiondError"></span>
+                <% if(errors && errors.collection) { %>
+                    <p class="errorMsgBack"><%= errors.collection.msg %></p> 
+                <% } %> 
                 <label class="label-productEdit-form" for="model">Modelo</label>
                 <input class="input-productEdit-form" type="text" id="model" name="model" value="<%= product.model %>" >
-
+                <span class="errorMsg" id="modelError"></span>
+                <% if(errors && errors.model) { %>
+                    <p class="errorMsgBack"><%= errors.model.msg %></p> 
+                <% } %> 
 
                 <label class="label-productEdit-form" for="gender">Genero</label>
                 <select class="select-productEdit-form" id="gender" name="gender" >
@@ -53,9 +67,16 @@
                     <option value="<%= gender.id %>"<% if (product.id_gender == gender.id ){%> selected <%}%>><%= gender.name %></option>
                     <% }) %>
                 </select>
-
-                <label class="label-productEdit-form" for="gender">Año</label>
-                <input type="number" name="year" id="year" min="1900" max="2099" step="1" class="input-productEdit-form" value="<%= product.year %>" >
+                <span class="errorMsg" id="genderError"></span>
+                <% if(errors && errors.gender) { %>
+                    <p class="errorMsgBack"><%= errors.gender.msg %></p> 
+                <% } %> 
+                <label class="label-productEdit-form" for="year">Año</label>
+                <input type="number" name="year" id="year" step="1" class="input-productEdit-form" value="<%= product.year %>" >
+                <span class="errorMsg" id="yearError"></span>
+                <% if(errors && errors.year) { %>
+                    <p class="errorMsgBack"><%= errors.year.msg %></p> 
+                <% } %> 
                 <div class="checkbox-block">
                     <div class="checkbox-subblock">
                         <span>Talles</span>
@@ -69,7 +90,10 @@
                                 <% }) %>                            
                         </div>
                     </div>
-
+                    <span class="errorMsg" id="sizeError"></span>
+                    <% if(errors && errors.size) { %>
+                        <p class="errorMsgBack"><%= errors.size.msg %></p> 
+                    <% } %> 
                     <div class="checkbox-subblock">
                         <span>Colores</span>
                         <div class="checkbox-group">
@@ -83,17 +107,31 @@
                                     <% }) %>
                         </div>
                     </div>
+                    <span class="errorMsg" id="colorError"></span>
+                    <% if(errors && errors.color) { %>
+                        <p class="errorMsgBack"><%= errors.color.msg %></p> 
+                    <% } %> 
                 </div>
 
                 <label class="label-productEdit-form" for="description">Descripcion</label>
                 <textarea class="input-productEdit-form" type="textarea" id="description" name="description" cols="30" rows="6" maxlength= "500"><% if ( product.description !== null ){%><%= product.description %><%}%></textarea>
                 <span class="errorMsg" id="descriptionError"></span>
+                <% if(errors && errors.description) { %>
+                    <p class="errorMsgBack"><%= errors.description.msg %></p> 
+                <% } %> 
+
                 <label class="label-productEdit-form" for="price">Precio</label>
                 <input class="input-productEdit-form" type="text" id="price" name="price" value="<%= product.price %>" >
-
+                <span class="errorMsg" id="priceError"></span>
+                <% if(errors && errors.price) { %>
+                    <p class="errorMsgBack"><%= errors.price.msg %></p> 
+                <% } %> 
                 <label class="label-productEdit-form" for="discount">Descuento %</label>
                 <input class="input-productEdit-form" type="text" id="discount" name="discount" value="<%= product.discount %>">
-                
+                <span class="errorMsg" id="discountError"></span>
+                <% if(errors && errors.discount) { %>
+                    <p class="errorMsgBack"><%= errors.discount.msg %></p> 
+                <% } %> 
                 <div class="checkbox-option">
                     <input type="checkbox" id=is_news name=is_news <% if (product.is_news == '1'){%> checked <%}%>>
                     <label for="is_news">Nuevo lanzamiento</label>               
@@ -101,7 +139,10 @@
 
                 <label class="label-productEdit-form" for="image" >Imagen (<%=product.image%>)</label>
                 <input class="input-productEdit-form image" type="file" id="image" name="image" accept="image/*">
-
+                <span class="errorMsg" id="imageError"></span>
+                <% if(errors && errors.image) { %>
+                  <p class="errorMsgBack"><%= errors.image.msg %></p> 
+                <% } %> 
             </div>
             <div class="buttoms">
                 <button class="buttom-productEdit-form" type="submit">Guardar producto</button>

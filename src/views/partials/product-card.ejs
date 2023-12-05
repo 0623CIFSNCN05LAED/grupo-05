@@ -11,9 +11,7 @@
                 <% } else { %> 
                     <p class="old-product-price">Antes: <span class="old-price">$ <%= product.price %></span></p>
                     <span class="discount">-<%= product.discount %>%</span>
-                <% } %>
-
-                
+                <% } %>               
                 <p class="product-price">$ <%= getFinalPrice(product) %></p>
             </article>
         </a>

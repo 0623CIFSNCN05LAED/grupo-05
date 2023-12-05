@@ -42,18 +42,20 @@ module.exports = {
 
     res.render("product-detail", {
       product: product,
-
       userData: req.session.userData ? req.session.userData : null,
     });
   },
   // Vista formulario de edición de productos
   productEdit: async (req, res) => {
+    const errors = req.session.errors;
     const id = req.params.id;
     const productPromise = productServiceDB.getProduct(id);
     const allSizesPromise = sizeServicesDB.listSizes();
     const allColorsPromise = colorServicesDB.listColors();
     const allBrandsPromise = brandServicesDB.listBrands();
     const allGendersPromise = genderServicesDB.listGenders();
+
+    req.session.errors = null;
 
     const [product, allSizes, allColors, allBrands, allGenders] =
       await Promise.all([
@@ -71,6 +73,7 @@ module.exports = {
       genderList: allGenders,
       product,
       userData: req.session.userData ? req.session.userData : null,
+      errors: errors ? errors : null
     });
   },
   // Vista formulario de borrado de producto
@@ -81,10 +84,13 @@ module.exports = {
   },
   // Vista formulario de creación de producto
   productCreate: async (req, res) => {
+    const errors = req.session.errors;
     const allSizesPromise = sizeServicesDB.listSizes();
     const allColorsPromise = colorServicesDB.listColors();
     const allBrandsPromise = brandServicesDB.listBrands();
     const allGendersPromise = genderServicesDB.listGenders();
+
+    req.session.errors = null;
 
     const [allSizes, allColors, allBrands, allGenders] = await Promise.all([
       allSizesPromise,
@@ -99,6 +105,7 @@ module.exports = {
       brandList: allBrands,
       genderList: allGenders,
       userData: req.session.userData ? req.session.userData : null,
+      errors: errors ? errors : null
     });
   },
   // Acción de creación (a donde se envía el formulario)

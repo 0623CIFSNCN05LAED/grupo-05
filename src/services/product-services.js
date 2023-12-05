@@ -181,12 +181,25 @@ module.exports = {
       where: { id_product: idProduct },
     });
   },
+  getTotalProductsByCategory: () => {
+    return Products.findAll({
+          attributes: ['id_brand', [db.Sequelize.fn('COUNT', db.Sequelize.col('id_brand')), 'ProductCount']],
+          group: ['id_brand']
+      });
+  },
   getAllproductsAndCount: ({pageSize, offset}) => {
     return Products.findAndCountAll({
       limit: pageSize,
       offset: offset
     })
   },
+  getAllProductsOverview: () => {
+    return Products.findAll({
+      attributes: ['id', 'name','description'],
+      include: ["colors","sizes"]
+      // detail → URL para obtener el detalle.
+  });
+  }
 };
 
 

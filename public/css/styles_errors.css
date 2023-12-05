@@ -2,7 +2,9 @@
         display: none;
         color: red;
     }
-
+    .errorMsgBack {
+        color: red;
+    }
 
     .display {
         display: block;

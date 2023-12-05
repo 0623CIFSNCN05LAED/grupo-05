@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <h2 class="products-title"><%= title %></h2>
                 </div>
-                <% console.log(allProducts); allProducts.forEach(product => { %>
+                <% allProducts.forEach(product => { %>
                     <%- include("partials/product-card", {product}) %>
                     <% }) %>
             </div>
