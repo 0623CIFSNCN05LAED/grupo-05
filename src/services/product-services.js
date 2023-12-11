@@ -90,6 +90,7 @@ module.exports = {
       updated_by: product.updated_by,
       created_by: product.created_by,
     });
+    if (product.colors){
     product.colors.forEach((color) => {
       ProductsColors.create({
         id: uuidv4(),
@@ -97,6 +98,8 @@ module.exports = {
         id_color: color,
       });
     });
+   };
+   if (product.sizes){
     product.sizes.forEach((size) => {
       ProductsSizes.create({
         id: uuidv4(),
@@ -104,6 +107,7 @@ module.exports = {
         id_size: size,
       });
     });
+   };
   },
   // Delete a new product
   updateProduct: async (id, productChanged) => {
@@ -135,6 +139,7 @@ module.exports = {
     await ProductsColors.destroy({
       where: { id_product: product.id },
     });
+    if (productChanged.colors){
     Promise.all(
       productChanged.colors.map((color) => {
         return ProductsColors.create({
@@ -143,10 +148,12 @@ module.exports = {
           id_color: color,
         });
       })
-    );
+    )};
+
     await ProductsSizes.destroy({
       where: { id_product: product.id },
     });
+    if (productChanged.sizes){ 
     Promise.all(
       productChanged.sizes.map((size) => {
         return ProductsSizes.create({
@@ -155,7 +162,7 @@ module.exports = {
           id_size: size,
         });
       })
-    );
+    )};
   },
   // Delete a new product
   deleteProduct: (id) => {
