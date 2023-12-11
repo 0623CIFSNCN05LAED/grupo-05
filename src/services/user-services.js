@@ -1,6 +1,6 @@
 // ** Requires's ----------------------------------------------------------------------------------------------
 const bcrypt = require("bcryptjs");
-const { Users } = require("../database/models/index");
+const { Users, Sequelize } = require("../database/models/index");
 const { Categories } = require("../database/models/index");
 const { v4: uuidv4 } = require("uuid");
 
@@ -8,6 +8,11 @@ module.exports = {
   // Get the complete list of users that exist in the database
   getAllUsers: () => {
     return Users.findAll();
+  },
+  getAllUsersApi: () => {
+    return Users.findAll({
+      attributes: ["id", "first_name", "last_name", "email"],
+    });
   },
   getAllCategoryUser: () => {
     return Categories.findAll({ include: [{ association: "user" }] });
@@ -18,12 +23,49 @@ module.exports = {
       include: [{ association: "category" }, { association: "build_type" }],
     });
   },
+  getUserApi: (id) => {
+    return Users.findByPk(id, {
+      include: [{ association: "category" }, { association: "build_type" }],
+      attributes: [
+        "id",
+        "first_name",
+        "last_name",
+        "email",
+        "birthday",
+        "address",
+        "image",
+      ],
+    });
+  },
+  getImageApi: function (id) {
+    return this.getUser(id, { attributes: ["image"] });
+  },
   // Get user from DB by Email
   getUserByEmail: (userEmail) => {
     return Users.findOne({
       where: {
         email: userEmail,
       },
+    });
+  },
+  getAllusersAndCount: ({ pageSize, offset }) => {
+    return Users.findAndCountAll({
+      limit: pageSize,
+      offset: offset,
+      order: [["first_name", "ASC"]],
+      attributes: ["id", "first_name", "last_name", "email"],
+    });
+  },
+
+  // Buscar usuario
+  search: async (query) => {
+    const user = await Users.findOne({
+      where: {
+        first_name: {
+          [Sequelize.Op.like]: "%" + query + "%",
+        },
+      },
+      include: [{ association: "category" }, { association: "build_type" }],
     });
   },
   // Create a new User
