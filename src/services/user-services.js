@@ -97,8 +97,12 @@ module.exports = {
   authentication: async function (userEmail, password) {
     console.log(userEmail, password);
     const infoUser = await this.getUserByEmail(userEmail);
-    if (this.descryptedPassword(password, infoUser.password)) {
-      return infoUser;
+    if (infoUser) {
+      if (this.descryptedPassword(password, infoUser.password)) {
+        return infoUser;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
