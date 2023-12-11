@@ -38,7 +38,7 @@
                 <label class="label-register-form" for="address" >Domicilio</label>
                 <input class="input-register-form domicilio color_white" type="text" id="address" name="address"  value= "<%= user ? user.address : "" %>" disabled>
  
-                <input class="input-register-form tipo-domicilio color_white" type="text" name="buildtype" id="buildtype" value= "<%= user ? user.build_type : "" %>" disabled>
+                <input class="input-register-form tipo-domicilio color_white" type="text" name="buildtype" id="buildtype" value= "<%= user ? user.build_type.name : "" %>" disabled>
                 
                 <label class="label-register-form" for="zipcode" >Codigo Postal</label>
                 <input class="input-register-form color_white" type="text" id="zipcode" name="zipcode" value= "<%= user ? user.zipcode : "" %>" disabled> 
