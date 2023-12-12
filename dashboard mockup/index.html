@@ -15,9 +15,14 @@
         <div class="logo">
             <img src="./logo_devvision.png" alt="Logo Empresa">
         </div>
-        <div class="search-box">
-            <input type="search" placeholder="Buscar...">
-            <i class="bi bi-search"></i>
+        <div class="navbar">
+            <div class="search-box">
+                <input type="search" placeholder="Buscar...">
+                <i class="bi bi-search"></i>
+            </div>
+            <div class="user">
+                <span>JK</span>
+            </div>
         </div>
     </header>
     <div class="dashboard">
@@ -45,20 +50,50 @@
                         <p class="number">789</p>
                     </div>
                 </section>
-                <section class="product-list">
-                    <div class="product-item">
-                        <span class="number">#1</span>
-                        <span class="article">Artículo 1</span>
-                        <span class="name">Versace 2240</span>
-                        <span class="quantity">Cantidad: 50</span>
-                        <span class="price">Precio: $100.000</span>
+                <section class="table-section">
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Artículo</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Artículo 1</td>
+                                <td>Nombre del Producto</td>
+                                <td>100</td>
+                                <td>$ 100.000</td>
+                                <td class="actions">
+                                    <i class="bi bi-eye"></i>
+                                    <i class="bi bi-pencil"></i> 
+                                    <i class="bi bi-trash"></i> 
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <div class="mobile-product-card">
+                        <h3>Nombre del Producto</h3>
+                        <span class="art">art</span>
+                        <p class="description">Descripción breve...</p>
+                        <div class="product-details">
+                            <span class="price">Precio: $ 100.000</span>
+                            <span class="quantity">Cantidad: 100</span>
+                        </div>
                         <div class="product-actions">
-                            <button class="view"><i class="bi bi-eye"></i></button>
-                            <button class="edit"><i class="bi bi-pencil"></i></button>
-                            <button class="delete"><i class="bi bi-trash"></i></button>
+                            <i class="bi bi-eye"></i>
+                            <i class="bi bi-pencil"></i>
+                            <i class="bi bi-trash"></i>
                         </div>
                     </div>
                 </section>
+
             </section>
             
         </section>

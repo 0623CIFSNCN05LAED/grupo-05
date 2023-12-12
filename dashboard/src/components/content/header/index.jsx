@@ -4,12 +4,17 @@ export default function Header () {
     return (
         <header>
             <div className="logo">
-                <img src={logo} alt="Logo Empresa" />  {/* Self-closing tag for img */}
+                <img src={logo} alt="Logo Empresa" />
             </div>
-            <div className="search-box">
-                <input type="search" placeholder="Buscar..." />  {/* Self-closing tag for input */}
-                <i className="bi bi-search"></i>  {/* Icon for search (ensure you have the relevant icons/fonts included) */}
+            <div class="navbar">
+            <div class="search-box">
+                <input type="search" placeholder="Buscar..."/>
+                <i class="bi bi-search"></i>
             </div>
+            <div class="user">
+                <span>JK</span>
+            </div>
+        </div>
         </header>
     );
 }

@@ -3,22 +3,26 @@
 }
 
 .product-table {
-    
-    width: 100%;
+    margin-top: 10px;
+    width: 97%;
     border-collapse: collapse;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra ligera para profundidad */
-    margin-bottom: 20px; /* Espacio debajo de la tabla */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    margin-bottom: 10px; 
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 .product-table th, .product-table td {
     border: 1px solid #ddd;
+    border-radius: 5px;
     padding: 10px;
     text-align: left;
-    background-color: #fff; /* Fondo claro para las celdas */
+    background-color: #fff; 
 }
 
 .product-table th {
-    background-color: #666666; /* Color distintivo para los encabezados */
+    background-color: #666666; 
     color: white;
     font-weight: normal;
 }
@@ -33,7 +37,7 @@
 }
 
 
-/* Diseño para los íconos */
+
 .product-table .bi {
     font-size: 1.2em;
     cursor: pointer;
@@ -42,7 +46,7 @@
 }
 
 .product-table .bi:hover {
-    color: #0056b3; /* Efecto hover para los íconos */
+    color: #0056b3; 
 }
 
 @media screen and (max-width: 768px) {
@@ -50,6 +54,7 @@
         display: none;
     }
     .mobile-product-card {
+        margin-top: 10px;
         display: block;
         border: 1px solid #ddd;
         padding: 10px;

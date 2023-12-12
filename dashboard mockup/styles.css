@@ -12,6 +12,19 @@ header {
     background-color: black;
     color: white;
 }
+.navbar {
+    display: flex;
+}
+
+.user{
+    margin-left: 5px;
+    display: flex;
+    padding: 10px;
+    align-items: center; 
+    justify-content: center; 
+    background-color: #6fff82;
+    border-radius: 100%;
+}
 
 .logo {
     display: flex;
@@ -89,6 +102,22 @@ header {
 @media screen and (max-width: 768px) {
     .dashboard {
         flex-direction: column;
+    }
+
+    header {
+        display: block;
+    }
+    .logo{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .navbar{
+        justify-content: space-between;
+
+    }
+    .search-box{
+        width: 90%;
+        justify-content: space-between;
     }
 
     .sidebar {

@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 import "./styles.css"
 
-const Card = ({title/*, value*/}) => {
+const Card = ({title, value}) => {
     return (
         <div className="card">
             <h3>{title} </h3>
-            <p className="number">{200}</p>
+            <p className="number">{value}</p>
         </div>
     )
 }
 
 Card.propTypes ={
     title: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired
+    value: PropTypes.string.isRequired
 }
 
 export default Card;

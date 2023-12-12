@@ -13,16 +13,30 @@ header {
   color: white;
 }
 
+.navbar {
+  display: flex;
+}
+
+.user {
+  margin-left: 5px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #6fff82;
+  border-radius: 100%;
+}
+
 .logo {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 }
 
 .logo img {
   width: 150px;
-  max-width: 100%; 
-  max-height: 100%; 
+  max-width: 100%;
+  max-height: 100%;
 }
 
 
@@ -50,78 +64,40 @@ header {
   min-height: 100vh;
 }
 
-.sidebar {
-  width: 180px;
-  background-color: black;
-  color: white;
-}
-
-.sidebar .menu {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar .menu.principal li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.sidebar .menu.principal li:hover {
-  background-color: #727272;
-}
-
-.sidebar .menu.sesion {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
 
 .container {
   flex-grow: 1;
 }
 
-.sidebar .menu i {
-  margin-right: 10px;
-}
 
 
 /* mviles */
 @media screen and (max-width: 768px) {
   .dashboard {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .sidebar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+  header {
+    display: block;
   }
 
-  .sidebar .menu {
-      flex-grow: 1;
-      display: flex;
-      justify-content: space-around;
-  }
-  .sidebar .menu.sesion {
-      position: relative; 
+  .logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
-  .sidebar .menu.principal li, .sidebar .menu.sesion li {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  .navbar {
+    justify-content: space-between;
+
   }
 
-  .sidebar .menu li i {
-      display: block;
+  .search-box {
+    width: 90%;
+    justify-content: space-between;
   }
 
-  .sidebar .menu li span {
-      display: none;
-  }
   .container {
-      width: 100%;
-      
+    width: 100%;
+
   }
 }

@@ -1,16 +1,13 @@
-import Cards from "../content/Cards";
 import Sidebar from "../content/sidebar";
+import ContentDashboard from "../contentDashboard";
 
-export default function Dashboard () {
+function Dashboard () {
     return (
         <div className="dashboard">
-        <Sidebar />
-            <section className="container">
-                <Cards />
-                <section>
-                    <p>otra cosa</p>
-                </section>
-            </section>
-    </div>
+            <Sidebar />
+            <ContentDashboard />
+        </div>
     )
 }
+
+export default Dashboard

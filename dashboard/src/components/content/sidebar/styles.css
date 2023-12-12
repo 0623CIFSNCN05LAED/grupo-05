@@ -1,0 +1,82 @@
+.sidebar {
+    width: 180px;
+    background-color: black;
+    color: white;
+  }
+  
+  .sidebar .menu {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar .menu a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+  }
+  
+  .sidebar .menu.principal a {
+    cursor: pointer;
+  }
+  
+  .sidebar .menu.principal a:hover {
+    background-color: rgb(138, 138, 138);
+  }
+  
+  .sidebar .menu.sesion {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+
+.sidebar .menu a .active {
+    background-color: #ade03f; 
+    
+
+}
+.sidebar .menu a .active:hover {
+  background-color: rgba(183, 230, 82, 0.9)
+}
+
+.sidebar .menu i {
+    margin-right: 10px;
+    
+  }
+
+/* mviles */
+@media screen and (max-width: 768px) {
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+  
+    .sidebar .menu {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-around;
+    }
+    .sidebar .menu.sesion {
+        position: relative; 
+    }
+  
+    .sidebar .menu.principal li, .sidebar .menu.sesion li {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .sidebar .menu li i {
+        display: block;
+        margin: 0px;
+    }
+  
+    .sidebar .menu li span {
+        display: none;
+    }
+    
+  }
+  
