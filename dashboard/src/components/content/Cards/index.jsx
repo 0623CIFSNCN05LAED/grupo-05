@@ -1,5 +1,6 @@
 import Card from "../Card"
 import { useEffect, useState } from "react";
+import { productApi } from "../../../api/productApi";
 
 function TotalProducts(stats) {
     const newTotalProducts =stats.meta.totalsByCategory.reduce((sum, total) => sum + total.ProductCount, 0);
@@ -35,8 +36,7 @@ function Cards () {
     const [stats,setStats] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-          const response = await fetch("http://localhost:3002/api/products");
-          const result = await response.json();
+          const result = await productApi();
           setStats(
             [ 
             TotalProducts(result),TotalBrands(result),TotalSell()
@@ -45,12 +45,15 @@ function Cards () {
         };
     
         fetchData();
+
       }, []);
 
     return (
         <section className="cards">
             {stats.length === 0
-            ? "Cargando..."
+            ? (
+                <p>Cargando...</p>
+                )
             : stats.map((stat) => (
                 <Card 
                     key={stat.id}
