@@ -1,54 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./cards.css">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <title>Dashboard Mejorado</title>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="./logo_devvision.png" alt="Logo Empresa">
-        </div>
-        <div class="search-box">
-            <input type="search" placeholder="Buscar...">
-            <i class="bi bi-search"></i>
-        </div>
-    </header>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <ul class="menu principal">
-                <li><i class="bi bi-house"></i><span>Inicio</span></li>
-                <li><i class="bi bi-cart"></i><span>Ventas</span></li>
-                <li><i class="bi bi-people"></i><span>Clientes</span></li>
-                <li><i class="bi bi-box-seam"></i><span>Productos</span></li>
-                <li><i class="bi bi-box-arrow-in-left"></i><span>Cerrar sesión</span></li>
-            </ul>
-        </aside>
-            <section class="container">
-                <section class="cards">
-                    <div class="card">
-                        <h3>Ventas</h3>
-                        <p class="number">123</p>
-                    </div>
-                    <div class="card">
-                        <h3>Pedidos</h3>
-                        <p class="number">456</p>
-                    </div>
-                    <div class="card">
-                        <h3>Nuevos Clientes</h3>
-                        <p class="number">789</p>
-                    </div>
-                </section>
-                <section>
-                    <p>otra cosa</p>
-                </section>
-            </section>
-            
-        </section>
-    </div>
-</body>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

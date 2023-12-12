@@ -1,0 +1,44 @@
+.product-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.product-item > span {
+    margin-right: 10px; 
+    white-space: nowrap;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px; 
+}
+
+.product-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-actions button i {
+    font-size: 1.2em;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.product-actions button:hover i {
+    color: #007bff;
+}

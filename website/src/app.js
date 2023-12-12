@@ -7,10 +7,22 @@ const mainRouter = require('./routes/main-router');
 const methodOverride = require("method-override");
 const session = require('express-session');
 const viewUtils = require('./utils/view-utils');
+const cors = require("cors");
+
 
 
 //  ** Express instances --------------------------------------------------------------------------------------
 const app = express();
+
+//  ** Cors instances --------------------------------------------------------------------------------------
+
+app.use(
+    cors(
+      (corsOptions = {
+        origin: "*",
+      })
+    )
+  );
 
 // ** Middlewares ---------------------------------------------------------------------------------------------
 app.use(express.static(path.join(__dirname, "../public")));
