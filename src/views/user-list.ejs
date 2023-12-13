@@ -11,6 +11,24 @@
     <!-- todos los usuarios -->
     <main class="main_style">
       <h2 class="title">Listado de usuarios</h2>
+      <section class="search-bar">
+        <form action="/users/search" method="GET" class="fc-search-form">
+          <input
+            type="text"
+            placeholder="Buscar usuario"
+            class="fc-search-user-form-bar"
+            id="usertosearch"
+            name="usertosearch"
+            autocomplete="on"
+          />
+          <button type="submit" class="search-button">
+            <div>
+              <i class="fa-solid fa-magnifying-glass bg-none"></i>
+            </div>
+          </button>
+        </form>
+      </section>
+
       <% users.forEach(user => { %> <% if (user.id != 0) { %>
       <form action="/users/updatebyadmin/<%= user.id %>" method="post">
         <div class="buttom-save-content">
@@ -22,7 +40,7 @@
           <tr>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Categoría del usuario</th>
+            <th class="categoria-usuario-style">Categoría del usuario</th>
           </tr>
 
           <tr>

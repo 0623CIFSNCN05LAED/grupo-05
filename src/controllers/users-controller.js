@@ -6,12 +6,34 @@ module.exports = {
   userList: async (req, res) => {
     const users = await userService.getAllUsers();
     const userCategories = await userService.getAllCategoryUser();
+    const msg = 1;
     res.render("user-list", {
       users,
+      msg,
       userData: req.session.userData,
       userCategories,
     });
   },
+  // Busqueda de un usuario
+  search: async (req, res) => {
+    const user = await userService.search(req.query.usertosearch);
+    const userCategories = await userService.getAllCategoryUser();
+    const userData = req.session.userData;
+
+    if (user) {
+      res.render("user-list", {
+        user,
+        userData,
+        userCategories,
+      });
+    } else {
+      const msg = "Usuario no encontrado";
+      //res.render("user-list"), { msg, userData };
+      res.render("user-no-founded", { msg, userData });
+      //res.send("UsuarioNoEncontrado");
+    }
+  },
+
   // Vista detalle de un usuario
   userDetail: async (req, res) => {
     const id = req.params.id;

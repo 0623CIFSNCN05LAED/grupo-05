@@ -67,6 +67,7 @@ module.exports = {
       },
       include: [{ association: "category" }, { association: "build_type" }],
     });
+    return user;
   },
   // Create a new User
   saveInDb: function (newUser, file) {

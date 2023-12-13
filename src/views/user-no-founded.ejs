@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include("partials/head") %>
+    <link rel="stylesheet" href="/css/styles_Users-list.css" />
+    <title>DevVision - Listado de Usuarios</title>
+  </head>
+
+  <body class="bg-grey">
+    <header class="header_style"><%- include("partials/header") %></header>
+    <!-- todos los usuarios -->
+    <main class="main_style">
+      <h2 class="title">Listado de usuarios</h2>
+      <section class="search-bar">
+        <form action="/users/search" method="GET" class="fc-search-form">
+          <input
+            type="text"
+            placeholder="Buscar usuario"
+            class="fc-search-user-form-bar"
+            id="usertosearch"
+            name="usertosearch"
+            autocomplete="on"
+          />
+          <button type="submit" class="search-button">
+            <div>
+              <i class="fa-solid fa-magnifying-glass bg-none"></i>
+            </div>
+          </button>
+        </form>
+      </section>
+
+      <p class="msg"><%=msg%></p>
+      <div class="volver-button-box">
+        <button type="button" class="volver-button">
+          <div>
+            <a href="/users/list">Volver</a>
+          </div>
+        </button>
+      </div>
+    </main>
+
+    <!------------------------->
+    <footer class="footer_style"><%- include("partials/footer") %></footer>
+  </body>
+</html>

@@ -16,10 +16,26 @@ router.get("/login", usersController.showLogin);
 // Listado de usuarios
 router.get("/list", usersController.userList);
 
+//Buscar usuario
+router.get("/search", usersController.search);
+
 //router.post('/login', urlencoded({extended: false,}),validations,validateforms,mainController.login);
-router.post("/login", urlencoded({ extended: false }),  validationsAuth.login, validateforms.login, usersController.login);
+router.post(
+  "/login",
+  urlencoded({ extended: false }),
+  validationsAuth.login,
+  validateforms.login,
+  usersController.login
+);
 router.get("/logout/:id", usersController.logout);
-router.post("/register", upload.single("image"), urlencoded({ extended: false }), validationsAuth.register, validateforms.register, usersController.register);
+router.post(
+  "/register",
+  upload.single("image"),
+  urlencoded({ extended: false }),
+  validationsAuth.register,
+  validateforms.register,
+  usersController.register
+);
 
 // Formulario de edición de usuario
 
@@ -27,10 +43,19 @@ router.post("/register", upload.single("image"), urlencoded({ extended: false })
 router.get("/detail/:id", usersController.userDetail);
 router.get("/edit/:id", usersController.userEdit);
 //Acción de edición
-router.post( "/update/:id", upload.single("image"), urlencoded({ extended: false }), usersController.update);
+router.post(
+  "/update/:id",
+  upload.single("image"),
+  urlencoded({ extended: false }),
+  usersController.update
+);
 
 // Acción de actualización depermisos desde el admin
-router.post( "/updatebyadmin/:id", urlencoded({ extended: false }), usersController.updateByAdmin);
+router.post(
+  "/updatebyadmin/:id",
+  urlencoded({ extended: false }),
+  usersController.updateByAdmin
+);
 
 //Acción de borrado
 router.get("/delete/:id", usersController.delete);
