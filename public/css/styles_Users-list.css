@@ -9,6 +9,7 @@
 .title {
     padding-top: 10px;
     padding-left: 0px;
+    padding-bottom: 20px;
 }
 
 .table {
@@ -53,4 +54,65 @@ th {
 .buscar-guardar-contariner {
     display: flex;
     justify-content: space-between;
+}
+
+.fc-search-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.fc-search-user-form-bar {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #ffffff;
+    padding-right: 40px;
+    padding-left: 10px;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+}
+
+.search-button {
+    position: absolute;
+    right: 0px;
+    border: none;
+    background-color: #ffffff;
+    height: 30px;
+    width: 40px;
+    font-size: 20px;
+}
+
+.search-bar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+}
+
+.categoria-usuario-style {
+    width: 200px;
+}
+
+.msg {
+    padding-top: 20px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
+
+.volver-button {
+    background-color: #c5ff49;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.volver-button-box{
+    text-align: center;
 }
