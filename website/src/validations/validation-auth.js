@@ -32,8 +32,8 @@ module.exports = {
     body("buildtype").notEmpty().withMessage("Debe completar este campo"),
     body("zipcode").notEmpty().withMessage("Debe completar este campo")
     .bail()
-    .isPostalCode()
-    .withMessage("Debe ser solo numeros"),
+    .isInt({ min: 1, max: 9999 ,allow_leading_zeroes: true}).withMessage("Debe ser solo numeros")
+    .isLength({ min: 4, max:  4 }).withMessage("Debe contener 4 digitos"),
     body("password").notEmpty().withMessage("Debe completar este campo")
     .bail()
     .isLength({ min: 8, max: 50 }).withMessage("La contrasena debe tener al menos 8 caracteres"),
@@ -46,6 +46,6 @@ module.exports = {
       }
       return true
       }),
-    body("image").isIn(["JPG", "PNG", "JPEG", "GIF"]).withMessage("Debe ingresar un imagien (JPG/PNG/JPEG/GIF"),
+    //body("image").isIn(["JPG", "PNG", "JPEG", "GIF"]).withMessage("Debe ingresar un imagien (JPG/PNG/JPEG/GIF"),
   ]
 }

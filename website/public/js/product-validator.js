@@ -1,8 +1,8 @@
 const validations = [
     {
       field: "art",
-      check: (input) => input.value.length <= 100,
-      message: "Debe contener como máximo 100 caracteres",
+      check: (input) => ( input.value.length >= 5 && input.value.length <= 100 ),
+      message: "Debe contener al menos 5 caracteres y como máximo 100",
     },
     {
       field: "name",
