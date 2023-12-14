@@ -74,8 +74,8 @@ module.exports = {
     return Users.create(
       {
         id: uuidv4(),
-        first_name: newUser.name,
-        last_name: newUser.surname,
+        first_name: newUser.firstName,
+        last_name: newUser.lastName,
         email: newUser.email,
         birthday: newUser.birthDay,
         address: newUser.address,
@@ -91,14 +91,14 @@ module.exports = {
   updateUser: function (user, idUser, file) {
     return Users.update(
       {
-        first_name: user.name,
-        last_name: user.surname,
+        first_name: user.firstName,
+        last_name: user.lastName,
         email: user.email,
         birthday: user.birthDay,
         address: user.address,
         id_build_type: user.buildtype,
         zipcode: user.zipcode,
-        password: this.encryptedPassword(user.password),
+        //password: this.encryptedPassword(user.password),
         id_category: user.id_category,
         image: file ? file.filename : "default_user.png",
       },

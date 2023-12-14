@@ -29,7 +29,8 @@
         </form>
       </section>
 
-      <% users.forEach(user => { %> <% if (user.id != 0) { %>
+      <% users.forEach(user => { %> 
+        <% if (user.id != 0) { %>
       <form action="/users/updatebyadmin/<%= user.id %>" method="post">
         <div class="buttom-save-content">
           <button class="buttom-save-form" type="submit">

@@ -11,9 +11,9 @@ module.exports = {
     body("password").notEmpty().withMessage("Debe completar este campo"),
   ],
   register: [
-    body("name").notEmpty().withMessage("Debe completar este campo")
+    body("firstName").notEmpty().withMessage("Debe completar este campo")
     .isLength({ min: 2, max: 50 }).withMessage("El nombre debe tener entre 2 y 50 caracteres"),
-    body("surname").notEmpty().withMessage("Debe completar este campo")
+    body("lastName").notEmpty().withMessage("Debe completar este campo")
     .isLength({ min: 2, max: 50 }).withMessage("El Apellido debe tener entre 2 y 50 caracteres"),
     body("email").notEmpty().withMessage("Debe completar este campo")
       .bail()
@@ -25,9 +25,7 @@ module.exports = {
           throw new Error('El email ya existe');
         }
       }),
-    body("birthDay").notEmpty().withMessage("Debe completar este campo")
-    .bail()
-    .isDate().withMessage("La fecha de nacimiento no es válida"),
+    body("birthDay").notEmpty().withMessage("Debe completar este campo"),
     body("address").notEmpty().withMessage("Debe completar este campo"),
     body("buildtype").notEmpty().withMessage("Debe completar este campo"),
     body("zipcode").notEmpty().withMessage("Debe completar este campo")

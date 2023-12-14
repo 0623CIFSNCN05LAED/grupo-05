@@ -17,17 +17,17 @@
         <form action="/users/register" method="POST" class="register-form" enctype="multipart/form-data">
                 <div class="div-name">
                     <label class="label-register-form name" for="name" >Nombre</label>
-                    <input class="input-register-form name" type="text" id="name" name="name" value= "<%= oldData ? oldData.name : "" %>">
+                    <input class="input-register-form name" type="text" id="name" name="firstName" value= "<%= oldData ? oldData.firstName : "" %>">
                     <span class="errorMsg" id="nameError"></span>
-                    <% if(errors && errors.name) { %>
-                        <p class="error-register-form"><%= errors.name.msg %></p> 
+                    <% if(errors && errors.firstName) { %>
+                        <p class="error-register-form"><%= errors.firstName.msg %></p> 
                     <% } %>   
 
                     <label class="label-register-form surname" for="surname" >Apellido</label>
-                    <input class="input-register-form surname" type="text" id="surname" name="surname"  value= "<%= oldData ? oldData.surname : "" %>">
+                    <input class="input-register-form surname" type="text" id="surname" name="lastName"  value= "<%= oldData ? oldData.lastName : "" %>">
                     <span class="errorMsg" id="surnameError"></span>
-                    <% if(errors && errors.surname) { %>
-                        <p class="error-register-form"><%= errors.surname.msg %></p> 
+                    <% if(errors && errors.lastName) { %>
+                        <p class="error-register-form"><%= errors.lastName.msg %></p> 
                     <% } %>   
         
                 </div>
