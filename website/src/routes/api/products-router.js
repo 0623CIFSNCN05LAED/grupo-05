@@ -10,6 +10,8 @@ const apiProductsController = require("../../controllers/api/products-controller
 router.get("/detail/:id", apiProductsController.detail);
 router.get("/", apiProductsController.list);
 router.get("/lastProduct", apiProductsController.last);
+//Acción de borrado
+router.get('/delete/:id', apiProductsController.delete);
 
 
 module.exports = router;

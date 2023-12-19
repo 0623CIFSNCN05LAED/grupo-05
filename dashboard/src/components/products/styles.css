@@ -37,7 +37,6 @@
 }
 
 
-
 .product-table .bi {
     font-size: 1.2em;
     cursor: pointer;
@@ -49,9 +48,11 @@
     color: #0056b3; 
 }
 
-.actions a.linkIcon{
+.linkIcon{
     text-decoration: none;
-    
+}
+.linkIcon:visited{
+    color: unset
 }
 
 @media screen and (max-width: 768px) {

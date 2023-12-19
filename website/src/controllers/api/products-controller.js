@@ -82,5 +82,11 @@ module.exports = {
         urlDetail: req.headers.host + req.baseUrl + "/detail/" +id[0],
       },
     });
-  }
+  },
+  // Acción de borrado de un producto en la BD
+  delete: (req, res) => {
+    const id = req.params.id;
+    productService.deleteProduct(id);
+    res.send({message :"Eliminado con exito",status: 200})
+  },
 };

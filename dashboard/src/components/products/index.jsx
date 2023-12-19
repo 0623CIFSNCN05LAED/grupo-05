@@ -1,7 +1,7 @@
 import "./styles.css"
 import { productApi } from "../../api/productApi";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 export default function ListProducts() {
@@ -51,7 +51,9 @@ export default function ListProducts() {
                                             <NavLink to={`http://localhost:3002/products/edit/${product.id}`} className="linkIcon">
                                                 <i className="bi bi-pencil"></i>
                                             </NavLink>
-                                            <NavLink to="http://localhost:3002/"> <i className="bi bi-trash"></i> </NavLink>
+                                            <NavLink to={`http://localhost:3002/api/products/delete/${product.id}`} className="linkIcon">
+                                                <i className="bi bi-trash"></i> 
+                                            </NavLink>
                                         </td>
                                     </tr>
                                 ))}
