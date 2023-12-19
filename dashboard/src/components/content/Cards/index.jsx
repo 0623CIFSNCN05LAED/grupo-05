@@ -1,6 +1,7 @@
 import Card from "../Card"
 import { useEffect, useState } from "react";
 import { productApi } from "../../../api/productApi";
+import { usersApi } from "../../../api/usersApi";
 
 function TotalProducts(stats) {
     const newTotalProducts =stats.meta.totalsByCategory.reduce((sum, total) => sum + total.ProductCount, 0);
@@ -19,11 +20,12 @@ function TotalBrands (stats) {
     }
 }
 
-function TotalSell () {
+function TotalUsers (stats) {
+    const newTotalUsers = stats.meta.total
     return {
-        id:"totalSell",
-        name: "Ventas",
-        value: "$ 200.000"
+        id:"totalUsers",
+        name: "Usuarios",
+        value: newTotalUsers.toString()
     }
 }
 
@@ -36,10 +38,12 @@ function Cards () {
     const [stats,setStats] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-          const result = await productApi();
+          const resultProducts = await productApi();
+          const resultUsers = await usersApi();
+          console.log(resultUsers)
           setStats(
             [ 
-            TotalProducts(result),TotalBrands(result),TotalSell()
+            TotalProducts(resultProducts),TotalBrands(resultProducts),TotalUsers(resultUsers)
             ]
           )
         };

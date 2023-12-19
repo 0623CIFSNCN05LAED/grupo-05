@@ -1,6 +1,7 @@
 import "./styles.css"
 import { productApi } from "../../api/productApi";
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 
 export default function ListProducts() {
@@ -44,9 +45,13 @@ export default function ListProducts() {
                                         <td>{100} </td>
                                         <td>{"$ 100.000"}</td>
                                         <td className="actions">
-                                            <i className="bi bi-eye"></i>
-                                            <i className="bi bi-pencil"></i> 
-                                            <i className="bi bi-trash"></i> 
+                                            <NavLink to={`http://localhost:3002/products/detail/${product.id}`} className="linkIcon"> 
+                                                <i className="bi bi-eye"></i> 
+                                            </NavLink>
+                                            <NavLink to={`http://localhost:3002/products/edit/${product.id}`} className="linkIcon">
+                                                <i className="bi bi-pencil"></i>
+                                            </NavLink>
+                                            <NavLink to="http://localhost:3002/"> <i className="bi bi-trash"></i> </NavLink>
                                         </td>
                                     </tr>
                                 ))}

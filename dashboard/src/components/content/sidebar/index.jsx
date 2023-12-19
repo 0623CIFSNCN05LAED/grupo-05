@@ -7,8 +7,8 @@ export default function Sidebar () {
                 <NavLink to="/home" className={({ isActive }) => isActive ? "active" : ""}>
                     <li><i className="bi bi-house"></i><span>Inicio</span></li>
                 </NavLink>
-                <NavLink to="/sell" className={({ isActive }) => isActive ? "active" : ""}>
-                    <li><i className="bi bi-cart"></i><span>Ventas</span></li>
+                <NavLink to="/news" className={({ isActive }) => isActive ? "active" : ""}>
+                    <li><i class="bi bi-newspaper"></i><span>Novedades</span></li>
                 </NavLink>
                 <NavLink to="/client" className={({ isActive }) => isActive ? "active" : ""}>
                     <li><i className="bi bi-people"></i><span>Clientes</span></li>

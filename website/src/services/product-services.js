@@ -206,7 +206,25 @@ module.exports = {
       include: ["colors","sizes"]
       // detail → URL para obtener el detalle.
   });
-  }
+  },
+  getLastProduct: async () => {
+    return Products.findAll({
+      attributes: [
+        "id","updated_at"
+      ],
+      where: {
+        is_active: 1
+      },
+      order: [
+        ['updated_at', 'DESC']
+    ],
+      limit: 1,
+      raw: true
+    }).then((product) => {
+
+      return product
+    });
+  },
 };
 
 

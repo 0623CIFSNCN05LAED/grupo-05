@@ -49,6 +49,11 @@
     color: #0056b3; 
 }
 
+.actions a.linkIcon{
+    text-decoration: none;
+    
+}
+
 @media screen and (max-width: 768px) {
     .product-table{
         display: none;
