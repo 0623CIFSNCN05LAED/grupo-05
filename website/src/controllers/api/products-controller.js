@@ -29,12 +29,14 @@ module.exports = {
     const totalProductsByCategory = await productService.getTotalProductsByCategory();
 
     const apiProducts = products.map((product) =>{
+      console.log(product.is_active)
       return {
         id: product.id,
         name: product.name,
         description: product.description,
         colors: product.colors,
         sizes: product.sizes,
+        active: product.is_active,
         detail: req.headers.host + req.originalUrl + "/" + product.id,
       };
     });

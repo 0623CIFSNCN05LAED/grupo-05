@@ -6,6 +6,8 @@ import { NavLink } from "react-router-dom";
 
 export default function ListProducts() {
 
+    
+
     const [products,setProducts] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -27,6 +29,7 @@ export default function ListProducts() {
                                 <th>Nombre</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
+                                <th>Activo</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -44,6 +47,7 @@ export default function ListProducts() {
                                         <td>{product.name}</td>
                                         <td>{100} </td>
                                         <td>{"$ 100.000"}</td>
+                                        <td>{product.active ? "Habilitado" : "Desabilitado"}</td>
                                         <td className="actions">
                                             <NavLink to={`http://localhost:3002/products/detail/${product.id}`} className="linkIcon"> 
                                                 <i className="bi bi-eye"></i> 

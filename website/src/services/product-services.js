@@ -202,7 +202,7 @@ module.exports = {
   },
   getAllProductsOverview: () => {
     return Products.findAll({
-      attributes: ['id', 'name','description'],
+      attributes: ['id', 'name','description','is_active'],
       include: ["colors","sizes"]
       // detail → URL para obtener el detalle.
   });
