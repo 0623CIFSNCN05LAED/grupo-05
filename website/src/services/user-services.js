@@ -71,6 +71,7 @@ module.exports = {
   },
   // Create a new User
   saveInDb: function (newUser, file) {
+    
     return Users.create(
       {
         id: uuidv4(),
@@ -88,7 +89,8 @@ module.exports = {
       { include: [{ association: "category" }, { association: "build_type" }] }
     );
   },
-  updateUser: function (user, idUser, file) {
+  updateUser: async function (user, idUser, file) {
+    const userDb =  await this.getUser(idUser)
     return Users.update(
       {
         first_name: user.firstName,
@@ -98,7 +100,7 @@ module.exports = {
         address: user.address,
         id_build_type: user.buildtype,
         zipcode: user.zipcode,
-        //password: this.encryptedPassword(user.password),
+        password: !user.password ?  userDb.password : this.encryptedPassword(user.password),
         id_category: user.id_category,
         image: file ? file.filename : "default_user.png",
       },

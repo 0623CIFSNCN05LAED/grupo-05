@@ -118,6 +118,7 @@ module.exports = {
   update: (req, res) => {
     const file = req.file;
     const id = req.params.id;
+    
     if (req.body.password) {
       let passwordNew = req.body.password;
       let { password, ...data } = req.body;
