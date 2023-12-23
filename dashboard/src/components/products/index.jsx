@@ -1,5 +1,5 @@
 import "./styles.css"
-import { productApi } from "../../api/productApi";
+import { productApi,deleteProductApi } from "../../api/productApi";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -9,15 +9,25 @@ export default function ListProducts() {
     
 
     const [products,setProducts] = useState([]);
+    const [reload, setReload] = useState(false);
+
     useEffect(() => {
         const fetchData = async () => {
           const result = await productApi();
           setProducts(result.data)
+          setReload(false);
         };
     
         fetchData();
 
-      }, []);
+      }, [reload]);
+
+    const handleDelete = async (productId) => {
+        await deleteProductApi(productId);
+        if(productApi){
+            setReload(true); // Disparar recarga
+        }  
+    };
 
     return (
         <section className="table-section">
@@ -55,9 +65,9 @@ export default function ListProducts() {
                                             <NavLink to={`http://localhost:3002/products/edit/${product.id}`} className="linkIcon">
                                                 <i className="bi bi-pencil"></i>
                                             </NavLink>
-                                            <NavLink to={`http://localhost:3002/api/products/delete/${product.id}`} className="linkIcon">
+                                            <button onClick={() => handleDelete(product.id)} className="linkIcon">
                                                 <i className="bi bi-trash"></i> 
-                                            </NavLink>
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
@@ -75,9 +85,15 @@ export default function ListProducts() {
                                         <span className="quantity">Cantidad: 100</span>
                                     </div>
                                     <div className="product-actions">
-                                        <i className="bi bi-eye"></i>
-                                        <i className="bi bi-pencil"></i>
-                                        <i className="bi bi-trash"></i>
+                                            <NavLink to={`http://localhost:3002/products/detail/${product.id}`} className="linkIcon"> 
+                                                <i className="bi bi-eye"></i> 
+                                            </NavLink>
+                                            <NavLink to={`http://localhost:3002/products/edit/${product.id}`} className="linkIcon">
+                                                <i className="bi bi-pencil"></i>
+                                            </NavLink>
+                                            <NavLink  onClick={() => handleDelete(product.id)} className="linkIcon">
+                                                <i className="bi bi-trash"></i> 
+                                            </NavLink>
                                     </div>
                                 </div>
                     ))}

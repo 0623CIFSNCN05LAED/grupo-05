@@ -9,3 +9,12 @@ export async function productApi () {
         
           return [];
 }
+
+export async function deleteProductApi(productID){
+        const response = await fetch(`${API_URL}products/delete/${productID}`)
+        const result = await response.json()
+        if(result.status === 200){
+          return result;
+        }
+        return false
+}
