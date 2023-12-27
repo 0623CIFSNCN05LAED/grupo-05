@@ -11,7 +11,8 @@ module.exports = {
   },
   getAllUsersApi: () => {
     return Users.findAll({
-      attributes: ["id", "first_name", "last_name", "email"],
+      include: [{ association: "category" }],
+      attributes: ["id", "first_name", "last_name", "email", "category.name"],
     });
   },
   getAllCategoryUser: () => {

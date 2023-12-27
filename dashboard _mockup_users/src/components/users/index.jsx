@@ -13,26 +13,21 @@ export default function ListUsers() {
         const fetchData = async () => {
           const result = await userApi();
           setUsers(result.data)
-          console.log(users)
+          console.log("Usuarios:" + users);
         };
     
         fetchData();
 
       }, []);
-
     return (
         <section className="table-section">
                     <table className="user-table">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Nombre y apellido</th>
                                 <th>Email</th>
-                                <th>Fecha de nacimiento</th>
-                                <th>Dirección</th>
-                                <th>Tipo</th>
-                                <th>Categoría</th>
+                                <th>Tipo de usuario</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -45,14 +40,9 @@ export default function ListUsers() {
                                   )
                                 : users.map((user,index) => (
                                     <tr key={user.id}>
-                                        <td>{index}</td>
                                         <td>{user.id}</td>
-                                        <td>{user.first_name}</td>
-                                        <td>{user.last_name}</td>
+                                        <td>{user.name}</td>
                                         <td>{user.email}</td>
-                                        <td>{user.birthday}</td>
-                                        <td>{user.address}</td>
-                                        <td>{user.build_type}</td>
                                         <td>{user.category}</td>
                                         <td className="actions">
                                             <NavLink to={`http://localhost:3002/users/detail/${user.id}`} className="linkIcon"> 

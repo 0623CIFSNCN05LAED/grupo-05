@@ -14,6 +14,7 @@ module.exports = {
         id: user.id,
         name: user.first_name + " " + user.last_name,
         email: user.email,
+        category: user.category.name,
         detail: req.headers.host + req.originalUrl + "/" + user.id,
       });
     });
