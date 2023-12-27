@@ -8,9 +8,9 @@ export default function Sidebar () {
                     <li><i className="bi bi-house"></i><span>Inicio</span></li>
                 </NavLink>
                 <NavLink to="/news" className={({ isActive }) => isActive ? "active" : ""}>
-                    <li><i class="bi bi-newspaper"></i><span>Novedades</span></li>
+                    <li><i className="bi bi-newspaper"></i><span>Novedades</span></li>
                 </NavLink>
-                <NavLink to="/user" className={({ isActive }) => isActive ? "active" : ""}>
+                <NavLink to="/users" className={({ isActive }) => isActive ? "active" : ""}>
                     <li><i className="bi bi-people"></i><span>Usuarios</span></li>
                 </NavLink>
                 <NavLink to="/products" className={({ isActive }) => isActive ? "active" : ""}>

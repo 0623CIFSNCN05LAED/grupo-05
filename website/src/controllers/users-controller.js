@@ -79,7 +79,12 @@ module.exports = {
     console.log("authorizedUser: " + authorizedUser);
     if (authorizedUser) {
       req.session.userData = authorizedUser;
-      res.redirect("/");
+      if(req.session.oldUrl != null){
+        res.redirect(req.session.oldUrl);
+      }else{
+        res.redirect("/")
+      }
+      
     } else {
       req.session.errors = { login: { msg: "Email o contraseña incorrecta" } };
       res.redirect("/users/login");

@@ -13,6 +13,7 @@ export default function ListUsers() {
         const fetchData = async () => {
           const result = await userApi();
           setUsers(result.data)
+          console.log(users)
         };
     
         fetchData();
@@ -68,9 +69,9 @@ export default function ListUsers() {
                                 ))}
                         </tbody>
                     </table>
-                    {user.length === 0
+                    {users.length === 0
                             ? "Cargando..."
-                            : users.map((user,index) => (
+                            : users.map((user) => (
                                 <div className="mobile-user-card" key={user.id}>
                                     <h3>{user.first_name}</h3>
                                     <span className="art">id: {user.id}</span>

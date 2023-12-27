@@ -2,6 +2,7 @@ const { Router, urlencoded } = require("express");
 const router = Router();
 const validationsAuth = require("../validations/validation-auth");
 const validateforms = require("../middlewares/validate-form");
+const userGuard = require("../middlewares/user-guard")
 const multer = require("multer");
 
 // ** Controller Requires's -----------------------------------------------------------------------------------
@@ -40,11 +41,11 @@ router.post(
 // Formulario de edición de usuario
 
 // Detalle de un usuario particular
-router.get("/detail/:id", usersController.userDetail);
-router.get("/edit/:id", usersController.userEdit);
+router.get("/detail/:id",userGuard, usersController.userDetail);
+router.get("/edit/:id",userGuard, usersController.userEdit);
 //Acción de edición
 router.post(
-  "/update/:id",
+  "/update/:id",userGuard,
   upload.single("image"),
   urlencoded({ extended: false }),
   usersController.update
@@ -52,12 +53,12 @@ router.post(
 
 // Acción de actualización depermisos desde el admin
 router.post(
-  "/updatebyadmin/:id",
+  "/updatebyadmin/:id",userGuard,
   urlencoded({ extended: false }),
   usersController.updateByAdmin
 );
 
 //Acción de borrado
-router.get("/delete/:id", usersController.delete);
+router.get("/delete/:id",userGuard, usersController.delete);
 
 module.exports = router;

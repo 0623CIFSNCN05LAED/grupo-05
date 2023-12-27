@@ -91,4 +91,9 @@ module.exports = {
     productService.deleteProduct(id);
     res.send({message :"Eliminado con exito",status: 200})
   },
+  activate: async (req,res) => {
+    const id = req.params.id;
+    await productService.activateProduct(id)
+    res.send({message:"Activado con exito", status: 200  })
+  }
 };

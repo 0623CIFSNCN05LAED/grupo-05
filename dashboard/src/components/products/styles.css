@@ -38,7 +38,7 @@
 
 
 .product-table .bi {
-    font-size: 1.2em;
+    font-size: 1.3em;
     cursor: pointer;
     padding: 3px;
     margin: 0 5px;
@@ -53,6 +53,11 @@
 }
 .linkIcon:visited{
     color: unset
+}
+
+.buttonLink {
+    border: none;
+    background-color: unset;
 }
 
 @media screen and (max-width: 768px) {

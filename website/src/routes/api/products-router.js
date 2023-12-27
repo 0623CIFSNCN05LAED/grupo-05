@@ -12,6 +12,8 @@ router.get("/", apiProductsController.list);
 router.get("/lastProduct", apiProductsController.last);
 //Acción de borrado
 router.get('/delete/:id', apiProductsController.delete);
+//Accion de habilitacion
+router.get("/activate/:id", apiProductsController.activate)
 
 
 module.exports = router;

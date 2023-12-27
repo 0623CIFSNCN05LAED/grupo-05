@@ -225,6 +225,17 @@ module.exports = {
       return product
     });
   },
+  activateProduct: (id) => {
+    console.log(`is_active for product with id ${id} is 0`);
+    return Products.update(
+      {
+        is_active: 1,
+      },
+      {
+        where: { id: id },
+      }
+    );
+  },
 };
 
 

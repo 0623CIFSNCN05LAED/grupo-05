@@ -1,5 +1,5 @@
 import "./styles.css"
-import { productApi,deleteProductApi } from "../../api/productApi";
+import { productApi,deleteProductApi,activateProductApi } from "../../api/productApi";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -8,26 +8,35 @@ export default function ListProducts() {
 
     
 
-    const [products,setProducts] = useState([]);
-    const [reload, setReload] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const fetchData = async () => {
+            const result = await productApi();
+            setProducts(result.data);
+            setLoading(false);
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-          const result = await productApi();
-          setProducts(result.data)
-          setReload(false);
-        };
-    
         fetchData();
+    }, []);
 
-      }, [reload]);
-
-    const handleDelete = async (productId) => {
-        await deleteProductApi(productId);
-        if(productApi){
-            setReload(true); // Disparar recarga
-        }  
+    const handleSubmit = async (productId, stateProduct) => {
+        try {
+            if (stateProduct) {
+                await deleteProductApi(productId);
+            } else {
+                await activateProductApi(productId);
+            }
+            await fetchData();
+        } catch (error) {
+            console.error("Error updating product:", error);
+        }
     };
+
+    if (loading) {
+        return <p>Cargando...</p>;
+    }
 
     return (
         <section className="table-section">
@@ -65,8 +74,8 @@ export default function ListProducts() {
                                             <NavLink to={`http://localhost:3002/products/edit/${product.id}`} className="linkIcon">
                                                 <i className="bi bi-pencil"></i>
                                             </NavLink>
-                                            <button onClick={() => handleDelete(product.id)} className="linkIcon">
-                                                <i className="bi bi-trash"></i> 
+                                            <button onClick={() => handleSubmit(product.id,product.active)} className="buttonLink">
+                                                {product.active ?  <i className="bi bi-toggle-on"></i> :<i className="bi bi-toggle-off"></i>}
                                             </button>
                                         </td>
                                     </tr>
@@ -75,7 +84,7 @@ export default function ListProducts() {
                     </table>
                     {products.length === 0
                             ? "Cargando..."
-                            : products.map((product,index) => (
+                            : products.map((product) => (
                                 <div className="mobile-product-card" key={product.id}>
                                     <h3>{product.name}</h3>
                                     <span className="art">id: {product.id}</span>
@@ -91,9 +100,9 @@ export default function ListProducts() {
                                             <NavLink to={`http://localhost:3002/products/edit/${product.id}`} className="linkIcon">
                                                 <i className="bi bi-pencil"></i>
                                             </NavLink>
-                                            <NavLink  onClick={() => handleDelete(product.id)} className="linkIcon">
-                                                <i className="bi bi-trash"></i> 
-                                            </NavLink>
+                                            <button  onClick={() => handleSubmit(product.id,product.active)} className="buttonLink">
+                                                {product.active ?  <i className="bi bi-toggle-on"></i> :<i className="bi bi-toggle-off"></i>}
+                                            </button>
                                     </div>
                                 </div>
                     ))}
