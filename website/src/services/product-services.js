@@ -51,6 +51,7 @@ module.exports = {
         image: product.image,
         is_news: product.is_news,
         is_active: product.is_active,
+        created_at : product.created_at,
         sizes: product.sizes.map((size) => {
           return {
             id: size.id,
@@ -210,13 +211,13 @@ module.exports = {
   getLastProduct: async () => {
     return Products.findAll({
       attributes: [
-        "id","updated_at"
+        "id","created_at"
       ],
       where: {
         is_active: 1
       },
       order: [
-        ['updated_at', 'DESC']
+        ['created_at', 'DESC']
     ],
       limit: 1,
       raw: true

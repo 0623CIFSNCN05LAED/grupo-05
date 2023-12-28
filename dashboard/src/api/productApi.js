@@ -28,3 +28,23 @@ export async function activateProductApi(productID){
   return false
 }
 
+export async function detailProductApi(productID){
+  const response = await fetch(`${API_URL}products/detail/${productID}`)
+  const result = await response.json()
+  if(result.meta.status === 200){
+    return result.meta.data;
+  }
+  return false
+}
+
+export async function lastProductApi(){
+  const response = await fetch(`${API_URL}products/lastproduct`)
+  const result = await response.json()
+  if(result.meta.status === 200){
+    const id = result.meta.id
+    const resultDetail = await detailProductApi(id)
+    return resultDetail.product
+  }
+  return false
+}
+

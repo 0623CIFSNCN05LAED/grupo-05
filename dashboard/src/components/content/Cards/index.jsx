@@ -1,7 +1,7 @@
 import Card from "../Card"
 import { useEffect, useState } from "react";
 import { productApi } from "../../../api/productApi";
-import { usersApi } from "../../../api/usersApi";
+import { userApi } from "../../../api/userApi";
 
 function TotalProducts(stats) {
     const newTotalProducts =stats.meta.totalsByCategory.reduce((sum, total) => sum + total.ProductCount, 0);
@@ -39,7 +39,7 @@ function Cards () {
     useEffect(() => {
         const fetchData = async () => {
           const resultProducts = await productApi();
-          const resultUsers = await usersApi();
+          const resultUsers = await userApi();
           console.log(resultUsers)
           setStats(
             [ 
