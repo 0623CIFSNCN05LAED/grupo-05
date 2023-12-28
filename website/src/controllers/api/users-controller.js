@@ -54,4 +54,20 @@ module.exports = {
       },
     });
   },
+  last: async (req, res) => {
+    const response = await userService.getLastUser();
+    const id = response.map((atribute) => {
+      return atribute.id
+    }
+    )
+    console.log(req)
+    res.json({
+      meta: {
+        status: 200,
+        id: id[0],
+        url: req.originalUrl,
+        urlDetail: req.headers.host + req.baseUrl + "/detail/" + id[0],
+      },
+    });
+  }
 };

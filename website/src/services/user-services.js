@@ -153,4 +153,19 @@ module.exports = {
       return false;
     }
   },
+  getLastUser: async () => {
+    return Users.findAll({
+      attributes: [
+        "id","created_at"
+      ],
+      order: [
+        ['created_at', 'DESC']
+    ],
+      limit: 1,
+      raw: true
+    }).then((user) => {
+      return user
+    });
+  },
+  
 };

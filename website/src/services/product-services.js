@@ -221,7 +221,6 @@ module.exports = {
       limit: 1,
       raw: true
     }).then((product) => {
-
       return product
     });
   },
