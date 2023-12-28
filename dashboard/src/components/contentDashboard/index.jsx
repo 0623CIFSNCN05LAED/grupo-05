@@ -10,7 +10,7 @@ export default function ContentDashboard() {
     return (
         <section className="container">
             <Routes>
-                <Route path="/home" element={<Cards />} />
+                <Route path="/" element={<Cards />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/products" element={<ListProducts />} />
                 <Route path="/users" element={<ListUsers/>} />                

@@ -7,12 +7,9 @@ export default function Header () {
                 <img src={logo} alt="Logo Empresa" />
             </div>
             <div className="navbar">
-            <div className="search-box">
-                <input type="search" placeholder="Buscar..."/>
-                <i className="bi bi-search"></i>
-            </div>
+            
             <div className="user">
-                <span>JK</span>
+                <span>AD</span>
             </div>
         </div>
         </header>
