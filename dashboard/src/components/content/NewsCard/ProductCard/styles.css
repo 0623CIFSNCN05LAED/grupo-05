@@ -38,7 +38,26 @@
 }
 .bold {
     font-weight: bold;
+}
+.fz-14{
     font-size: 14px;
+}
+
+.linkIcon{
+    text-decoration: none;
+    margin: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: large;
+}
+.linkIcon:visited{
+    color: unset
+}
+
+.containerIcon{
+    display: flex;
+    justify-content: right;
+
 }
 
 /* moviles */
@@ -50,5 +69,10 @@
 
     .card {
         width: 80%;
+    }
+    .containerIcon{
+        display: flex;
+        justify-content: space-around;
+    
     }
 }

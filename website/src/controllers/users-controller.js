@@ -78,6 +78,7 @@ module.exports = {
     );
     console.log("authorizedUser: " + authorizedUser);
     if (authorizedUser) {
+      console.log(authorizedUser)
       req.session.userData = authorizedUser;
       if(req.session.oldUrl != null){
         res.redirect(req.session.oldUrl);
@@ -107,8 +108,8 @@ module.exports = {
   },
 
   // Acción de creación (a donde se envía el formulario)
-  register: (req, res) => {
-    userService.saveInDb(req.body, req.file).then(() => {
+  register: async (req, res) => {
+    await userService.saveInDb(req.body, req.file).then(() => {
       res.redirect("/users/login");
     });
   },
@@ -120,7 +121,7 @@ module.exports = {
   },
 
   // Acción de edición (a donde se envía el formulario):
-  update: (req, res) => {
+  update: async (req, res) => {
     const file = req.file;
     const id = req.params.id;
     
@@ -131,25 +132,25 @@ module.exports = {
         ...data,
         password: passwordNew,
       };
-      userService.updateUser(newData, id, file);
+      await userService.updateUser(newData, id, file);
     } else {
       let { password, confirmPassword, ...data } = req.body;
-      userService.updateUser(data, id, file);
+      await userService.updateUser(data, id, file);
     }
 
     res.redirect(`/users/detail/${id}`);
   },
 
   // Acción de actualizar un usuario desde el admin
-  updateByAdmin: (req, res) => {
+  updateByAdmin: async (req, res) => {
     userService.updateUserByAdmin(req.params.id, req.body);
     res.redirect("/users/list");
   },
 
   // Acción de borrado de un usuario en la BD
-  delete: (req, res) => {
+  delete: async (req, res) => {
     const id = req.params.id;
-    userService.deleteUser(id);
+    await userService.deleteUser(id);
     req.session.destroy();
     res.redirect("/users/login");
   },

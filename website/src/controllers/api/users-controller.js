@@ -45,6 +45,7 @@ module.exports = {
       category: user.category.name,
       build_type: user.build_type.name,
       image: req.headers.host + "/images/users/" + imageUser.image,
+      created_at: user.created_at
     };
     res.json({
       meta: {

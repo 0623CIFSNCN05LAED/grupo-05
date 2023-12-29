@@ -35,6 +35,7 @@ module.exports = {
         "birthday",
         "address",
         "image",
+        "created_at",
       ],
     });
   },
@@ -92,7 +93,7 @@ module.exports = {
   },
   updateUser: async function (user, idUser, file) {
     const userDb =  await this.getUser(idUser)
-    return Users.update(
+    return await Users.update(
       {
         first_name: user.firstName,
         last_name: user.lastName,
@@ -125,7 +126,7 @@ module.exports = {
   },
 
   // Delete a User
-  deleteUser: (idUser) => {
+  deleteUser: async (idUser) => {
     return Users.destroy({
       where: { id: idUser },
     });

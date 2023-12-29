@@ -1,5 +1,6 @@
+import { NavLink } from "react-router-dom"
 import "./styles.css"
-export default function ProductCard({id,name,created_at,brand}) {
+export default function ProductCard({id,name,created_at,brand,price}) {
 
     return (
         <div className="card">
@@ -11,7 +12,16 @@ export default function ProductCard({id,name,created_at,brand}) {
                 <h3 className="name">{name}</h3>
                 <h5 className="id">{id} </h5>
                 <p className="email">Marca: <span className="bold">{brand} </span></p>
-                <p className="create_date">Fecha de creacion: <span className="bold">{created_at} </span></p>
+                <p className="price">Precio: $  <span className="bold">{price}</span></p>
+                <p className="create_date fz-14">Fecha de creacion: <span className="bold fz-14">{created_at} </span></p>
+                <div className="containerIcon">
+                    <NavLink to={`http://localhost:3002/products/detail/${id}`} className="linkIcon"> 
+                        <i className="bi bi-eye"></i> 
+                    </NavLink>
+                    <NavLink to={`http://localhost:3002/products/edit/${id}`} className="linkIcon">
+                        <i className="bi bi-pencil"></i>
+                    </NavLink>
+                </div>
                 
             </div>
         </div>
