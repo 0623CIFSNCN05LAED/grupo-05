@@ -70,10 +70,10 @@ module.exports = {
     });
   },
   // Create a new product
-  createProduct: (product) => {
+  createProduct: async (product) => {
     const new_product_id = uuidv4();
 
-    Products.create({
+    await Products.create({
       id: new_product_id,
       art: product.art,
       name: product.name,
@@ -93,7 +93,7 @@ module.exports = {
     });
     if (product.colors){
     product.colors.forEach((color) => {
-      ProductsColors.create({
+       ProductsColors.create({
         id: uuidv4(),
         id_product: new_product_id,
         id_color: color,
