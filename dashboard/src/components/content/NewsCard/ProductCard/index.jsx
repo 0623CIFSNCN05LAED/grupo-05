@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
 import "./styles.css"
-export default function ProductCard({id,name,created_at,brand,price}) {
+export default function ProductCard({id,name,created_at,brand,price,image}) {
 
     return (
         <div className="card">
             <h2 className="title">Ultimo Producto</h2>
             <div className="container-photo">
-                <img src= 'http://localhost:3002/images/products/image-1697515751654.png' alt="photo user" className="photo"/>
+                <img src= {`http://${image}`} alt="photo user" className="photo"/>
             </div>
             <div>
                 <h3 className="name">{name}</h3>

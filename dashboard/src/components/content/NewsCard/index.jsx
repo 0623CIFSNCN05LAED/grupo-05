@@ -39,6 +39,7 @@ export default function NewsCard () {
                     created_at = { product.created_at}
                     brand={product.brand}
                     price={product.price}
+                    image = {product.image}
                 />
             
         } 

@@ -54,11 +54,11 @@ module.exports = {
   detail: async(req, res) => {
     const product = await productService.getProduct(req.params.id);
     const pathImage = path.resolve(__dirname,"../../../public/images/products");
-    const urlImage = pathImage + "\\" + product.image;
-    
+    //const urlImage = pathImage + "\\" + product.image;
+    product.image = req.headers.host + "/images/products/" + product.image;
     const apiProduct = {
       product: product,
-      urlImage: urlImage
+      urlImage: req.headers.host + "/images/products/" + product.image,
     };
 
     res.json({
