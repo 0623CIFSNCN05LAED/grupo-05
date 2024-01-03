@@ -160,7 +160,7 @@ module.exports = {
       updated_by: req.session.userData.id,
     };
 
-    productServiceDB.updateProduct(productId, updatedProduct);
+    await productServiceDB.updateProduct(productId, updatedProduct);
     res.redirect(`/products/detail/${productId}`);
   },
   // Acción de borrado de un producto en la BD

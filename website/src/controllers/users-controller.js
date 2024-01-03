@@ -8,7 +8,7 @@ module.exports = {
     const userCategories = await userService.getAllCategoryUser();
     const msg = 1;
     res.render("user-list", {
-      users,
+      users: users ? users : null,
       msg,
       userData: req.session.userData,
       userCategories,
@@ -21,11 +21,7 @@ module.exports = {
     const userData = req.session.userData;
 
     if (user) {
-      res.render("user-list", {
-        user,
-        userData,
-        userCategories,
-      });
+      res.redirect("/users/list");
     } else {
       const msg = "Usuario no encontrado";
       //res.render("user-list"), { msg, userData };
